@@ -46,6 +46,23 @@ class VisitingCareTest extends TestCase
             ->assertSee(route('services.visiting-care'), false);
     }
 
+    public function test_faq_5문항의_질문과_답변이_모두_렌더링된다(): void
+    {
+        $response = $this->get(route('services.visiting-care'));
+
+        // 답변은 앞부분만 확인한다 (전문은 뷰가 정본)
+        foreach ([
+            '장기요양등급이 없어도 신청할 수 있나요?' => '네, 가능합니다.',
+            '담당 요양보호사 한 분이 계속 방문하나요?' => '가능한 한 같은 요양보호사가 정기적으로 방문하도록 배정합니다.',
+            '요양보호사를 변경할 수 있나요?' => '다른 요양보호사로 다시 매칭해 드립니다.',
+            '어떤 일까지 도와주시나요?' => '신체활동 지원과 청소·세탁·취사 같은 일상생활 지원',
+            '본인부담금은 어떻게 결정되나요?' => '이용 시간·횟수에 따라 달라집니다.',
+        ] as $question => $answer) {
+            $response->assertSee($question, false);
+            $response->assertSee($answer, false);
+        }
+    }
+
     public function test_방문간호_전용_섹션은_없다(): void
     {
         // 「지시서·케어 플랜」은 방문간호에만 있는 섹션이다
