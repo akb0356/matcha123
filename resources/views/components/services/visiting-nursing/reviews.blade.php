@@ -68,11 +68,19 @@
                             ★★★★★
                         </p>
 
-                        <blockquote class="mt-4 w-full text-r20 text-label-neutral">
+                        {{--
+                            후기 길이가 카드마다 달라 작성자 줄이 어긋나던 문제를 두 겹으로 막는다.
+                            min-h-[120px] = 20px 본문 4줄. 현재 후기는 모두 4줄 안에 들어가므로
+                            텍스트 칸 높이가 같아지고, 그보다 긴 후기가 들어와도 잘리지 않는다.
+                            그 경우에도 카드는 items-stretch 로 서로 높이가 같고 작성자 블록이
+                            mt-auto 로 하단에 붙으므로 가이드라인은 계속 한 줄로 유지된다.
+                            mb-6 은 본문과 작성자 사이 최소 24px 간격(디자인의 gap 24)을 보장한다.
+                        --}}
+                        <blockquote class="mb-6 mt-4 min-h-[120px] w-full text-r20 text-label-neutral">
                             {{ $review['quote'] }}
                         </blockquote>
 
-                        <figcaption class="mt-6 flex w-full items-center gap-3 border-t border-[rgba(51,48,46,0.1)] pt-5">
+                        <figcaption class="mt-auto flex w-full items-center gap-3 border-t border-[rgba(51,48,46,0.1)] pt-5">
                             <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-caution">
                                 <span class="text-[16px] font-bold leading-6 tracking-[-0.6px] text-surface">
                                     {{ $review['initial'] }}
