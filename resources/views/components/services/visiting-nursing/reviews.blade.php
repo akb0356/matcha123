@@ -42,17 +42,18 @@
             <h2 class="text-eb40 text-label">보호자들이 전하는 변화</h2>
 
             <div class="flex items-center gap-2">
+                {{-- 아이콘은 디자인 시스템의 chevron-*-thick 을 쓴다. 색은 currentColor 로 상속된다. --}}
                 <button type="button" x-on:click="index = Math.max(0, index - 1)"
                         x-bind:disabled="index === 0"
-                        class="flex h-11 w-11 items-center justify-center rounded-full bg-surface transition-opacity disabled:opacity-40"
+                        class="flex h-11 w-11 items-center justify-center rounded-full bg-surface text-label-alt transition disabled:opacity-40 hover:text-label"
                         aria-label="이전 후기">
-                    <img src="{{ asset('images/icons/chevron-left.svg') }}" alt="" class="h-5 w-5">
+                    <x-icon-chevron-left-thick class="h-5 w-5" />
                 </button>
                 <button type="button" x-on:click="index = Math.min(last, index + 1)"
                         x-bind:disabled="index === last"
-                        class="flex h-11 w-11 items-center justify-center rounded-full bg-surface transition-opacity disabled:opacity-40"
+                        class="flex h-11 w-11 items-center justify-center rounded-full bg-surface text-label-alt transition disabled:opacity-40 hover:text-label"
                         aria-label="다음 후기">
-                    <img src="{{ asset('images/icons/chevron-right.svg') }}" alt="" class="h-5 w-5">
+                    <x-icon-chevron-right-thick class="h-5 w-5" />
                 </button>
             </div>
         </div>
