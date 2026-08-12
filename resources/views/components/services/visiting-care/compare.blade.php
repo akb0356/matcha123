@@ -1,24 +1,8 @@
-{{-- Figma 153:1847 (Frame 128) — 서비스 비교 --}}
+{{-- Figma 153:2331 (Frame 138) — 서비스 비교 --}}
 @php
     $services = [
         [
             'tag' => '지금 보는 서비스',
-            'tag_class' => 'bg-caution',
-            'title' => '방문간호',
-            'desc' => '의료적 처치·건강관리가 필요한 분',
-            'spec' => [
-                ['제공 인력', '간호인력'],
-                ['주요 돌봄', '욕창·튜브·투약 등 의료 처치'],
-                ['월 본인부담', '약 0~10만 원'],
-            ],
-            'cta' => '상담 신청',
-            'cta_class' => 'bg-caution text-surface',
-            'card_class' => 'border-2 border-caution shadow-card-hi',
-            'href' => '#',
-            'current' => true,
-        ],
-        [
-            'tag' => '일상 지원',
             'tag_class' => 'bg-accent-violet',
             'title' => '방문요양',
             'desc' => '식사·이동 등 일상 지원이 필요한 분',
@@ -27,10 +11,26 @@
                 ['주요 돌봄', '식사·세면·이동·말벗'],
                 ['월 본인부담', '약 0~10만 원'],
             ],
+            'cta' => '상담 신청',
+            'cta_class' => 'bg-accent-violet text-surface',
+            'card_class' => 'border-2 border-accent-violet shadow-card-hi',
+            'href' => '#',
+            'current' => true,
+        ],
+        [
+            'tag' => '의료 전문',
+            'tag_class' => 'bg-caution',
+            'title' => '방문간호',
+            'desc' => '의료적 처치·건강관리가 필요한 분',
+            'spec' => [
+                ['제공 인력', '간호인력'],
+                ['주요 돌봄', '욕창·튜브·투약 등 의료 처치'],
+                ['월 본인부담', '약 0~10만 원'],
+            ],
             'cta' => '자세히 보기',
             'cta_class' => 'border border-line-divider bg-surface text-label',
             'card_class' => 'shadow-card-lo',
-            'href' => route('services.visiting-care'),
+            'href' => route('services.visiting-nursing'),
             'current' => false,
         ],
         [
@@ -53,7 +53,7 @@
 @endphp
 
 <section class="w-full bg-fill-alt">
-    <div class="mx-auto flex max-w-content flex-col items-start gap-[95px] px-6 py-[120px]">
+    <div class="mx-auto flex max-w-content flex-col items-start gap-24 px-6 py-[120px]">
         <div class="flex flex-col items-start gap-3">
             <h2 class="text-eb40 text-label">어떤 돌봄이 맞을까요?</h2>
             <p class="text-m20 text-label-alt">

@@ -1,48 +1,47 @@
-{{-- Figma 153:1715 (S6 / 보호자 후기) --}}
+{{-- Figma 153:2198 (S5 / 보호자 후기) --}}
 @php
     $reviews = [
         [
             'initial' => '김',
             'name' => '김○○ 보호자',
-            'meta' => '강남구 · 어머니 방문간호',
-            'quote' => '어머니가 통원을 너무 힘들어하셨는데, 간호사 선생님이 집으로 와주시니 마음이 놓여요. 매번 기록을 공유해 주셔서 멀리 사는 저도 안심이 됩니다.',
+            'meta' => '강남구 · 어머니 방문요양',
+            'quote' => '혼자 계신 어머니가 늘 걱정이었는데, 매일 와주시니 식사도 잘 챙기시고 표정이 한결 밝아지셨어요. 멀리 사는 저도 마음이 놓입니다.',
         ],
         [
             'initial' => '이',
             'name' => '이○○ 보호자',
-            'meta' => '송파구 · 아버지 방문간호',
-            'quote' => '당뇨 관리가 늘 걱정이었는데 혈당 체크부터 투약까지 꼼꼼히 봐주세요. 작은 변화도 먼저 알려주셔서 큰 병원 갈 일이 줄었습니다.',
+            'meta' => '송파구 · 아버지 방문요양',
+            'quote' => '거동이 불편한 아버지 이동을 도와주시고 집안일까지 살펴주셔서 하루가 한결 수월해졌습니다. 정말 든든해요.',
         ],
         [
             'initial' => '박',
             'name' => '박○○ 보호자',
-            'meta' => '서초구 · 어머니 방문간호',
-            'quote' => '욕창 때문에 늘 마음을 졸였는데 상처가 눈에 띄게 좋아졌어요. 전문 간호사분이 직접 오시니 확실히 다르더라고요.',
+            'meta' => '서초구 · 어머니 방문요양',
+            'quote' => '치매 초기라 걱정이 많았는데 인지활동까지 함께해 주셔서 어머니가 안정을 찾으셨어요. 전문가의 손길은 확실히 다르네요.',
         ],
         [
             'initial' => '정',
             'name' => '정○○ 보호자',
-            'meta' => '마포구 · 아버지 방문간호',
-            'quote' => '퇴원 후 어떻게 돌봐야 할지 막막했는데, 매니저님이 등급 신청부터 일정까지 다 챙겨주셔서 정말 든든했습니다.',
+            'meta' => '마포구 · 아버지 방문요양',
+            'quote' => '늘 같은 선생님이 오셔서 아버지가 마음을 많이 열고 의지하세요. 좋은 말벗이 되어 주셔서 진심으로 감사합니다.',
         ],
         [
             'initial' => '최',
             'name' => '최○○ 보호자',
-            'meta' => '노원구 · 시어머니 방문간호',
+            'meta' => '노원구 · 시어머니 방문요양',
             'quote' => '일하면서 간병까지 하느라 지쳤는데, 정기 방문 덕분에 한결 여유가 생겼어요. 가족 모두가 마음이 편안해졌습니다.',
         ],
     ];
 @endphp
 
 {{-- 카드 폭 400 + 간격 16 = 한 칸 이동 거리 416 --}}
-<section class="w-full overflow-hidden bg-caution/20"
+<section class="w-full overflow-hidden bg-accent-violet/20"
          x-data="{ index: 0, last: {{ count($reviews) - 1 }}, step: 416 }">
-    <div class="mx-auto max-w-content px-6 pb-[97px] pt-[135px]">
-        <div class="flex items-center justify-between">
+    <div class="mx-auto max-w-content px-6 pb-[100px] pt-[136px]">
+        <div class="flex items-end justify-between">
             <h2 class="text-eb40 text-label">보호자들이 전하는 변화</h2>
 
             <div class="flex items-center gap-2">
-                {{-- 아이콘은 디자인 시스템의 chevron-*-thick 을 쓴다. 색은 currentColor 로 상속된다. --}}
                 <button type="button" x-on:click="index = Math.max(0, index - 1)"
                         x-bind:disabled="index === 0"
                         class="flex h-11 w-11 items-center justify-center rounded-full bg-surface text-label-alt transition disabled:opacity-40 hover:text-label"
@@ -58,30 +57,22 @@
             </div>
         </div>
 
-        <div class="mt-[116px]">
-            {{-- 디자인의 카드 높이 311.5px를 최소값으로 두어 카드끼리 높이를 맞춘다 --}}
+        <div class="mt-[115px]">
+            {{-- 본문 최소 높이(디자인 124px)와 하단 정렬로 작성자 줄을 카드마다 맞춘다 --}}
             <div class="flex items-stretch gap-4 transition-transform duration-300 ease-out"
                  x-bind:style="`transform: translateX(-${index * step}px)`">
                 @foreach ($reviews as $review)
-                    <figure class="flex min-h-[311.5px] w-[400px] shrink-0 flex-col items-start overflow-hidden rounded-md bg-surface p-7">
-                        <p class="text-[16px] font-normal leading-6 tracking-[2.4px] text-caution" aria-label="별점 5점 만점에 5점">
+                    <figure class="flex w-[400px] shrink-0 flex-col items-start overflow-hidden rounded-md bg-surface p-7">
+                        <p class="text-[16px] font-normal leading-6 tracking-[2.4px] text-accent-violet" aria-label="별점 5점 만점에 5점">
                             ★★★★★
                         </p>
 
-                        {{--
-                            후기 길이가 카드마다 달라 작성자 줄이 어긋나던 문제를 두 겹으로 막는다.
-                            min-h-[120px] = 20px 본문 4줄. 현재 후기는 모두 4줄 안에 들어가므로
-                            텍스트 칸 높이가 같아지고, 그보다 긴 후기가 들어와도 잘리지 않는다.
-                            그 경우에도 카드는 items-stretch 로 서로 높이가 같고 작성자 블록이
-                            mt-auto 로 하단에 붙으므로 가이드라인은 계속 한 줄로 유지된다.
-                            mb-6 은 본문과 작성자 사이 최소 24px 간격(디자인의 gap 24)을 보장한다.
-                        --}}
-                        <blockquote class="mb-6 mt-4 min-h-[120px] w-full text-r20 text-label-neutral">
+                        <blockquote class="mb-6 mt-4 min-h-[124px] w-full text-r20 text-label-neutral">
                             {{ $review['quote'] }}
                         </blockquote>
 
                         <figcaption class="mt-auto flex w-full items-center gap-3 border-t border-[rgba(51,48,46,0.1)] pt-5">
-                            <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-caution">
+                            <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-accent-violet">
                                 <span class="text-[16px] font-bold leading-6 tracking-[-0.6px] text-surface">
                                     {{ $review['initial'] }}
                                 </span>
