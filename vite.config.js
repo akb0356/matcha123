@@ -1,24 +1,25 @@
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
-import { bunny } from 'laravel-vite-plugin/fonts';
-import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
     plugins: [
         laravel({
             input: ['resources/css/app.css', 'resources/js/app.js'],
-            refresh: true,
-            fonts: [
-                bunny('Instrument Sans', {
-                    weights: [400, 500, 600],
-                }),
+            refresh: [
+                'resources/views/**',
+                'app/Livewire/**',
             ],
         }),
-        tailwindcss(),
     ],
     server: {
+        // Sail(도커) 컨테이너 안에서 실행될 때 호스트 브라우저가 접근할 수 있도록 함.
+        host: '0.0.0.0',
+        hmr: {
+            host: 'localhost',
+        },
+        // WSL2의 /mnt 바인드 마운트에서는 inotify가 동작하지 않아 폴링이 필요하다.
         watch: {
-            ignored: ['**/storage/framework/views/**'],
+            usePolling: true,
         },
     },
 });

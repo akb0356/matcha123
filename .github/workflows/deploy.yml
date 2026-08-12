@@ -1,0 +1,82 @@
+name: Deploy
+
+# 운영 서버(Rocky Linux 9)로 배포한다.
+#
+# 아직 자동 트리거를 걸지 않았다. 배포 대상 서버와 시크릿이 확정되기 전까지는
+# Actions 탭에서 수동 실행만 가능하도록 두고, 확정 후 아래 push 트리거를 켠다.
+#
+#   on:
+#     push:
+#       branches: [main]
+#
+# 필요한 저장소 시크릿 (Settings → Secrets and variables → Actions):
+#   DEPLOY_HOST         배포 서버 호스트명 또는 IP
+#   DEPLOY_USER         배포용 SSH 계정
+#   DEPLOY_SSH_KEY      배포용 SSH 개인키 (배포 전용 키를 따로 발급할 것)
+#   DEPLOY_PATH         서버상의 프로젝트 경로 (예: /var/www/matcha)
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: '배포를 진행하려면 deploy 라고 입력'
+        required: true
+        default: ''
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Deploy to production
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - name: Verify confirmation
+        if: ${{ github.event.inputs.confirm != 'deploy' }}
+        run: |
+          echo "확인 문구가 일치하지 않아 중단합니다."
+          exit 1
+
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: bcmath, ctype, curl, dom, fileinfo, gd, intl, mbstring, openssl, pdo, pdo_pgsql, pgsql, tokenizer, xml, zip
+          coverage: none
+
+      - name: Build release
+        run: |
+          composer install --prefer-dist --no-interaction --no-progress --no-dev --optimize-autoloader
+          npm ci
+          npm run build
+
+      - name: Configure SSH
+        run: |
+          install -m 700 -d ~/.ssh
+          echo "${{ secrets.DEPLOY_SSH_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -H "${{ secrets.DEPLOY_HOST }}" >> ~/.ssh/known_hosts
+
+      - name: Upload release
+        run: |
+          rsync -az --delete \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='node_modules' \
+            --exclude='storage' \
+            --exclude='.env' \
+            ./ "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:${{ secrets.DEPLOY_PATH }}/"
+
+      - name: Run post-deploy tasks
+        run: |
+          ssh "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}" \
+            "cd '${{ secrets.DEPLOY_PATH }}' && \
+             php artisan migrate --force && \
+             php artisan config:cache && \
+             php artisan route:cache && \
+             php artisan view:cache"
