@@ -1,9 +1,17 @@
 {{-- Figma 153:1977 + 153:2410 — 히어로 --}}
 <section class="relative h-[570px] w-full overflow-hidden">
-    {{-- 이미지 크롭 비율은 디자인 값(h 134.27% / w 120.25% / left -11.7% / top -34.21%)을 그대로 쓴다 --}}
+    {{--
+        디자인의 크롭 값은 w 120.25% / h 134.27% / left -11.7% / top -34.21% 인데,
+        폭은 컨테이너 너비 기준이고 높이는 컨테이너 높이 기준이라 1920px에서만
+        원본 비율(2840x941)과 맞아떨어진다. 그래서 다른 폭에서는 이미지가 눌린다.
+
+        폭(120.25%)과 좌측 오프셋은 그대로 두고 세로는 object-cover 에 맡긴다.
+        1920px에서는 넘치는 195px이 object-bottom 때문에 위에서 잘려나가
+        디자인의 top -34.21% 과 결과가 같고, 다른 폭에서도 비율이 유지된다.
+    --}}
     <div class="absolute inset-0 overflow-hidden" aria-hidden="true">
         <img src="{{ asset('images/services/visiting-care/hero-daily-care.png') }}"
-             alt="" class="absolute left-[-11.7%] top-[-34.21%] h-[134.27%] w-[120.25%] max-w-none">
+             alt="" class="absolute left-[-11.7%] top-0 h-full w-[120.25%] max-w-none object-cover object-bottom">
     </div>
 
     {{-- 좌→우 화이트 스크림. 디자인에 포함된 그라데이션이다. --}}
