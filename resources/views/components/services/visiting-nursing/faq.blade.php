@@ -45,7 +45,7 @@
                         <span class="text-m20 text-label">{{ $faq['question'] }}</span>
                         <span class="flex h-6 w-6 shrink-0 items-center justify-center transition-transform duration-200"
                               x-bind:class="open && 'rotate-45'">
-                            <x-services.visiting-nursing.plus-icon />
+                            <x-icon-plus />
                         </span>
                     </button>
 
