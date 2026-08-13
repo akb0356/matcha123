@@ -1,19 +1,19 @@
-{{-- Figma 153:2331 (Frame 138) — 서비스 비교 --}}
+{{-- Figma 153:2866 (Frame 172) — 서비스 비교 --}}
 @php
     $services = [
         [
             'tag' => '지금 보는 서비스',
-            'tag_class' => 'bg-accent-violet',
-            'title' => '방문요양',
-            'desc' => '식사·이동 등 일상 지원이 필요한 분',
+            'tag_class' => 'bg-accent-light-blue',
+            'title' => '방문목욕',
+            'desc' => '혼자 목욕이 어려워 도움이 필요한 분',
             'spec' => [
-                ['제공 인력', '요양보호사'],
-                ['주요 돌봄', '식사·세면·이동·말벗'],
-                ['월 본인부담', '약 0~10만 원'],
+                ['제공 인력', '요양보호사 2인'],
+                ['주요 돌봄', '이동식 욕조·차량 방문 목욕'],
+                ['월 본인부담', '약 0~6만 원'],
             ],
             'cta' => '상담 신청',
-            'cta_class' => 'bg-accent-violet text-surface',
-            'card_class' => 'border-2 border-accent-violet shadow-card-hi',
+            'cta_class' => 'bg-accent-light-blue text-surface',
+            'card_class' => 'border-2 border-accent-light-blue shadow-card-hi',
             'href' => '#',
             'current' => true,
         ],
@@ -34,19 +34,19 @@
             'current' => false,
         ],
         [
-            'tag' => '목욕 전문',
-            'tag_class' => 'bg-accent-light-blue',
-            'title' => '방문목욕',
-            'desc' => '혼자 목욕이 어려워 도움이 필요한 분',
+            'tag' => '일상 지원',
+            'tag_class' => 'bg-accent-violet',
+            'title' => '방문요양',
+            'desc' => '식사·이동 등 일상 지원이 필요한 분',
             'spec' => [
-                ['제공 인력', '요양보호사 2인'],
-                ['주요 돌봄', '이동식 욕조·차량 방문 목욕'],
-                ['월 본인부담', '약 0~6만 원'],
+                ['제공 인력', '요양보호사'],
+                ['주요 돌봄', '식사·세면·이동·말벗'],
+                ['월 본인부담', '약 0~10만 원'],
             ],
             'cta' => '자세히 보기',
             'cta_class' => 'border border-line-divider bg-surface text-label',
             'card_class' => 'shadow-card-lo',
-            'href' => route('services.visiting-bath'),
+            'href' => route('services.visiting-care'),
             'current' => false,
         ],
     ];

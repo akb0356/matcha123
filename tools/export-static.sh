@@ -24,6 +24,7 @@ BASE_PATH="${BASE_PATH:-/matcha123}"
 PAGES=(
   "/services/visiting-nursing:services/visiting-nursing"
   "/services/visiting-care:services/visiting-care"
+  "/services/visiting-bath:services/visiting-bath"
 )
 # 루트(/)에 둘 페이지. 이미 공유된 링크가 이 주소를 가리킨다.
 ROOT_PAGE="/services/visiting-nursing"

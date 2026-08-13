@@ -46,7 +46,7 @@
             'cta' => '자세히 보기',
             'cta_class' => 'border border-line-divider bg-surface text-label',
             'card_class' => 'shadow-card-lo',
-            'href' => '#', // 방문목욕 페이지 준비 중
+            'href' => route('services.visiting-bath'),
             'current' => false,
         ],
     ];
