@@ -36,11 +36,11 @@
 
             <div class="flex items-start gap-4">
                 <a href="#"
-                   class="btn-lift hover:brightness-95 rounded-md bg-accent-violet px-8 py-5 text-[17px] font-bold leading-normal text-surface drop-shadow-[0_8px_8px_rgba(234,221,207,0.25)]">
+                   class="btn-lift hover:brightness-95 rounded-md bg-accent-violet px-8 py-5 text-b16 text-surface drop-shadow-[0_8px_8px_rgba(234,221,207,0.25)]">
                     무료 상담 신청
                 </a>
                 <a href="#cost"
-                   class="btn-lift hover:bg-surface-alt rounded-md bg-surface px-8 py-5 text-[17px] font-normal leading-normal text-accent-violet drop-shadow-[0_0_7.5px_rgba(91,55,237,0.25)]">
+                   class="btn-lift hover:bg-surface-alt rounded-md bg-surface px-8 py-5 text-b16 text-accent-violet drop-shadow-[0_0_7.5px_rgba(91,55,237,0.25)]">
                     비용 알아보기
                 </a>
             </div>

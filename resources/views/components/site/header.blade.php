@@ -1,11 +1,11 @@
 {{--
     전역 헤더 + 메가 드롭다운
     헤더: Figma 153:1975 (Frame 202)
-    드롭다운: Figma 163:4967 (Nav) — 110px 고정폭 컬럼, 4px 간격, 37px 행, 가운데 정렬
+    드롭다운: Figma 163:4967 (Nav) — 고정폭 컬럼(디자인 110px -> 100px로 축소), 4px 간격, 37px 행, 가운데 정렬
 --}}
 @php
     /*
-     * 컬럼은 부모 메뉴와 같은 110px 고정폭이라 left-0 만으로 정확히 정렬된다.
+     * 컬럼은 부모 메뉴와 같은 100px 고정폭이라 left-0 만으로 정확히 정렬된다.
      * 하위 메뉴가 없는 항목(커뮤니티·채용·커리어·센터 소개)은 컬럼을 만들지 않는다.
      */
     $navItems = [
@@ -51,19 +51,19 @@
         x-on:focusout="if (! $el.contains($event.relatedTarget)) open = false"
         x-on:keydown.escape="open = false">
 
-    <div class="mx-auto flex h-[53px] max-w-content items-center justify-between gap-2 px-6">
+    <div class="mx-auto flex h-[53px] max-w-content items-center justify-between gap-4 px-6">
         <a href="/" class="flex shrink-0 items-center gap-[3.6px]" aria-label="청담원 홈">
             <img src="{{ asset('images/brand/logo-mark.svg') }}" alt="" class="h-6 w-[28.8px]">
             <img src="{{ asset('images/brand/logo-wordmark.svg') }}" alt="청담원" class="h-[19.2px] w-[53.7px]">
         </a>
 
         {{-- 메뉴에 마우스가 닿거나 키보드 포커스가 들어오면 전체 하위 메뉴가 함께 열린다. --}}
-        <nav class="hidden h-full items-center gap-1 lg:flex"
+        <nav class="hidden h-full shrink-0 items-center gap-1 lg:flex"
              x-on:mouseenter="open = true"
              x-on:focusin="open = true"
              aria-label="주요 메뉴">
             @foreach ($navItems as $item)
-                <div class="relative flex h-full w-[110px] items-center">
+                <div class="relative flex h-full w-[100px] shrink-0 items-center">
                     <a href="{{ $item['href'] }}"
                        @if ($item['children']) x-bind:aria-expanded="open" @endif
                        class="flex h-9 w-full items-center justify-center rounded-md text-b14 text-label transition-colors hover:bg-label/5">
@@ -72,7 +72,7 @@
 
                     @if ($item['children'])
                         <div x-show="open" x-cloak x-transition.opacity.duration.150ms
-                             class="absolute left-0 top-full z-10 w-[110px] overflow-hidden rounded-md">
+                             class="absolute left-0 top-full z-10 w-[100px] overflow-hidden rounded-md">
                             <ul class="flex flex-col items-center">
                                 @foreach ($item['children'] as $child)
                                     <li class="w-full">
@@ -89,12 +89,12 @@
             @endforeach
         </nav>
 
-        <div class="flex shrink-0 items-center gap-1.5">
-            <a href="tel:1588-2091" class="flex items-center gap-1.5 px-1.5">
+        <div class="flex shrink-0 items-center gap-2">
+            <a href="tel:1588-2091" class="flex items-center gap-1.5 px-2">
                 <img src="{{ asset('images/icons/phone.svg') }}" alt="" class="h-[18px] w-[18px]">
                 <span class="text-b14 text-primary">1588-2091</span>
             </a>
-            <a href="#" class="flex h-9 items-center justify-center rounded-md px-3 text-b14 text-label transition-colors hover:bg-label/5">
+            <a href="#" class="flex h-9 items-center justify-center rounded-md px-3.5 text-b14 text-label transition-colors hover:bg-label/5">
                 로그인
             </a>
             <a href="#" class="flex h-9 items-center justify-center rounded-md bg-primary px-3.5 text-b14 text-surface transition-colors hover:bg-primary-semistrong">
@@ -106,9 +106,10 @@
     {{--
         하위 메뉴 뒤에 깔리는 패널. 디자인은 흰색 80% 반투명이라 히어로가 살짝 비친다.
         글자가 #111 이라 그 위에서도 읽힌다. 위아래 여백은 없다.
+        뒤 내용이 글자와 경쟁하지 않도록 backdrop-blur 를 얹었다.
     --}}
     <div x-show="open" x-cloak x-transition.opacity.duration.150ms
-         class="absolute inset-x-0 top-full bg-white/80"
+         class="absolute inset-x-0 top-full bg-white/80 backdrop-blur-md"
          style="height: {{ $panelHeight }}px"
          aria-hidden="true"></div>
 </header>
