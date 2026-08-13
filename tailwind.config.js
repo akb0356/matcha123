@@ -71,6 +71,7 @@ export default {
                 eb44: ['44px', { lineHeight: '1.2', letterSpacing: '-1.76px', fontWeight: '800' }],
                 eb52: ['52px', { lineHeight: '1.2', letterSpacing: '-2.88px', fontWeight: '800' }],
                 eb40: ['40px', { lineHeight: '1.2', letterSpacing: '-2.88px', fontWeight: '800' }],
+                eb30: ['30px', { lineHeight: '1.2', letterSpacing: '-2.88px', fontWeight: '800' }],
                 b24: ['24px', { lineHeight: '1.2', letterSpacing: '-0.5px', fontWeight: '700' }],
                 b20: ['20px', { lineHeight: '1.2', letterSpacing: '-0.5px', fontWeight: '700' }],
                 m20: ['20px', { lineHeight: '1.5', letterSpacing: '-0.5px', fontWeight: '500' }],

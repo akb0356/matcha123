@@ -26,7 +26,9 @@
             'href' => route('services.visiting-care'),
         ],
         [
-            'tag' => '목욕 전문',
+            // 시안(178:1788) 문구 그대로다. 방문목욕 페이지에서 복사된 흔적으로 보여
+            // 메인에서는 뜻이 맞지 않는데, 임의로 바꾸지 않고 확인을 받는다. 확인 필요
+            'tag' => '지금 보는 서비스',
             'tag_class' => 'bg-accent-light-blue',
             'title' => '방문목욕',
             'desc' => '혼자 목욕이 어려워 도움이 필요한 분',
@@ -77,11 +79,5 @@
                 </article>
             @endforeach
         </div>
-
-        {{-- 치매가족휴가제는 비교 카드에 없지만 4번째 서비스라 별도 진입을 둔다 --}}
-        <a href="{{ route('services.dementia-respite') }}"
-           class="btn-lift hover:bg-accent-green/5 flex items-center justify-center gap-2 rounded-full border border-accent-green px-6 py-3">
-            <span class="whitespace-nowrap text-m20 text-accent-green">치매가족휴가제도 함께 보기 →</span>
-        </a>
     </div>
 </section>

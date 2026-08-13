@@ -62,6 +62,30 @@ class MainTest extends TestCase
         }
     }
 
+    public function test_시안에_없는_요소를_넣지_않는다(): void
+    {
+        $response = $this->get(route('main'));
+
+        // 비교 카드 섹션(178:1739)에는 3장의 「자세히 보기」만 있고
+        // 치매가족휴가제 진입 버튼은 없다. 임의로 추가했다가 제거한 이력이 있다.
+        $response->assertDontSee('치매가족휴가제도 함께 보기', false);
+    }
+
+    public function test_섹션_배경과_굵기가_시안과_같다(): void
+    {
+        $response = $this->get(route('main'));
+
+        // 후기 섹션(60:12)은 primary 15% 틴트 배경이다
+        $response->assertSee('bg-primary/15', false);
+
+        // 최종 CTA(59:28)는 primary 배경 + 흰 글자다
+        $response->assertSee('w-full bg-primary"', false);
+        $response->assertSee('text-eb44 text-surface', false);
+
+        // sec4 본문 헤드라인(41:1458)은 ExtraBold 30px 이다
+        $response->assertSee('text-eb30', false);
+    }
+
     public function test_인터랙션_요소가_들어있다(): void
     {
         $response = $this->get(route('main'));
