@@ -55,7 +55,8 @@ export default {
                 accent: {
                     violet: '#5b37ed',
                     'light-blue': '#008dcf',
-                    green: '#009632',
+                    // 치매가족휴가제는 글자·CTA에 green, 섹션 배경 틴트에 green-soft 를 쓴다.
+                    green: { DEFAULT: '#009632', soft: '#1ab94f' },
                 },
             },
 

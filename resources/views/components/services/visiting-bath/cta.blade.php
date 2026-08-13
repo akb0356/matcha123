@@ -12,12 +12,12 @@
 
     <div class="flex w-full max-w-[422px] items-center gap-3">
         <a href="#"
-           class="flex h-[68px] flex-1 items-center justify-center gap-2 rounded-md bg-surface px-7 text-b16 text-accent-light-blue">
+           class="btn-lift flex h-[68px] flex-1 items-center justify-center gap-2 rounded-md bg-surface px-7 text-b16 text-accent-light-blue">
             서비스 신청하기
             <img src="{{ asset('images/icons/arrow-right-light-blue.svg') }}" alt="" class="h-5 w-5">
         </a>
         <a href="#"
-           class="flex h-[68px] flex-1 items-center justify-center rounded-md border border-white/20 bg-white/25 px-7 text-b16 text-surface">
+           class="btn-lift hover:bg-white/40 flex h-[68px] flex-1 items-center justify-center rounded-md border border-white/20 bg-white/25 px-7 text-b16 text-surface">
             무료 상담 신청
         </a>
     </div>

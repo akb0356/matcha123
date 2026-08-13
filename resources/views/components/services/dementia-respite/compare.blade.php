@@ -1,37 +1,21 @@
-{{-- Figma 153:2866 (Frame 172) — 서비스 비교 --}}
+{{-- Figma 153:3070 (Frame 194) — 서비스 비교 --}}
 @php
     $services = [
         [
             'tag' => '지금 보는 서비스',
-            'tag_class' => 'bg-accent-light-blue',
-            'title' => '방문목욕',
-            'desc' => '혼자 목욕이 어려워 도움이 필요한 분',
+            'tag_class' => 'bg-accent-green',
+            'title' => '치매가족휴가제',
+            'desc' => '가족의 휴식이 필요한 치매 어르신 돌봄',
             'spec' => [
-                ['제공 인력', '요양보호사 2인'],
-                ['주요 돌봄', '이동식 욕조·차량 방문 목욕'],
-                ['월 본인부담', '약 0~6만 원'],
+                ['제공 인력', '요양보호사'],
+                ['주요 돌봄', '1회 12시간 종일 돌봄'],
+                ['본인부담', '약 0~1만 원대/회'],
             ],
             'cta' => '상담 신청',
-            'cta_class' => 'bg-accent-light-blue text-surface hover:brightness-95',
-            'card_class' => 'border-2 border-accent-light-blue shadow-card-hi',
+            'cta_class' => 'bg-accent-green text-surface hover:brightness-95',
+            'card_class' => 'border-2 border-accent-green shadow-card-hi',
             'href' => '#',
             'current' => true,
-        ],
-        [
-            'tag' => '의료 전문',
-            'tag_class' => 'bg-caution',
-            'title' => '방문간호',
-            'desc' => '의료적 처치·건강관리가 필요한 분',
-            'spec' => [
-                ['제공 인력', '간호인력'],
-                ['주요 돌봄', '욕창·튜브·투약 등 의료 처치'],
-                ['월 본인부담', '약 0~10만 원'],
-            ],
-            'cta' => '자세히 보기',
-            'cta_class' => 'border border-line-divider bg-surface text-label hover:bg-fill-alt',
-            'card_class' => 'shadow-card-lo',
-            'href' => route('services.visiting-nursing'),
-            'current' => false,
         ],
         [
             'tag' => '일상 지원',
@@ -49,11 +33,27 @@
             'href' => route('services.visiting-care'),
             'current' => false,
         ],
+        [
+            'tag' => '의료 처치',
+            'tag_class' => 'bg-caution',
+            'title' => '방문간호',
+            'desc' => '의료적 처치·건강관리가 필요한 분',
+            'spec' => [
+                ['제공 인력', '간호인력'],
+                ['주요 돌봄', '욕창·튜브·투약 등 의료 처치'],
+                ['월 본인부담', '약 0~10만 원'],
+            ],
+            'cta' => '자세히 보기',
+            'cta_class' => 'border border-line-divider bg-surface text-label hover:bg-fill-alt',
+            'card_class' => 'shadow-card-lo',
+            'href' => route('services.visiting-nursing'),
+            'current' => false,
+        ],
     ];
 @endphp
 
 <section class="w-full bg-fill-alt">
-    <div class="mx-auto flex max-w-content flex-col items-start gap-24 px-6 py-[120px]">
+    <div class="mx-auto flex max-w-content flex-col items-start gap-[95px] px-6 py-[120px]">
         <div class="flex flex-col items-start gap-3">
             <h2 class="text-eb40 text-label">어떤 돌봄이 맞을까요?</h2>
             <p class="text-m20 text-label-alt">
