@@ -32,7 +32,7 @@ ROOT_PAGE="/"
 
 echo "==> 출력 경로 초기화: $OUT"
 mkdir -p "$OUT"
-( cd "$OUT" && rm -rf images build livewire services index.html robots.txt )
+( cd "$OUT" && rm -rf images build livewire services index.html robots.txt README.md )
 
 fetch_page() {
   local route="$1" dest="$2"
@@ -72,6 +72,10 @@ cp vendor/livewire/livewire/dist/livewire.min.js "$OUT/livewire/livewire.min.js"
 echo "==> 크롤링 차단 · Jekyll 비활성"
 printf 'User-agent: *\nDisallow: /\n' > "$OUT/robots.txt"
 touch "$OUT/.nojekyll"
+
+# gh-pages 브랜치 설명서. 이걸 빼면 배포마다 README 가 삭제 대상으로 잡힌다.
+echo "==> 브랜치 설명서"
+cp "$(dirname "$0")/gh-pages-README.md" "$OUT/README.md"
 
 echo "==> 검증"
 fail=0
