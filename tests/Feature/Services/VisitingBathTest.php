@@ -51,6 +51,23 @@ class VisitingBathTest extends TestCase
         $this->get($care)->assertSee($nursing, false)->assertSee($bath, false);
     }
 
+    public function test_faq_5문항의_질문과_답변이_모두_렌더링된다(): void
+    {
+        $response = $this->get(route('services.visiting-bath'));
+
+        // 답변은 앞부분만 확인한다 (전문은 뷰가 정본)
+        foreach ([
+            '장기요양등급이 없어도 신청할 수 있나요?' => '네, 가능합니다.',
+            '목욕은 어디에서 진행되나요?' => '목욕설비를 갖춘 차량 안에서 하거나',
+            '요양보호사 몇 분이 오시나요?' => '원칙적으로 요양보호사 2인이 함께 방문합니다.',
+            '거동이 전혀 안 되셔도 가능한가요?' => '누워 계신 어르신도 이동식 욕조와 보조 장비로',
+            '본인부담금은 어떻게 결정되나요?' => '이용 횟수에 따라 달라집니다.',
+        ] as $question => $answer) {
+            $response->assertSee($question, false);
+            $response->assertSee($answer, false);
+        }
+    }
+
     public function test_다른_서비스_전용_섹션은_없다(): void
     {
         $this->get(route('services.visiting-bath'))

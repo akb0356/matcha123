@@ -6,3 +6,35 @@
 [x-cloak] {
     display: none !important;
 }
+
+/*
+ * ── 스크롤 진입 효과 ────────────────────────────────────────────────
+ * <main> 바로 아래 <section> 이 화면에 들어올 때 아래에서 떠오른다.
+ * 첫 번째 섹션(히어로)은 첫 화면이라 제외한다.
+ *
+ * .reveal-ready 는 resources/js/app.js 가 <html> 에 붙인다.
+ * 즉 JS가 없거나 실패하면 아래 규칙이 적용되지 않아 내용이 그대로 보인다.
+ * 효과를 끄고 싶으면 app.js 의 setupSectionReveal() 호출만 지우면 된다.
+ */
+.reveal-ready main > section:not(:first-child) {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+        opacity 700ms cubic-bezier(0.16, 1, 0.3, 1),
+        transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.reveal-ready main > section.is-revealed {
+    opacity: 1;
+    transform: none;
+}
+
+/* 움직임을 줄이도록 설정한 사용자에게는 효과를 적용하지 않는다. */
+@media (prefers-reduced-motion: reduce) {
+    .reveal-ready main > section:not(:first-child) {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
