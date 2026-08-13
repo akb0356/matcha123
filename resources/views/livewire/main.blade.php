@@ -14,7 +14,8 @@
     섹션 전체가 스크롤 진입 시 떠오르는 효과는 app.js 의 setupSectionReveal 이
     main > section 을 대상으로 처리하므로 별도 작업이 없다.
 
-    비용 계산기(Figma 178:2040)는 급여 단가 확정 후 별도로 붙인다.
+    비용 계산기(Figma 178:2040)는 시각 전용 자리표시자다. 칩·탭·스테퍼에 동작이
+    없고 금액은 시안의 예시값이다. 급여 단가 확정 후 계산 로직을 붙인다.
 --}}
 <div class="bg-surface">
     <x-site.header />
@@ -26,6 +27,7 @@
         <x-main.record />
         <x-main.trend />
         <x-main.services />
+        <x-main.calculator />
         <x-main.screens />
         <x-main.reviews />
         <x-main.cta />

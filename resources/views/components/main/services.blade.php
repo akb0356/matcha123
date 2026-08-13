@@ -53,7 +53,13 @@
 
         <div class="grid w-full grid-cols-1 gap-6 md:grid-cols-3">
             @foreach ($services as $service)
-                <article class="flex h-full flex-col items-start rounded-md bg-surface p-8 shadow-card-lo">
+                {{--
+                    호버하면 테두리가 primary 로 바뀌고 2px 처럼 보인다.
+                    실제로 border 폭을 키우면 안쪽 내용이 1px 씩 밀리므로,
+                    1px border + 1px inset ring 을 겹쳐 두께만 늘린다. 레이아웃은 그대로다.
+                --}}
+                <article class="group/svc flex h-full flex-col items-start rounded-md border border-line-divider bg-surface p-8 shadow-card-lo transition-[border-color,box-shadow] duration-200
+                                hover:border-primary hover:ring-1 hover:ring-inset hover:ring-primary">
                     <span class="flex h-[30px] items-center justify-center rounded-md px-2 text-b14 text-surface {{ $service['tag_class'] }}">
                         {{ $service['tag'] }}
                     </span>
@@ -71,8 +77,10 @@
                     </dl>
 
                     <div class="mt-auto w-full pt-6">
+                        {{-- 카드 어디에 올려도 함께 primary 로 채워지고, 떼면 흰 버튼으로 돌아온다 --}}
                         <a href="{{ $service['href'] }}"
-                           class="btn-lift hover:bg-fill-alt flex h-12 w-full items-center justify-center rounded border border-line-divider bg-surface px-5 text-m16 text-label">
+                           class="btn-lift flex h-12 w-full items-center justify-center rounded border border-line-divider bg-surface px-5 text-m16 text-label transition-colors duration-200
+                                  group-hover/svc:border-primary group-hover/svc:bg-primary group-hover/svc:text-surface">
                             자세히 보기
                         </a>
                     </div>

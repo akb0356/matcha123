@@ -27,6 +27,7 @@ class MainTest extends TestCase
             '간편하고 투명한 확인',                   // sec4
             '으로 옮겨가고 있습니다',                 // sec5
             '청담원은 간호와 요양을 잇습니다',         // sec6
+            '청담원이 먼저 알려드립니다',             // sec7 비용 계산기
             '보호자의 안심과 센터의 운영까지',         // sec8
             '먼저 이용해보신 가족들의 이야기',         // sec9
             '이라 믿습니다',                         // sec10
@@ -103,5 +104,30 @@ class MainTest extends TestCase
         // 문제 제기 호버 문구 (sec3)
         $response->assertSee('방문 일정이 제대로', false);
         $response->assertSee('담당 요양보호사가 바뀌어도', false);
+
+        // 비교 카드 호버: 테두리 primary + 「자세히 보기」 primary 채움 (sec6)
+        $response->assertSee('hover:border-primary hover:ring-1', false);
+        $response->assertSee('group-hover/svc:bg-primary', false);
+    }
+
+    public function test_비용_계산기가_시각_자리표시자로_들어간다(): void
+    {
+        $response = $this->get(route('main'));
+
+        // 입력·결과 양쪽의 대표 요소
+        foreach ([
+            '장기요양등급', '본인부담 구분', '서비스별 이용일수',
+            '공단 부담 85%', '본인 15%',
+            '예상 월 본인부담금', '209,874', '1등급 월 한도', '급여비용 합계',
+            '이 조건으로 서비스 신청하기',
+        ] as $needle) {
+            $response->assertSee($needle, false);
+        }
+
+        // 계산 로직이 없으므로 칩·스테퍼에 클릭 핸들러가 붙어서는 안 된다
+        $html = $response->getContent();
+        $calculator = substr($html, (int) strpos($html, '장기요양등급'), 4000);
+        $this->assertStringNotContainsString('x-on:click', $calculator);
+        $this->assertStringNotContainsString('wire:click', $calculator);
     }
 }
