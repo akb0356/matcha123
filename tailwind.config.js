@@ -66,6 +66,9 @@ export default {
              */
             fontSize: {
                 eb72: ['72px', { lineHeight: '1.2', letterSpacing: '-2.88px', fontWeight: '800' }],
+                // Figma 토큰에는 없다. 최종 CTA 제목이 좁은 화면에서 72px으로 너무 커서
+                // 모바일·태블릿용으로 추가했다 (text-eb44 lg:text-eb72).
+                eb44: ['44px', { lineHeight: '1.2', letterSpacing: '-1.76px', fontWeight: '800' }],
                 eb52: ['52px', { lineHeight: '1.2', letterSpacing: '-2.88px', fontWeight: '800' }],
                 eb40: ['40px', { lineHeight: '1.2', letterSpacing: '-2.88px', fontWeight: '800' }],
                 b24: ['24px', { lineHeight: '1.2', letterSpacing: '-0.5px', fontWeight: '700' }],
