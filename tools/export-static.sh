@@ -27,8 +27,8 @@ PAGES=(
   "/services/visiting-bath:services/visiting-bath"
   "/services/dementia-respite:services/dementia-respite"
 )
-# 루트(/)에 둘 페이지. 이미 공유된 링크가 이 주소를 가리킨다.
-ROOT_PAGE="/services/visiting-nursing"
+# 루트(/)에 둘 페이지 = 메인
+ROOT_PAGE="/"
 
 echo "==> 출력 경로 초기화: $OUT"
 mkdir -p "$OUT"

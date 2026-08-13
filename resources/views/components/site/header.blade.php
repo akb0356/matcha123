@@ -52,7 +52,7 @@
         x-on:keydown.escape="open = false">
 
     <div class="mx-auto flex h-[53px] max-w-content items-center justify-between gap-4 px-6">
-        <a href="/" class="flex shrink-0 items-center gap-[3.6px]" aria-label="청담원 홈">
+        <a href="{{ route('main') }}" class="flex shrink-0 items-center gap-[3.6px]" aria-label="청담원 홈">
             <img src="{{ asset('images/brand/logo-mark.svg') }}" alt="" class="h-6 w-[28.8px]">
             <img src="{{ asset('images/brand/logo-wordmark.svg') }}" alt="청담원" class="h-[19.2px] w-[53.7px]">
         </a>

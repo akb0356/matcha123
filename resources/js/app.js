@@ -61,4 +61,79 @@ function setupSectionReveal() {
     sections.forEach((section) => observer.observe(section));
 }
 
+/**
+ * 숫자가 0에서 목표값까지 올라가는 카운트업. 화면에 들어올 때 한 번만 재생한다.
+ *
+ * 마크업 예:
+ *   <span data-countup="62.6" data-countup-decimals="1">62.6</span>
+ *
+ * data-countup       목표값 (필수)
+ * data-countup-decimals  소수점 자리수 (기본 0)
+ *
+ * JS가 없거나 실패하면 태그 안의 최종 값이 그대로 보인다.
+ */
+function setupCountUp() {
+    const targets = Array.from(document.querySelectorAll('[data-countup]'));
+
+    if (targets.length === 0) {
+        return;
+    }
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (reduceMotion || typeof IntersectionObserver === 'undefined') {
+        return; // 최종 값이 이미 렌더돼 있으므로 그대로 둔다
+    }
+
+    const format = (value, decimals) =>
+        value.toLocaleString('ko-KR', {
+            minimumFractionDigits: decimals,
+            maximumFractionDigits: decimals,
+        });
+
+    const run = (el) => {
+        const to = parseFloat(el.dataset.countup);
+        const decimals = parseInt(el.dataset.countupDecimals ?? '0', 10);
+
+        if (Number.isNaN(to)) {
+            return;
+        }
+
+        const duration = 1400;
+        const start = performance.now();
+
+        const tick = (now) => {
+            const progress = Math.min((now - start) / duration, 1);
+            // easeOutExpo — 빠르게 오르다 목표값에서 부드럽게 멈춘다
+            const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+
+            el.textContent = format(to * eased, decimals);
+
+            if (progress < 1) {
+                requestAnimationFrame(tick);
+            }
+        };
+
+        el.textContent = format(0, decimals);
+        requestAnimationFrame(tick);
+    };
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (! entry.isIntersecting) {
+                    return;
+                }
+
+                run(entry.target);
+                observer.unobserve(entry.target);
+            });
+        },
+        { threshold: 0.6 }
+    );
+
+    targets.forEach((el) => observer.observe(el));
+}
+
 setupSectionReveal();
+setupCountUp();
