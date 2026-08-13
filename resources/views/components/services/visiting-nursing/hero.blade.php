@@ -1,5 +1,5 @@
 {{-- Figma 153:1425 + 153:1925 — 히어로 --}}
-<section class="relative h-[570px] w-full overflow-hidden">
+<section class="hero-section relative w-full overflow-hidden">
     <img src="{{ asset('images/services/visiting-nursing/hero-home-care-scene.png') }}"
          alt="거실에서 어르신과 함께 이야기 나누는 방문간호사와 가족"
          class="absolute inset-0 h-full w-full object-cover">
@@ -17,7 +17,7 @@
              rgba(255, 255, 255, 0) 78%)"></div>
 
     <div class="relative mx-auto h-full max-w-content px-6">
-        <div class="flex w-full max-w-[653px] flex-col items-start gap-12 pt-[119px]">
+        <div class="flex w-full max-w-[653px] flex-col items-start gap-12 hero-copy">
             <div class="flex flex-col items-start gap-3">
                 <div class="flex items-center gap-2.5">
                     <img src="{{ asset('images/icons/dot-orange.svg') }}" alt="" class="h-3 w-3">
@@ -39,7 +39,7 @@
                     무료 상담 신청
                 </a>
                 <a href="#cost"
-                   class="btn-lift hover:bg-fill-alt rounded-md bg-surface px-8 py-5 text-b16 text-caution drop-shadow-[0_0_7.5px_rgba(255,144,0,0.25)]">
+                   class="btn-lift hover:bg-surface-alt rounded-md bg-surface px-8 py-5 text-b16 text-caution drop-shadow-[0_0_7.5px_rgba(255,144,0,0.25)]">
                     비용 알아보기
                 </a>
             </div>

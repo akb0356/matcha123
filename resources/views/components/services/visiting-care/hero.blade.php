@@ -1,5 +1,5 @@
 {{-- Figma 153:1977 + 153:2410 — 히어로 --}}
-<section class="relative h-[570px] w-full overflow-hidden">
+<section class="hero-section relative w-full overflow-hidden">
     {{--
         디자인의 크롭 값은 w 120.25% / h 134.27% / left -11.7% / top -34.21% 인데,
         폭은 컨테이너 너비 기준이고 높이는 컨테이너 높이 기준이라 1920px에서만
@@ -18,7 +18,7 @@
     <div class="pointer-events-none absolute inset-0 bg-gradient-to-r from-white to-transparent" aria-hidden="true"></div>
 
     <div class="relative mx-auto h-full max-w-content px-6">
-        <div class="flex w-full max-w-[653px] flex-col items-start gap-12 pt-[119px]">
+        <div class="flex w-full max-w-[653px] flex-col items-start gap-12 hero-copy">
             <div class="flex flex-col items-start gap-3">
                 <div class="flex items-center gap-2.5">
                     <img src="{{ asset('images/icons/dot-violet.svg') }}" alt="" class="h-3 w-3">
@@ -40,7 +40,7 @@
                     무료 상담 신청
                 </a>
                 <a href="#cost"
-                   class="btn-lift hover:bg-fill-alt rounded-md bg-surface px-8 py-5 text-[17px] font-normal leading-normal text-accent-violet drop-shadow-[0_0_7.5px_rgba(91,55,237,0.25)]">
+                   class="btn-lift hover:bg-surface-alt rounded-md bg-surface px-8 py-5 text-[17px] font-normal leading-normal text-accent-violet drop-shadow-[0_0_7.5px_rgba(91,55,237,0.25)]">
                     비용 알아보기
                 </a>
             </div>

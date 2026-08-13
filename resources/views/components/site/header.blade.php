@@ -57,7 +57,7 @@
             </a>
 
             {{-- 메뉴에 마우스가 닿거나 키보드 포커스가 들어오면 전체 하위 메뉴가 함께 열린다. --}}
-            <nav class="hidden h-full items-center gap-2 lg:flex"
+            <nav class="hidden h-full items-center gap-10 lg:flex"
                  x-on:mouseenter="open = true"
                  x-on:focusin="open = true"
                  aria-label="주요 메뉴">
@@ -65,14 +65,14 @@
                     <div class="relative flex h-full items-center">
                         <a href="{{ $item['href'] }}"
                            @if ($item['children']) x-bind:aria-expanded="open" @endif
-                           class="flex h-9 items-center justify-center rounded-md px-3 text-b14 text-label transition-colors hover:bg-fill-alt">
+                           class="flex h-9 items-center justify-center rounded-md px-2.5 text-b14 text-label transition-colors hover:bg-fill-alt">
                             {{ $item['label'] }}
                         </a>
 
                         @if ($item['children'])
                             {{--
                                 컬럼은 부모 메뉴와 같은 좌측 기준(left-0)에 두고 항목에도 같은
-                                px-3 을 줘서 글자 왼쪽 끝이 부모 라벨과 정확히 맞는다.
+                                같은 px-2.5 를 줘서 글자 왼쪽 끝이 부모 라벨과 정확히 맞는다.
                                 항목은 라벨보다 가벼운 medium 으로 두어 위계를 구분한다.
                             --}}
                             <div x-show="open" x-cloak x-transition.opacity.duration.150ms
@@ -81,7 +81,7 @@
                                     @foreach ($item['children'] as $child)
                                         <li>
                                             <a href="{{ $child['href'] }}"
-                                               class="flex h-8 items-center whitespace-nowrap rounded-md px-3 text-m14 text-label-alt transition-colors hover:bg-fill-alt hover:text-label">
+                                               class="flex h-8 items-center whitespace-nowrap rounded-md px-2.5 text-m14 text-label-alt transition-colors hover:bg-fill-alt hover:text-label">
                                                 {{ $child['label'] }}
                                             </a>
                                         </li>

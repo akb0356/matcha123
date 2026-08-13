@@ -1,5 +1,5 @@
 {{-- Figma 153:2990 + 153:3237 — 히어로 --}}
-<section class="relative h-[569px] w-full overflow-hidden">
+<section class="hero-section relative w-full overflow-hidden">
     {{--
         원본(3055x941, 비율 3.247)이 컨테이너 비율과 거의 같아 디자인 크롭
         (w 99.98% / h 103.92% / top -2.06%)은 object-cover 의 기본 중앙 정렬과 결과가 같다.
@@ -13,7 +13,7 @@
     <div class="pointer-events-none absolute inset-0 bg-gradient-to-r from-white to-transparent" aria-hidden="true"></div>
 
     <div class="relative mx-auto h-full max-w-content px-6">
-        <div class="flex w-full max-w-[640px] flex-col items-start gap-12 pt-[117px]">
+        <div class="flex w-full max-w-[640px] flex-col items-start gap-12 hero-copy">
             <div class="flex flex-col items-start gap-3">
                 <div class="flex items-center gap-3">
                     <img src="{{ asset('images/icons/dot-green.svg') }}" alt="" class="h-3 w-3">
@@ -35,7 +35,7 @@
                     무료 상담 신청
                 </a>
                 <a href="#cost"
-                   class="btn-lift hover:bg-fill-alt rounded-md bg-surface px-8 py-5 text-[17px] font-normal leading-normal text-accent-green drop-shadow-[0_0_7.5px_rgba(0,191,64,0.25)]">
+                   class="btn-lift hover:bg-surface-alt rounded-md bg-surface px-8 py-5 text-[17px] font-normal leading-normal text-accent-green drop-shadow-[0_0_7.5px_rgba(0,191,64,0.25)]">
                     비용 알아보기
                 </a>
             </div>
