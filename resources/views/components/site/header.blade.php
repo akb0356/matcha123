@@ -17,6 +17,7 @@
                 ['label' => '방문요양', 'href' => route('services.visiting-care')],
                 ['label' => '방문목욕', 'href' => route('services.visiting-bath')],
                 ['label' => '치매가족휴가제', 'href' => route('services.dementia-respite')],
+                ['label' => '청담원 플랫폼', 'href' => route('services.platform')],
             ],
         ],
         [

@@ -49,6 +49,7 @@ export default {
                 primary: {
                     DEFAULT: '#3694ab',
                     strong: '#04718b',
+                    heavy: '#054e60',          // primary-heavy
                     semistrong: '#377e95',
                     soft: '#f1f8f9',           // primary-soft
                     inverse: '#b8dce4',        // inverse-primary

@@ -26,6 +26,7 @@ PAGES=(
   "/services/visiting-care:services/visiting-care"
   "/services/visiting-bath:services/visiting-bath"
   "/services/dementia-respite:services/dementia-respite"
+  "/services/platform:services/platform"
   "/support/long-term-care-grade:support/long-term-care-grade"
 )
 # 루트(/)에 둘 페이지 = 메인
