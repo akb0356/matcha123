@@ -26,6 +26,7 @@ export default {
                     neutral: '#303030',        // label-neutral
                     alt: '#858585',            // label-alternative
                     assistive: '#c2c2c2',      // 디자인에서 보조 라벨로 쓰인 값 (변수 미등록)
+                    strong: '#000000',         // label-strong
                     inverse: '#f8f8f8',        // inverse-label
                 },
                 // Background/*
@@ -43,6 +44,7 @@ export default {
                 },
                 // Fill/*
                 fill: {
+                    normal: 'rgba(133, 133, 133, 0.08)',   // fill-normal
                     alt: 'rgba(133, 133, 133, 0.05)',     // fill-alternative
                 },
                 // Primary/*
@@ -51,6 +53,7 @@ export default {
                     strong: '#04718b',
                     heavy: '#054e60',          // primary-heavy
                     semistrong: '#377e95',
+                    surface: '#e8f3f5',        // primary-surface
                     soft: '#f1f8f9',           // primary-soft
                     inverse: '#b8dce4',        // inverse-primary
                 },
