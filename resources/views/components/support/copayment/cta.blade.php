@@ -10,12 +10,12 @@
 
         <div class="flex w-full max-w-[372px] flex-col items-stretch gap-3 sm:flex-row sm:items-center">
             <a href="#"
-               class="btn-lift flex h-[68px] flex-1 items-center justify-center gap-2 rounded-md bg-primary-strong px-7 text-b16 text-surface hover:brightness-95">
+               class="btn-hover flex h-[68px] flex-1 items-center justify-center gap-2 rounded-md bg-primary-strong px-7 text-b16 text-surface hover:bg-primary-heavy">
                 무료 상담 신청
                 <img src="{{ asset('images/icons/arrow-right-white.svg') }}" alt="" class="h-[16.81px] w-5">
             </a>
             <a href="{{ route('support.long-term-care-grade') }}"
-               class="btn-lift flex h-[68px] flex-1 items-center justify-center rounded-md border border-line-divider bg-surface px-7 text-b16 text-label hover:bg-surface-alt">
+               class="btn-hover flex h-[68px] flex-1 items-center justify-center rounded-md border border-line-divider bg-surface px-7 text-b16 text-label hover:bg-surface-alt">
                 장기요양등급 안내
             </a>
         </div>

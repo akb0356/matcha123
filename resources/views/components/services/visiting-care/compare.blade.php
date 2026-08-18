@@ -12,7 +12,7 @@
                 ['월 본인부담', '약 0~10만 원'],
             ],
             'cta' => '상담 신청',
-            'cta_class' => 'bg-accent-violet text-surface hover:brightness-95',
+            'cta_class' => 'bg-accent-violet text-surface hover:bg-accent-violet-strong',
             'card_class' => 'border-2 border-accent-violet shadow-card-hi',
             'href' => '#',
             'current' => true,
@@ -88,7 +88,7 @@
                     {{-- Figma의 「gap 24」 스페이서 + 카드 하단 정렬 --}}
                     <div class="mt-auto w-full pt-6">
                         <a href="{{ $service['href'] }}"
-                           class="btn-lift flex h-12 w-full items-center justify-center rounded px-5 text-m16 {{ $service['cta_class'] }}">
+                           class="btn-hover flex h-12 w-full items-center justify-center rounded px-5 text-m16 {{ $service['cta_class'] }}">
                             {{ $service['cta'] }}
                         </a>
                     </div>

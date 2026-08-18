@@ -38,7 +38,7 @@
             </div>
 
             <a href="#"
-               class="btn-lift flex h-14 items-center justify-center rounded bg-primary px-6 text-m20 text-surface hover:brightness-95">
+               class="btn-hover flex h-14 items-center justify-center rounded bg-primary px-6 text-m20 text-surface hover:bg-primary-strong">
                 무료로 신청 도움받기
             </a>
         </div>

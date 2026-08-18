@@ -34,7 +34,7 @@
             @endforeach
         </div>
 
-        <a href="#" class="btn-lift hover:bg-white/10 flex items-center justify-center rounded-md border border-surface px-8 py-4">
+        <a href="#" class="btn-hover hover:bg-white/10 flex items-center justify-center rounded-md border border-surface px-8 py-4">
             <span class="whitespace-nowrap text-m20 text-surface">장기요양등급 신청 방법이 궁금하신가요? →</span>
         </a>
     </div>

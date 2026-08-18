@@ -37,11 +37,11 @@
 
             <div class="flex flex-wrap items-center gap-3">
                 <a href="#help"
-                   class="btn-lift flex h-[68px] items-center justify-center rounded-md bg-primary px-7 text-b16 text-surface hover:brightness-95">
+                   class="btn-hover flex h-[68px] items-center justify-center rounded-md bg-primary px-7 text-b16 text-surface hover:bg-primary-strong">
                     무료 상담 신청
                 </a>
                 <a href="#steps"
-                   class="btn-lift flex h-[68px] items-center justify-center rounded-md border border-line-divider bg-surface px-7 text-b16 text-label hover:bg-surface-alt">
+                   class="btn-hover flex h-[68px] items-center justify-center rounded-md border border-line-divider bg-surface px-7 text-b16 text-label hover:bg-surface-alt">
                     신청 절차 보기
                 </a>
             </div>

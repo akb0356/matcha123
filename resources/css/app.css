@@ -28,39 +28,19 @@
 
 /*
  * ── 버튼 호버 인터랙션 ──────────────────────────────────────────────
- * 마우스를 올리면 살짝 떠오르고 그림자가 생긴다.
- * 색을 지정하지 않으므로 강조색이 다른 네 페이지에 그대로 쓸 수 있고,
- * 색 변화는 각 버튼에서 hover:brightness-95 / hover:bg-* 로 따로 준다.
+ * 그림자·떠오름 없이 배경색만 바뀐다. 사이트 전체 공통 규칙이다.
  *
- * 세기를 조절하려면 아래 두 값만 고치면 사이트 전체에 반영된다.
+ * 이 클래스는 전환(transition)만 담당하고, 어떤 색으로 바뀔지는 각 버튼이
+ * hover:bg-* 로 직접 지정한다. 강조색이 다른 페이지에도 그대로 쓸 수 있다.
+ *   예) bg-primary        -> hover:bg-primary-strong
+ *       bg-accent-violet  -> hover:bg-accent-violet-strong
+ *       bg-surface        -> hover:bg-surface-alt
  */
-.btn-lift {
+.btn-hover {
     transition:
-        transform 160ms cubic-bezier(0.16, 1, 0.3, 1),
-        box-shadow 160ms cubic-bezier(0.16, 1, 0.3, 1),
-        background-color 160ms ease-out,
-        border-color 160ms ease-out,
-        color 160ms ease-out,
-        filter 160ms ease-out;
-}
-
-.btn-lift:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px -6px rgba(17, 17, 17, 0.22);
-}
-
-.btn-lift:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 6px -3px rgba(17, 17, 17, 0.2);
-}
-
-/* 움직임을 줄이도록 설정한 사용자에게는 떠오르는 동작만 뺀다(색 변화는 유지). */
-@media (prefers-reduced-motion: reduce) {
-    .btn-lift,
-    .btn-lift:hover,
-    .btn-lift:active {
-        transform: none;
-    }
+        background-color 150ms ease-out,
+        border-color 150ms ease-out,
+        color 150ms ease-out;
 }
 
 /*

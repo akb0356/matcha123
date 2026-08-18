@@ -13,12 +13,12 @@
         <div class="flex w-full max-w-[577px] flex-col items-stretch gap-4 sm:flex-row sm:items-center">
             {{-- 51:16 흰 배경 + primary 글자 --}}
             <a href="{{ route('services.visiting-nursing') }}"
-               class="btn-lift flex h-16 flex-1 items-center justify-center rounded-md bg-surface px-6 text-b20 text-primary hover:bg-surface-alt">
+               class="btn-hover flex h-16 flex-1 items-center justify-center rounded-md bg-surface px-6 text-b20 text-primary hover:bg-surface-alt">
                 1분안에 서비스 신청하기
             </a>
             {{-- 51:23 accent-violet 배경 + 흰 글자 --}}
             <a href="#platform"
-               class="btn-lift flex h-16 flex-1 items-center justify-center rounded-md bg-accent-violet px-6 text-b20 text-surface hover:brightness-95">
+               class="btn-hover flex h-16 flex-1 items-center justify-center rounded-md bg-accent-violet px-6 text-b20 text-surface hover:bg-accent-violet-strong">
                 청담원 플랫폼 도입 문의하기
             </a>
         </div>

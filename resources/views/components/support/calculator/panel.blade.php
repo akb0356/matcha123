@@ -192,7 +192,7 @@
                     <span class="min-h-8 flex-1" aria-hidden="true"></span>
 
                     <a href="{{ route('services.visiting-nursing') }}"
-                       class="btn-lift flex h-[52px] w-full shrink-0 items-center justify-center rounded bg-primary-strong text-m16 text-surface hover:brightness-95">
+                       class="btn-hover flex h-[52px] w-full shrink-0 items-center justify-center rounded bg-primary-strong text-m16 text-surface hover:bg-primary-heavy">
                         이 조건으로 서비스 신청하기
                     </a>
                 </div>

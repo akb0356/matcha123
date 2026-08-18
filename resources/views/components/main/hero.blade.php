@@ -29,7 +29,7 @@
             {{-- 상담 신청 / 플랫폼 문의 두 갈래 진입 --}}
             <div class="flex w-full flex-col items-stretch gap-4 sm:flex-row sm:items-center">
                 <a href="{{ route('services.visiting-nursing') }}"
-                   class="btn-lift hover:brightness-95 flex flex-1 items-center gap-2.5 rounded-md bg-primary px-5 py-4">
+                   class="btn-hover hover:bg-primary-strong flex flex-1 items-center gap-2.5 rounded-md bg-primary px-5 py-4">
                     <img src="{{ asset('images/icons/cta-care.svg') }}" alt="" class="h-[17.5px] w-[15.7px] shrink-0">
                     <span class="flex flex-1 flex-col items-start gap-1 text-surface">
                         <span class="text-b16">방문요양·간호 무료 상담 신청</span>
@@ -39,7 +39,7 @@
                 </a>
 
                 <a href="#platform"
-                   class="btn-lift hover:brightness-95 flex flex-1 items-center gap-2.5 rounded-md bg-accent-violet px-5 py-4">
+                   class="btn-hover hover:bg-accent-violet-strong flex flex-1 items-center gap-2.5 rounded-md bg-accent-violet px-5 py-4">
                     <img src="{{ asset('images/icons/cta-platform.svg') }}" alt="" class="h-[15.7px] w-[17.5px] shrink-0">
                     <span class="flex flex-1 flex-col items-start gap-1 text-surface">
                         <span class="text-b16">청담원 플랫폼 도입 문의</span>

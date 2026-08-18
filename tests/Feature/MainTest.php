@@ -106,7 +106,9 @@ class MainTest extends TestCase
         $response->assertSee('담당 요양보호사가 바뀌어도', false);
 
         // 비교 카드 호버: 테두리 primary + 「자세히 보기」 primary 채움 (sec6)
-        $response->assertSee('hover:border-primary hover:ring-1', false);
+        // 두께는 평소에도 2px 로 두고 색만 바꾼다(ring 은 box-shadow 라 걷어냈다).
+        $response->assertSee('border-2 border-line-divider', false);
+        $response->assertSee('hover:border-primary', false);
         $response->assertSee('group-hover/svc:bg-primary', false);
     }
 

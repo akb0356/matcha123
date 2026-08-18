@@ -27,10 +27,10 @@
     $regions = array_values(array_unique(array_column($jobs, 'region')));
 
     $selectClass = 'h-12 rounded-md border border-line-divider bg-surface px-3 text-m16 text-label'
-        . ' appearance-none bg-no-repeat pr-9 transition-colors hover:bg-surface-alt'
+        . ' appearance-none bg-no-repeat pr-8 transition-colors hover:bg-surface-alt'
         . ' focus:border-primary focus:outline-none';
     $selectStyle = "background-image: url('" . asset('images/icons/chevron-down.svg') . "');"
-        . ' background-position: right 12px center; background-size: 16px 11.75px;';
+        . ' background-position: right 12px center; background-size: 12px 8.81px;';
 @endphp
 
 <section id="positions" class="w-full bg-surface">
@@ -96,7 +96,8 @@
             @foreach ($jobs as $i => $job)
                 <article x-show="match(jobs[{{ $i }}])"
                          x-data="{ saved: false }"
-                         class="flex min-h-[299px] flex-col items-start rounded-md border border-line-neutral bg-surface p-6">
+                         {{-- 호버하면 테두리만 primary 로 바뀐다(두께 고정) --}}
+                         class="flex min-h-[299px] flex-col items-start rounded-md border border-line-neutral bg-surface p-6 transition-colors duration-200 hover:border-primary">
                     <div class="flex w-full items-center justify-between gap-3">
                         {{-- 시안 배지색은 info(#005eeb) 8% 틴트다 --}}
                         <span class="flex h-8 items-center justify-center rounded-md bg-info/[0.08] px-2 text-m14 text-info">
@@ -137,11 +138,11 @@
                         </button>
 
                         <a href="#"
-                           class="btn-lift flex h-10 flex-1 items-center justify-center rounded border border-line-divider bg-surface text-m16 text-label hover:bg-surface-alt">
+                           class="btn-hover flex h-10 flex-1 items-center justify-center rounded border border-line-divider bg-surface text-m16 text-label hover:bg-surface-alt">
                             상세보기
                         </a>
                         <a href="#"
-                           class="btn-lift flex h-10 flex-1 items-center justify-center rounded bg-primary text-m16 text-surface hover:brightness-95">
+                           class="btn-hover flex h-10 flex-1 items-center justify-center rounded bg-primary text-m16 text-surface hover:bg-primary-strong">
                             지원하기
                         </a>
                     </div>

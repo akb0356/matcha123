@@ -10,12 +10,12 @@
 
         <div class="flex w-full max-w-[422px] flex-col items-stretch gap-3 sm:flex-row sm:items-center">
             <a href="#"
-               class="btn-lift flex h-[68px] flex-1 items-center justify-center gap-2 rounded-md bg-[#fefeff] px-7 text-b16 text-primary-heavy hover:bg-surface-alt">
+               class="btn-hover flex h-[68px] flex-1 items-center justify-center gap-2 rounded-md bg-[#fefeff] px-7 text-b16 text-primary-heavy hover:bg-surface-alt">
                 도입 문의하기
                 <img src="{{ asset('images/icons/arrow-right-heavy.svg') }}" alt="" class="h-5 w-5">
             </a>
             <a href="tel:1588-2091"
-               class="btn-lift flex h-[68px] flex-1 items-center justify-center rounded-md border border-white/20 bg-white/25 px-7 text-b16 text-surface hover:bg-white/40">
+               class="btn-hover flex h-[68px] flex-1 items-center justify-center rounded-md border border-white/20 bg-white/25 px-7 text-b16 text-surface hover:bg-white/40">
                 1588-2091
             </a>
         </div>

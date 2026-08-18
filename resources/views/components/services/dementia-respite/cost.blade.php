@@ -63,7 +63,7 @@
             <div class="flex w-full flex-col items-start justify-between gap-4 rounded-xl border border-surface-alt bg-surface p-6 sm:flex-row sm:items-center">
                 <p class="text-b20 text-label">우리 어르신 기준 예상 본인부담이 궁금하다면?</p>
                 <a href="#"
-                   class="btn-lift hover:brightness-95 flex h-11 shrink-0 items-center justify-center rounded bg-primary px-5 text-b16 text-surface">
+                   class="btn-hover hover:bg-primary-strong flex h-11 shrink-0 items-center justify-center rounded bg-primary px-5 text-b16 text-surface">
                     비용 계산기로 확인
                 </a>
             </div>

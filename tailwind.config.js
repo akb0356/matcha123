@@ -58,14 +58,15 @@ export default {
                     inverse: '#b8dce4',        // inverse-primary
                 },
                 // Status/*
-                caution: '#ff9200',           // status-cautionary
+                // hover 용 어두운 단계(-strong)는 Figma 변수에 없다. 배경색 전환용으로 12% 어둡게 파생했다.
+                caution: { DEFAULT: '#ff9200', strong: '#db7e00' },   // status-cautionary
                 info: '#005eeb',              // 「발급 완료」 배지 (변수 미등록)
                 // Accent/*
                 accent: {
-                    violet: '#5b37ed',
-                    'light-blue': '#008dcf',
+                    violet: { DEFAULT: '#5b37ed', strong: '#4e2fcc' },
+                    'light-blue': { DEFAULT: '#008dcf', strong: '#0079b2' },
                     // 치매가족휴가제는 글자·CTA에 green, 섹션 배경 틴트에 green-soft 를 쓴다.
-                    green: { DEFAULT: '#009632', soft: '#1ab94f' },
+                    green: { DEFAULT: '#009632', soft: '#1ab94f', strong: '#00812b' },
                 },
             },
 

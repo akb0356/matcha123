@@ -12,11 +12,11 @@
 
         <div class="flex w-full max-w-[329px] flex-col items-stretch gap-3 sm:flex-row sm:items-center">
             <a href="#"
-               class="btn-lift flex h-[68px] flex-1 items-center justify-center rounded-md bg-primary px-7 text-b16 text-surface hover:brightness-95">
+               class="btn-hover flex h-[68px] flex-1 items-center justify-center rounded-md bg-primary px-7 text-b16 text-surface hover:bg-primary-strong">
                 무료 상담 신청
             </a>
             <a href="{{ route('support.copayment') }}"
-               class="btn-lift flex h-[68px] flex-1 items-center justify-center rounded-md border border-line-divider bg-surface px-7 text-b16 text-label hover:bg-surface-alt">
+               class="btn-hover flex h-[68px] flex-1 items-center justify-center rounded-md border border-line-divider bg-surface px-7 text-b16 text-label hover:bg-surface-alt">
                 본인부담금 안내
             </a>
         </div>

@@ -54,7 +54,7 @@
                             x-bind:class="tab === '{{ $t['key'] }}'
                                 ? 'bg-primary text-surface'
                                 : 'bg-surface text-primary hover:bg-primary/5'"
-                            class="btn-lift flex items-center justify-center rounded-full border border-primary px-6 py-3 text-m20">
+                            class="btn-hover flex items-center justify-center rounded-full border border-primary px-6 py-3 text-m20">
                         {{ $t['label'] }}
                     </button>
                 @endforeach

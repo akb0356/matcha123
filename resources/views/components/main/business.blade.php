@@ -56,7 +56,7 @@
                     <a href="{{ $item['href'] }}"
                        {{-- 높이가 고정이므로 gap 은 최소값만 두고 justify-between 이 벌린다.
                             좁은 화면에서 본문이 한 줄 늘어도 잘리지 않게 하는 여유다. --}}
-                       class="group/card relative flex w-full flex-col justify-between gap-8 overflow-hidden rounded-[20px] border border-primary-surface bg-surface p-8 shadow-elevation-xs transition-shadow duration-300 hover:shadow-card-hi">
+                       class="group/card relative flex w-full flex-col justify-between gap-8 overflow-hidden rounded-[20px] border border-primary-surface bg-surface p-8 shadow-elevation-xs">
 
                         {{-- 호버 시 나타나는 배경: 사진 위에 컬러 그라데이션을 얹는다 --}}
                         <span class="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover/card:opacity-100"

@@ -33,11 +33,11 @@
 
             <div class="flex flex-wrap items-start gap-4">
                 <a href="#platform-cta"
-                   class="btn-lift rounded-md bg-primary px-8 py-5 text-b16 text-surface drop-shadow-[0_8px_8px_rgba(234,221,207,0.25)] hover:brightness-95">
+                   class="btn-hover rounded-md bg-primary px-8 py-5 text-b16 text-surface drop-shadow-[0_8px_8px_rgba(234,221,207,0.25)] hover:bg-primary-strong">
                     도입 문의하기
                 </a>
                 <a href="#platform-pillars"
-                   class="btn-lift rounded-md bg-surface px-8 py-5 text-b16 text-primary drop-shadow-[0_0_7.5px_rgba(54,148,171,0.25)] hover:bg-surface-alt">
+                   class="btn-hover rounded-md bg-surface px-8 py-5 text-b16 text-primary drop-shadow-[0_0_7.5px_rgba(54,148,171,0.25)] hover:bg-surface-alt">
                     기능 살펴보기
                 </a>
             </div>

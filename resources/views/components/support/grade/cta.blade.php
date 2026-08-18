@@ -9,7 +9,7 @@
         </div>
 
         <a href="#"
-           class="btn-lift flex h-[68px] items-center justify-center gap-2 rounded-md bg-primary px-7 text-b16 text-surface hover:brightness-95">
+           class="btn-hover flex h-[68px] items-center justify-center gap-2 rounded-md bg-primary px-7 text-b16 text-surface hover:bg-primary-strong">
             무료 상담 신청
             <img src="{{ asset('images/icons/arrow-right-white.svg') }}" alt="" class="h-[16.81px] w-5">
         </a>
