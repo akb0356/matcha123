@@ -30,7 +30,7 @@
             ],
         ],
         ['label' => '커뮤니티', 'href' => '#', 'children' => []],
-        ['label' => '채용·커리어', 'href' => '#', 'children' => []],
+        ['label' => '채용·커리어', 'href' => route('careers'), 'children' => []],
         ['label' => '센터 소개', 'href' => '#', 'children' => []],
         [
             'label' => '고객센터',

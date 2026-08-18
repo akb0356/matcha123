@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\Careers;
 use App\Livewire\Main;
 use App\Livewire\Services\DementiaRespite;
 use App\Livewire\Services\Platform;
@@ -25,3 +26,6 @@ Route::get('/services/platform', Platform::class)->name('services.platform');
 Route::get('/support/long-term-care-grade', LongTermCareGrade::class)->name('support.long-term-care-grade');
 Route::get('/support/copayment', Copayment::class)->name('support.copayment');
 Route::get('/support/cost-calculator', CostCalculator::class)->name('support.cost-calculator');
+
+// 채용·커리어. 헤더 상단 메뉴에서 바로 연결된다(하위 메뉴 없음).
+Route::get('/careers', Careers::class)->name('careers');

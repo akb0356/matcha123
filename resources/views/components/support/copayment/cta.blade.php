@@ -12,7 +12,7 @@
             <a href="#"
                class="btn-lift flex h-[68px] flex-1 items-center justify-center gap-2 rounded-md bg-primary-strong px-7 text-b16 text-surface hover:brightness-95">
                 무료 상담 신청
-                <img src="{{ asset('images/icons/arrow-right-white.svg') }}" alt="" class="h-5 w-5">
+                <img src="{{ asset('images/icons/arrow-right-white.svg') }}" alt="" class="h-[16.81px] w-5">
             </a>
             <a href="{{ route('support.long-term-care-grade') }}"
                class="btn-lift flex h-[68px] flex-1 items-center justify-center rounded-md border border-line-divider bg-surface px-7 text-b16 text-label hover:bg-surface-alt">
