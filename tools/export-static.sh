@@ -29,6 +29,7 @@ PAGES=(
   "/services/platform:services/platform"
   "/support/long-term-care-grade:support/long-term-care-grade"
   "/support/copayment:support/copayment"
+  "/support/cost-calculator:support/cost-calculator"
 )
 # 루트(/)에 둘 페이지 = 메인
 ROOT_PAGE="/"

@@ -7,6 +7,7 @@ use App\Livewire\Services\VisitingBath;
 use App\Livewire\Services\VisitingCare;
 use App\Livewire\Services\VisitingNursing;
 use App\Livewire\Support\Copayment;
+use App\Livewire\Support\CostCalculator;
 use App\Livewire\Support\LongTermCareGrade;
 use Illuminate\Support\Facades\Route;
 
@@ -23,3 +24,4 @@ Route::get('/services/platform', Platform::class)->name('services.platform');
 // 비용·지원. 헤더 드롭다운의 「비용·지원」 하위 메뉴다.
 Route::get('/support/long-term-care-grade', LongTermCareGrade::class)->name('support.long-term-care-grade');
 Route::get('/support/copayment', Copayment::class)->name('support.copayment');
+Route::get('/support/cost-calculator', CostCalculator::class)->name('support.cost-calculator');
