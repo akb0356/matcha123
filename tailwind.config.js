@@ -26,6 +26,7 @@ export default {
                     neutral: '#303030',        // label-neutral
                     alt: '#858585',            // label-alternative
                     assistive: '#c2c2c2',      // 디자인에서 보조 라벨로 쓰인 값 (변수 미등록)
+                    inverse: '#f8f8f8',        // inverse-label
                 },
                 // Background/*
                 surface: {
@@ -37,6 +38,8 @@ export default {
                 line: {
                     neutral: 'rgba(133, 133, 133, 0.16)', // line-normal-neutral
                     divider: '#ebebeb',
+                    // 장기요양등급 안내의 카드 테두리·구분선 (변수 미등록)
+                    soft: '#f5f5f5',
                 },
                 // Fill/*
                 fill: {
@@ -47,6 +50,8 @@ export default {
                     DEFAULT: '#3694ab',
                     strong: '#04718b',
                     semistrong: '#377e95',
+                    soft: '#f1f8f9',           // primary-soft
+                    inverse: '#b8dce4',        // inverse-primary
                 },
                 // Status/*
                 caution: '#ff9200',           // status-cautionary

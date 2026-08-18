@@ -23,7 +23,7 @@
             'label' => '비용·지원',
             'href' => '#',
             'children' => [
-                ['label' => '장기요양등급', 'href' => '#'],
+                ['label' => '장기요양등급', 'href' => route('support.long-term-care-grade')],
                 ['label' => '본인부담금 안내', 'href' => '#'],
                 ['label' => '비용 계산기', 'href' => '#'],
             ],

@@ -5,7 +5,7 @@
             집에서 받는 일상 돌봄, <br class="hidden lg:inline">지금 무료로 상담해 보세요
         </h2>
 
-        <p class="w-full text-center text-[25px] font-medium leading-[35px] tracking-[-0.5px] text-white/80">
+        <p class="w-full text-center text-m20 text-white/80">
             장기요양등급이 있다면 공단 급여로 부담을 덜 수 있어요.
         </p>
     </div>

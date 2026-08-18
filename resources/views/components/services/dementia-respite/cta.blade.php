@@ -5,7 +5,7 @@
             종일 돌봄의 부담, <br class="hidden lg:inline">한결 가벼워요
         </h2>
 
-        <p class="w-full text-center text-[25px] font-medium leading-[35px] tracking-[-0.5px] text-white/80">
+        <p class="w-full text-center text-m20 text-white/80">
             12시간 종일 돌봄인데 본인부담은 하루 1만 원대. 공단이 대부분 부담하는, <br class="hidden lg:inline">이만큼 파격적인 제도도 없어요. 지금 이용 가능한지 무료로 확인해 보세요.
         </p>
     </div>

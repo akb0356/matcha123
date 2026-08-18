@@ -26,13 +26,14 @@ PAGES=(
   "/services/visiting-care:services/visiting-care"
   "/services/visiting-bath:services/visiting-bath"
   "/services/dementia-respite:services/dementia-respite"
+  "/support/long-term-care-grade:support/long-term-care-grade"
 )
 # 루트(/)에 둘 페이지 = 메인
 ROOT_PAGE="/"
 
 echo "==> 출력 경로 초기화: $OUT"
 mkdir -p "$OUT"
-( cd "$OUT" && rm -rf images build livewire services index.html robots.txt README.md )
+( cd "$OUT" && rm -rf images build livewire services support index.html robots.txt README.md )
 
 fetch_page() {
   local route="$1" dest="$2"
