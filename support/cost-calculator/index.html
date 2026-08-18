@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex, nofollow">
 
-    <title>본인부담금 안내 | 청담원 재가복지센터</title>
+    <title>비용 계산기 | 청담원 재가복지센터</title>
 
     
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
@@ -15,7 +15,7 @@
     <link rel="preload" as="style" href="https://akb0356.github.io/matcha123/build/assets/app-D_UVHoud.css" /><link rel="modulepreload" href="https://akb0356.github.io/matcha123/build/assets/app-Df9R0M0B.js" /><link rel="stylesheet" href="https://akb0356.github.io/matcha123/build/assets/app-D_UVHoud.css" data-navigate-track="reload" /><script type="module" src="https://akb0356.github.io/matcha123/build/assets/app-Df9R0M0B.js" data-navigate-track="reload"></script><!-- Livewire Styles --><style >[wire\:loading][wire\:loading], [wire\:loading\.delay][wire\:loading\.delay], [wire\:loading\.inline-block][wire\:loading\.inline-block], [wire\:loading\.inline][wire\:loading\.inline], [wire\:loading\.block][wire\:loading\.block], [wire\:loading\.flex][wire\:loading\.flex], [wire\:loading\.table][wire\:loading\.table], [wire\:loading\.grid][wire\:loading\.grid], [wire\:loading\.inline-flex][wire\:loading\.inline-flex] {display: none;}[wire\:loading\.delay\.none][wire\:loading\.delay\.none], [wire\:loading\.delay\.shortest][wire\:loading\.delay\.shortest], [wire\:loading\.delay\.shorter][wire\:loading\.delay\.shorter], [wire\:loading\.delay\.short][wire\:loading\.delay\.short], [wire\:loading\.delay\.default][wire\:loading\.delay\.default], [wire\:loading\.delay\.long][wire\:loading\.delay\.long], [wire\:loading\.delay\.longer][wire\:loading\.delay\.longer], [wire\:loading\.delay\.longest][wire\:loading\.delay\.longest] {display: none;}[wire\:offline][wire\:offline] {display: none;}[wire\:dirty]:not(textarea):not(input):not(select) {display: none;}:root {--livewire-progress-bar-color: #2299dd;}[x-cloak] {display: none !important;}[wire\:cloak] {display: none !important;}dialog#livewire-error::backdrop {background-color: rgba(0, 0, 0, .6);}</style>
 </head>
 <body class="min-h-screen bg-surface font-sans antialiased text-label">
-    <div wire:snapshot="{&quot;data&quot;:[],&quot;memo&quot;:{&quot;id&quot;:&quot;uzju9KkRp5MlS0dnyTHX&quot;,&quot;name&quot;:&quot;support.copayment&quot;,&quot;path&quot;:&quot;support\/copayment&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;release&quot;:&quot;a-a-a&quot;,&quot;children&quot;:[],&quot;scripts&quot;:[],&quot;assets&quot;:[],&quot;errors&quot;:[],&quot;locale&quot;:&quot;ko&quot;},&quot;checksum&quot;:&quot;eabfed349111b99c9485b3b4d480d61c7451e57cc48bfa0e90d7e5874ef11dd7&quot;}" wire:effects="[]" wire:id="uzju9KkRp5MlS0dnyTHX" class="bg-surface">
+    <div wire:snapshot="{&quot;data&quot;:[],&quot;memo&quot;:{&quot;id&quot;:&quot;3P7OefEtHKJw7fPNgzQp&quot;,&quot;name&quot;:&quot;support.cost-calculator&quot;,&quot;path&quot;:&quot;support\/cost-calculator&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;release&quot;:&quot;a-a-a&quot;,&quot;children&quot;:[],&quot;scripts&quot;:[],&quot;assets&quot;:[],&quot;errors&quot;:[],&quot;locale&quot;:&quot;ko&quot;},&quot;checksum&quot;:&quot;5d29e16690c958bb6058ac8c15cc60b9b51dc1a18cdcfc420dba6c2646110ab4&quot;}" wire:effects="[]" wire:id="3P7OefEtHKJw7fPNgzQp" class="bg-surface">
     <header class="sticky top-0 z-50 w-full border-b border-line-divider bg-surface"
         x-data="{ open: false }"
         x-on:mouseleave="open = false"
@@ -176,8 +176,8 @@
     <main>
         <section class="hero-section relative w-full overflow-hidden">
     
-    <img src="https://akb0356.github.io/matcha123/images/support/copayment/hero-copayment.jpg"
-         alt="카드와 노트북으로 본인부담금을 확인하는 어르신"
+    <img src="https://akb0356.github.io/matcha123/images/support/calculator/hero-calculator.jpg"
+         alt="계산기와 저금통이 놓인 책상"
          class="absolute inset-0 h-full w-full object-cover">
 
     <div class="pointer-events-none absolute inset-0" aria-hidden="true"
@@ -191,295 +191,319 @@
     <div class="relative mx-auto h-full max-w-content px-6">
         <div class="hero-copy flex w-full max-w-[653px] flex-col items-start gap-12">
             <div class="flex flex-col items-start gap-[11px]">
-                <h1 class="text-eb52 text-label">부담은 생각보다 크지 않아요.</h1>
-                <p class="text-m16 text-label-alt">실제 본인부담금이 얼마인지 쉽게 정리했어요.</p>
+                <h1 class="text-eb52 text-label">내 본인부담금,<br>직접 계산해보세요.</h1>
+                <p class="text-m20 text-label-alt">
+                    등급과 이용 정도만 고르면 바로 계산돼요.<br>복잡한 계산 없이 1분이면 충분합니다.
+                </p>
             </div>
 
             <div class="flex flex-wrap items-center gap-3">
-                <a href="#copay-calc"
+                <a href="#calculator"
                    class="btn-lift flex h-[68px] items-center justify-center rounded-md bg-primary px-7 text-b16 text-surface hover:brightness-95">
-                    내 부담금 상담
+                    계산 시작
                 </a>
-                <a href="#copay-limit"
+                <a href="https://akb0356.github.io/matcha123/support/copayment"
                    class="btn-lift flex h-[68px] items-center justify-center rounded-md border border-line-divider bg-surface px-7 text-b16 text-label hover:bg-surface-alt">
-                    등급별 한도 보기
+                    본인부담금 안내
                 </a>
+            </div>
+        </div>
+    </div>
+</section>
+        <section id="calculator" class="w-full bg-surface-alt">
+    <div class="mx-auto flex max-w-content flex-col items-start gap-8 px-6 py-[120px]">
+        
+        <div class="mx-auto flex w-full max-w-[720px] flex-col items-start gap-4">
+            <h2 class="w-full text-eb44 text-label-strong lg:text-eb52">조건을 고르면 바로 계산돼요</h2>
+            <p class="w-full text-m20 text-label-alt">
+                재가급여(방문요양·방문간호·방문목욕) 기준이에요. 등급·본인부담 구분·서비스 종류와 이용일수를 골라보세요.
+            </p>
+        </div>
+
+        <div class="flex w-full flex-col items-start"
+             x-data="{
+                 grade: '1등급',
+                 burden: '일반 15%',
+                 benefit: 'home',
+                 care: { days: 20, duration: '3시간' },
+                 nursing: { days: 4, duration: '1시간' },
+                 step(svc, delta) { svc.days = Math.min(31, Math.max(0, svc.days + delta)); },
+                 rate() { return this.burden.replace(/[^0-9]/g, '') + '%'; },
+             }">
+
+            <div class="grid w-full grid-cols-1 items-stretch gap-5 lg:grid-cols-2">
+
+                
+                <div class="flex flex-col items-start justify-between gap-8">
+                    <div class="flex w-full flex-col items-start gap-2">
+                        <p class="text-m16 text-label-neutral">장기요양등급</p>
+                        <div class="flex w-full flex-wrap items-start gap-2">
+                            <!--[if BLOCK]><![endif]-->                                <button type="button" x-on:click="grade = '1등급'"
+                                        x-bind:aria-pressed="grade === '1등급'"
+                                        class="flex h-[42px] items-center justify-center rounded border px-3.5 text-m16 transition-colors"
+                                        x-bind:class="grade === '1등급' ? 'border-primary bg-primary text-surface' : 'border-line-divider bg-surface text-label-neutral hover:bg-surface-alt'">
+                                    1등급
+                                </button>
+                                                            <button type="button" x-on:click="grade = '2등급'"
+                                        x-bind:aria-pressed="grade === '2등급'"
+                                        class="flex h-[42px] items-center justify-center rounded border px-3.5 text-m16 transition-colors"
+                                        x-bind:class="grade === '2등급' ? 'border-primary bg-primary text-surface' : 'border-line-divider bg-surface text-label-neutral hover:bg-surface-alt'">
+                                    2등급
+                                </button>
+                                                            <button type="button" x-on:click="grade = '3등급'"
+                                        x-bind:aria-pressed="grade === '3등급'"
+                                        class="flex h-[42px] items-center justify-center rounded border px-3.5 text-m16 transition-colors"
+                                        x-bind:class="grade === '3등급' ? 'border-primary bg-primary text-surface' : 'border-line-divider bg-surface text-label-neutral hover:bg-surface-alt'">
+                                    3등급
+                                </button>
+                                                            <button type="button" x-on:click="grade = '4등급'"
+                                        x-bind:aria-pressed="grade === '4등급'"
+                                        class="flex h-[42px] items-center justify-center rounded border px-3.5 text-m16 transition-colors"
+                                        x-bind:class="grade === '4등급' ? 'border-primary bg-primary text-surface' : 'border-line-divider bg-surface text-label-neutral hover:bg-surface-alt'">
+                                    4등급
+                                </button>
+                                                            <button type="button" x-on:click="grade = '5등급'"
+                                        x-bind:aria-pressed="grade === '5등급'"
+                                        class="flex h-[42px] items-center justify-center rounded border px-3.5 text-m16 transition-colors"
+                                        x-bind:class="grade === '5등급' ? 'border-primary bg-primary text-surface' : 'border-line-divider bg-surface text-label-neutral hover:bg-surface-alt'">
+                                    5등급
+                                </button>
+                            <!--[if ENDBLOCK]><![endif]-->                        </div>
+                    </div>
+
+                    <div class="flex w-full flex-col items-start gap-2">
+                        <p class="text-m16 text-label-neutral">본인부담 구분</p>
+                        <div class="flex w-full flex-wrap items-start gap-2">
+                            <!--[if BLOCK]><![endif]-->                                <button type="button" x-on:click="burden = '일반 15%'"
+                                        x-bind:aria-pressed="burden === '일반 15%'"
+                                        class="flex h-[42px] items-center justify-center rounded border px-3.5 text-m16 transition-colors"
+                                        x-bind:class="burden === '일반 15%' ? 'border-primary bg-primary text-surface' : 'border-line-divider bg-surface text-label-neutral hover:bg-surface-alt'">
+                                    일반 15%
+                                </button>
+                                                            <button type="button" x-on:click="burden = '경감 9%'"
+                                        x-bind:aria-pressed="burden === '경감 9%'"
+                                        class="flex h-[42px] items-center justify-center rounded border px-3.5 text-m16 transition-colors"
+                                        x-bind:class="burden === '경감 9%' ? 'border-primary bg-primary text-surface' : 'border-line-divider bg-surface text-label-neutral hover:bg-surface-alt'">
+                                    경감 9%
+                                </button>
+                                                            <button type="button" x-on:click="burden = '감경 6%'"
+                                        x-bind:aria-pressed="burden === '감경 6%'"
+                                        class="flex h-[42px] items-center justify-center rounded border px-3.5 text-m16 transition-colors"
+                                        x-bind:class="burden === '감경 6%' ? 'border-primary bg-primary text-surface' : 'border-line-divider bg-surface text-label-neutral hover:bg-surface-alt'">
+                                    감경 6%
+                                </button>
+                                                            <button type="button" x-on:click="burden = '기초생활수급자 0%'"
+                                        x-bind:aria-pressed="burden === '기초생활수급자 0%'"
+                                        class="flex h-[42px] items-center justify-center rounded border px-3.5 text-m16 transition-colors"
+                                        x-bind:class="burden === '기초생활수급자 0%' ? 'border-primary bg-primary text-surface' : 'border-line-divider bg-surface text-label-neutral hover:bg-surface-alt'">
+                                    기초생활수급자 0%
+                                </button>
+                            <!--[if ENDBLOCK]><![endif]-->                        </div>
+                    </div>
+
+                    <div class="flex w-full flex-col items-start gap-3">
+                        
+                        <div class="flex w-full items-center gap-1 rounded bg-fill-alt p-1">
+                            <button type="button" x-on:click="benefit = 'home'"
+                                    class="flex flex-1 items-center justify-center rounded-md py-2 text-m16 transition-colors"
+                                    x-bind:class="benefit === 'home' ? 'bg-surface text-label' : 'text-label-alt hover:text-label'">
+                                재가급여
+                            </button>
+                            <button type="button" x-on:click="benefit = 'respite'"
+                                    class="flex flex-1 items-center justify-center rounded-md py-2 text-m16 transition-colors"
+                                    x-bind:class="benefit === 'respite' ? 'bg-surface text-label' : 'text-label-alt hover:text-label'">
+                                치매가족휴가제
+                            </button>
+                        </div>
+
+                        <div class="flex flex-wrap items-baseline gap-x-1.5">
+                            <span class="text-m16 text-label-neutral">서비스별 이용일수</span>
+                            <span class="text-r14 text-label-alt">· 서비스마다 일수를 정하면 합산돼요</span>
+                        </div>
+
+                        <div class="flex w-full flex-col items-start gap-2.5">
+                            <!--[if BLOCK]><![endif]-->                                <div class="flex w-full flex-col items-start gap-3 rounded-md border border-primary px-4 py-3"
+                                     style="background-color: #e8f3f5">
+                                    <div class="flex w-full items-center justify-between gap-3">
+                                        <span class="text-m16 text-label">방문요양</span>
+                                        <span class="flex items-center gap-2">
+                                            <button type="button" x-on:click="step(care, -1)"
+                                                    aria-label="방문요양 이용일수 줄이기"
+                                                    class="flex h-8 w-8 items-center justify-center rounded-full border border-line-divider bg-surface text-m16 text-label-neutral transition-colors hover:bg-surface-alt">−</button>
+                                            <span class="flex w-[60px] items-baseline justify-center gap-0.5">
+                                                <span class="text-b16 text-label" x-text="care.days"></span>
+                                                <span class="text-r14 text-label-alt">일</span>
+                                            </span>
+                                            <button type="button" x-on:click="step(care, 1)"
+                                                    aria-label="방문요양 이용일수 늘리기"
+                                                    class="flex h-8 w-8 items-center justify-center rounded-full border border-line-divider bg-surface text-m16 text-label-neutral transition-colors hover:bg-surface-alt">+</button>
+                                        </span>
+                                    </div>
+                                    <div class="flex w-full flex-wrap items-center gap-2 pt-3">
+                                        <!--[if BLOCK]><![endif]-->                                            <button type="button" x-on:click="care.duration = '3시간'"
+                                                    x-bind:aria-pressed="care.duration === '3시간'"
+                                                    class="flex h-[37px] items-center justify-center rounded-md border px-3.5 text-m16 transition-colors"
+                                                    x-bind:class="care.duration === '3시간' ? 'border-primary bg-primary text-surface' : 'border-line-divider bg-surface text-label-neutral hover:bg-surface-alt'">
+                                                3시간
+                                            </button>
+                                                                                    <button type="button" x-on:click="care.duration = '4시간'"
+                                                    x-bind:aria-pressed="care.duration === '4시간'"
+                                                    class="flex h-[37px] items-center justify-center rounded-md border px-3.5 text-m16 transition-colors"
+                                                    x-bind:class="care.duration === '4시간' ? 'border-primary bg-primary text-surface' : 'border-line-divider bg-surface text-label-neutral hover:bg-surface-alt'">
+                                                4시간
+                                            </button>
+                                        <!--[if ENDBLOCK]><![endif]-->                                    </div>
+                                </div>
+                                                            <div class="flex w-full flex-col items-start gap-3 rounded-md border border-primary px-4 py-3"
+                                     style="background-color: #e8f3f5">
+                                    <div class="flex w-full items-center justify-between gap-3">
+                                        <span class="text-m16 text-label">방문간호</span>
+                                        <span class="flex items-center gap-2">
+                                            <button type="button" x-on:click="step(nursing, -1)"
+                                                    aria-label="방문간호 이용일수 줄이기"
+                                                    class="flex h-8 w-8 items-center justify-center rounded-full border border-line-divider bg-surface text-m16 text-label-neutral transition-colors hover:bg-surface-alt">−</button>
+                                            <span class="flex w-[60px] items-baseline justify-center gap-0.5">
+                                                <span class="text-b16 text-label" x-text="nursing.days"></span>
+                                                <span class="text-r14 text-label-alt">일</span>
+                                            </span>
+                                            <button type="button" x-on:click="step(nursing, 1)"
+                                                    aria-label="방문간호 이용일수 늘리기"
+                                                    class="flex h-8 w-8 items-center justify-center rounded-full border border-line-divider bg-surface text-m16 text-label-neutral transition-colors hover:bg-surface-alt">+</button>
+                                        </span>
+                                    </div>
+                                    <div class="flex w-full flex-wrap items-center gap-2 pt-3">
+                                        <!--[if BLOCK]><![endif]-->                                            <button type="button" x-on:click="nursing.duration = '30분'"
+                                                    x-bind:aria-pressed="nursing.duration === '30분'"
+                                                    class="flex h-[37px] items-center justify-center rounded-md border px-3.5 text-m16 transition-colors"
+                                                    x-bind:class="nursing.duration === '30분' ? 'border-primary bg-primary text-surface' : 'border-line-divider bg-surface text-label-neutral hover:bg-surface-alt'">
+                                                30분
+                                            </button>
+                                                                                    <button type="button" x-on:click="nursing.duration = '1시간'"
+                                                    x-bind:aria-pressed="nursing.duration === '1시간'"
+                                                    class="flex h-[37px] items-center justify-center rounded-md border px-3.5 text-m16 transition-colors"
+                                                    x-bind:class="nursing.duration === '1시간' ? 'border-primary bg-primary text-surface' : 'border-line-divider bg-surface text-label-neutral hover:bg-surface-alt'">
+                                                1시간
+                                            </button>
+                                        <!--[if ENDBLOCK]><![endif]-->                                    </div>
+                                </div>
+                            <!--[if ENDBLOCK]><![endif]-->                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="flex h-full flex-col items-start rounded-md bg-surface-alt p-6">
+                    <div class="flex w-full items-center justify-between gap-3">
+                        <span class="text-m16 text-label-neutral">예상 월 본인부담금</span>
+                        <span class="flex items-center justify-center rounded-md border border-line-neutral px-2 py-1.5 text-m16 text-label-alt">
+                            부담률&nbsp;<span x-text="rate()"></span>
+                        </span>
+                    </div>
+
+                    <p class="mt-2 flex items-baseline">
+                        <span class="text-b24 text-label">월&nbsp;</span>
+                        <span class="text-eb40 text-primary-strong">209,874</span>
+                        <span class="text-b24 text-label">원</span>
+                    </p>
+
+                    <div class="mt-5 flex w-full flex-col items-start gap-4">
+                        <div class="flex w-full flex-col items-start gap-2">
+                            <div class="flex w-full items-center justify-between gap-3">
+                                <span class="text-r16 text-label-neutral">공단 부담</span>
+                                <span class="text-m16 text-label">1,189,286원</span>
+                            </div>
+                            <span class="block h-2 w-full overflow-hidden rounded-full bg-line-divider">
+                                <span class="block h-full w-[85%] rounded-full bg-primary-strong"></span>
+                            </span>
+                        </div>
+                        <div class="flex w-full flex-col items-start gap-2">
+                            <div class="flex w-full items-center justify-between gap-3">
+                                <span class="text-r16 text-label-neutral">본인 부담</span>
+                                <span class="text-m16 text-label">209,874원</span>
+                            </div>
+                            <span class="block h-2 w-full overflow-hidden rounded-full bg-line-divider">
+                                <span class="block h-full w-[15%] rounded-full bg-primary"></span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="mt-5 flex w-full items-center justify-between gap-3 border-t border-surface-alt pt-5">
+                        <span class="text-r16 text-label-neutral"><span x-text="grade"></span> 월 한도</span>
+                        <span class="text-b16 text-label">2,512,900원</span>
+                    </div>
+
+                    <div class="mt-4 flex w-full flex-col items-start gap-1.5 border-t border-surface-alt pt-4">
+                        <div class="flex w-full items-center justify-between gap-3">
+                            <span class="text-r14 text-label-alt"
+                                  x-text="'방문요양 ' + care.duration + ' × ' + care.days + '일'"></span>
+                            <span class="text-m16 text-label-neutral">1,140,400원</span>
+                        </div>
+                        <div class="flex w-full items-center justify-between gap-3">
+                            <span class="text-r14 text-label-alt"
+                                  x-text="'방문간호 ' + nursing.duration + ' × ' + nursing.days + '일'"></span>
+                            <span class="text-m16 text-label-neutral">258,760원</span>
+                        </div>
+                        <div class="flex w-full items-center justify-between gap-3 border-t border-surface-alt pt-2.5">
+                            <span class="text-m16 text-label-neutral">급여비용 합계</span>
+                            <span class="text-b16 text-label">1,399,160원</span>
+                        </div>
+                    </div>
+
+                    <span class="min-h-8 flex-1" aria-hidden="true"></span>
+
+                    <a href="https://akb0356.github.io/matcha123/services/visiting-nursing"
+                       class="btn-lift flex h-[52px] w-full shrink-0 items-center justify-center rounded bg-primary-strong text-m16 text-surface hover:brightness-95">
+                        이 조건으로 서비스 신청하기
+                    </a>
+                </div>
+            </div>
+
+            
+            <div class="mt-6 w-full">
+                <p class="text-r14 text-label-alt">
+                    계산 기준 안내 · 표시된 금액은 예시이며 선택에 따라 다시 계산되지 않아요. 정확한 금액은 상담 시 안내해 드립니다.
+                </p>
             </div>
         </div>
     </div>
 </section>
         <section class="w-full bg-surface">
     <div class="mx-auto flex max-w-content flex-col items-start gap-24 px-6 py-[120px]">
-        <div class="flex w-full max-w-[860px] flex-col items-start gap-3">
-            <h2 class="text-eb40 text-label">본인부담금이 뭔가요?</h2>
-            <p class="w-full text-m20 text-label-alt">비용의 대부분은 공단이 부담하고, 어르신이 내는 '일부'가 본인부담금이에요.</p>
-        </div>
-
-        <div class="flex w-full flex-col items-start gap-3">
-            
-            <div class="flex h-16 w-full overflow-hidden rounded-md shadow-elevation-xs" role="img"
-                 aria-label="재가급여 비용은 공단이 85%, 본인이 15%를 부담합니다">
-                <span class="flex basis-[85%] items-center justify-center bg-primary-strong text-b16 text-surface">
-                    공단 부담 85%
-                </span>
-                <span class="flex basis-[15%] items-center justify-center bg-primary text-b14 text-surface">
-                    본인 15%
-                </span>
-            </div>
-            <p class="w-full text-r16 text-label-alt">재가급여(방문요양·방문간호·방문목욕) 일반 대상자 기준</p>
+        <div class="flex w-full max-w-[860px] flex-col items-start gap-4">
+            <h2 class="w-full text-eb44 text-label-strong lg:text-eb52">계산기에 포함되지 않는 비용</h2>
+            <p class="w-full text-m20 text-label-alt">아래 항목은 본인부담률(15%)과 별개로 전액 본인 부담이에요.</p>
         </div>
 
         <div class="grid w-full grid-cols-1 items-stretch gap-4 md:grid-cols-3">
-            <!--[if BLOCK]><![endif]-->                <div class="flex flex-col items-start gap-3 rounded-md border p-7
-                            border-line-neutral bg-surface">
-                    <p class="text-b16 text-primary">STEP 1</p>
-                    <p class="w-full text-b24 text-label-strong">총 서비스 비용</p>
-                    <p class="w-full text-r20 text-label-alt">한 달 이용한 방문요양·간호·목욕의 전체 금액</p>
+            <!--[if BLOCK]><![endif]-->                <div class="flex flex-col items-start gap-3 rounded-md border bg-primary-surface p-7"
+                     style="border-color: rgba(54, 148, 171, 0.2)">
+                    <p class="w-full text-b24 text-primary-strong">식비·간식비</p>
+                    <p class="w-full text-m20 text-label-alt">방문 중 식사·간식 등 식재료 관련 비용</p>
                 </div>
-                            <div class="flex flex-col items-start gap-3 rounded-md border p-7
-                            border-line-neutral bg-surface">
-                    <p class="text-b16 text-primary">STEP 2</p>
-                    <p class="w-full text-b24 text-label-strong">공단이 대부분 부담</p>
-                    <p class="w-full text-r20 text-label-alt">재가 85% · 시설 80%를 공단이 직접 결제</p>
+                            <div class="flex flex-col items-start gap-3 rounded-md border bg-primary-surface p-7"
+                     style="border-color: rgba(54, 148, 171, 0.2)">
+                    <p class="w-full text-b24 text-primary-strong">한도 초과 이용분</p>
+                    <p class="w-full text-m20 text-label-alt">등급별 월 한도를 넘겨 이용한 금액은 전액 본인 부담</p>
                 </div>
-                            <div class="flex flex-col items-start gap-3 rounded-md border p-7
-                            border-primary-inverse bg-primary-surface">
-                    <p class="text-b16 text-primary-strong">STEP 3</p>
-                    <p class="w-full text-b24 text-label-strong">본인부담금만 납부</p>
-                    <p class="w-full text-r20 text-label-alt">남은 일부만 어르신이 부담 (소득에 따라 더 경감)</p>
+                            <div class="flex flex-col items-start gap-3 rounded-md border bg-primary-surface p-7"
+                     style="border-color: rgba(54, 148, 171, 0.2)">
+                    <p class="w-full text-b24 text-primary-strong">일부 재료·소모품</p>
+                    <p class="w-full text-m20 text-label-alt">서비스에 따라 발생하는 일부 비급여 재료·물품</p>
                 </div>
             <!--[if ENDBLOCK]><![endif]-->        </div>
     </div>
 </section>
-        <section class="w-full bg-fill-normal">
+        <section class="w-full bg-surface">
     <div class="mx-auto flex max-w-content flex-col items-start gap-24 px-6 py-[120px]">
-        <div class="flex w-full max-w-[860px] flex-col items-start gap-3">
-            <h2 class="text-eb40 text-label">어떤 서비스냐에 따라 달라져요</h2>
-            <p class="w-full text-m20 text-label-alt">
-                집에서 받는 재가급여는 15%, 시설에 입소하는 시설급여는 20%가 기본 본인부담률이에요.
-            </p>
-        </div>
-
-        <div class="flex w-full flex-col items-start gap-5">
-            <div class="grid w-full grid-cols-1 items-stretch gap-4 md:grid-cols-2">
-                <!--[if BLOCK]><![endif]-->                    <div class="flex flex-col items-start gap-3 rounded-md border p-7
-                                border-primary-inverse bg-primary-soft">
-                        <div class="flex w-full items-baseline justify-between gap-3">
-                            <span class="text-b24 text-label-strong">재가급여</span>
-                            <span class="text-eb30 text-primary-strong">15%</span>
-                        </div>
-                        <p class="w-full text-r20 text-label-alt">방문요양·방문간호·방문목욕, 주야간보호 등 집에서 받는 서비스</p>
-                    </div>
-                                    <div class="flex flex-col items-start gap-3 rounded-md border p-7
-                                border-line-neutral bg-surface">
-                        <div class="flex w-full items-baseline justify-between gap-3">
-                            <span class="text-b24 text-label-strong">시설급여</span>
-                            <span class="text-eb30 text-label">20%</span>
-                        </div>
-                        <p class="w-full text-r20 text-label-alt">노인요양시설 등에 입소해 생활하며 받는 서비스</p>
-                    </div>
-                <!--[if ENDBLOCK]><![endif]-->            </div>
-
-            <p class="w-full text-m16 text-label-alt">
-                ※ 청담원의 방문요양·방문간호·방문목욕은 모두 재가급여(15%)에 해당해요.
-            </p>
-        </div>
-    </div>
-</section>
-        <section class="w-full bg-primary">
-    <div class="mx-auto flex max-w-content flex-col items-start gap-24 px-6 py-[120px]">
-        <div class="flex w-full max-w-[720px] flex-col items-start gap-4">
-            <h2 class="text-eb40 text-surface">소득이 적으면 더 줄어들어요</h2>
-            <p class="w-full text-m20 text-surface">소득·재산에 따라 40~60% 경감, 기초수급자는 전액 면제돼요.</p>
-        </div>
-
-        <div class="flex w-full flex-col items-start gap-5">
-            <div class="grid w-full grid-cols-1 items-stretch gap-4 md:grid-cols-2">
-                <!--[if BLOCK]><![endif]-->                    <div class="flex flex-col items-start gap-2 rounded-md border p-7
-                                border-white/10 bg-white/5">
-                        <p class="text-m16 text-primary-soft">일반 대상자</p>
-                        <p class="text-eb30 text-label-inverse">15%</p>
-                        <p class="w-full text-r20 text-label-inverse">경감 없이 기본 부담률 적용</p>
-                    </div>
-                                    <div class="flex flex-col items-start gap-2 rounded-md border p-7
-                                border-white/10 bg-white/5">
-                        <p class="text-m16 text-primary-soft">40% 경감</p>
-                        <p class="text-eb30 text-label-inverse">9%</p>
-                        <p class="w-full text-r20 text-label-inverse">보험료 순위 25~50% 구간 등</p>
-                    </div>
-                                    <div class="flex flex-col items-start gap-2 rounded-md border p-7
-                                border-white/10 bg-white/5">
-                        <p class="text-m16 text-primary-soft">60% 경감</p>
-                        <p class="text-eb30 text-label-inverse">6%</p>
-                        <p class="w-full text-r20 text-label-inverse">보험료 순위 25% 이하 등</p>
-                    </div>
-                                    <div class="flex flex-col items-start gap-2 rounded-md border p-7
-                                border-primary/40 bg-primary-soft">
-                        <p class="text-m16 text-primary">기초수급자</p>
-                        <p class="text-eb30 text-primary">0%</p>
-                        <p class="w-full text-r20 text-primary">국민기초생활 수급권자 전액 면제</p>
-                    </div>
-                <!--[if ENDBLOCK]><![endif]-->            </div>
-
-            <p class="w-full text-m16 text-primary-soft">
-                ※ 재가급여 기준 본인부담률 예시 · 경감 구간·요건은 공단 기준에 따라 달라질 수 있어요.
-            </p>
-        </div>
-    </div>
-</section>
-        <section id="copay-limit" class="w-full bg-surface">
-    <div class="mx-auto flex max-w-content flex-col items-start gap-24 px-6 py-[120px]">
-        <div class="flex w-full max-w-[900px] flex-col items-start gap-4">
-            <h2 class="w-full text-eb40 text-label">등급마다 월 이용 한도가 있어요</h2>
-            <p class="w-full text-m20 text-label-alt">
-                재가급여는 등급별로 한 달에 쓸 수 있는 한도가 정해져 있어요. 이 한도 안에서 이용하면 본인부담은 15%(일반)예요.
-            </p>
-        </div>
-
-        <div class="flex w-full flex-col items-start gap-5">
-            <div class="grid w-full grid-cols-1 items-stretch gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                <!--[if BLOCK]><![endif]-->                    <div class="flex flex-col items-start gap-4 rounded-md border border-line-neutral bg-surface p-7">
-                        <p class="text-b24 text-label-strong">1등급</p>
-                        <div class="flex w-full flex-col items-start gap-3 border-t border-surface-alt pt-4">
-                            <div class="flex w-full items-baseline justify-between gap-2">
-                                <span class="text-r20 text-label-alt">월 이용 한도액</span>
-                                <span class="text-m20 text-label">2,069,900원</span>
-                            </div>
-                            <div class="flex w-full items-baseline justify-between gap-2">
-                                <span class="text-r20 text-label-alt">본인부담 15% 시</span>
-                                <span class="text-b20 text-primary-strong">약 31만 원</span>
-                            </div>
-                        </div>
-                    </div>
-                                    <div class="flex flex-col items-start gap-4 rounded-md border border-line-neutral bg-surface p-7">
-                        <p class="text-b24 text-label-strong">2등급</p>
-                        <div class="flex w-full flex-col items-start gap-3 border-t border-surface-alt pt-4">
-                            <div class="flex w-full items-baseline justify-between gap-2">
-                                <span class="text-r20 text-label-alt">월 이용 한도액</span>
-                                <span class="text-m20 text-label">1,869,600원</span>
-                            </div>
-                            <div class="flex w-full items-baseline justify-between gap-2">
-                                <span class="text-r20 text-label-alt">본인부담 15% 시</span>
-                                <span class="text-b20 text-primary-strong">약 28만 원</span>
-                            </div>
-                        </div>
-                    </div>
-                                    <div class="flex flex-col items-start gap-4 rounded-md border border-line-neutral bg-surface p-7">
-                        <p class="text-b24 text-label-strong">3등급</p>
-                        <div class="flex w-full flex-col items-start gap-3 border-t border-surface-alt pt-4">
-                            <div class="flex w-full items-baseline justify-between gap-2">
-                                <span class="text-r20 text-label-alt">월 이용 한도액</span>
-                                <span class="text-m20 text-label">1,455,800원</span>
-                            </div>
-                            <div class="flex w-full items-baseline justify-between gap-2">
-                                <span class="text-r20 text-label-alt">본인부담 15% 시</span>
-                                <span class="text-b20 text-primary-strong">약 22만 원</span>
-                            </div>
-                        </div>
-                    </div>
-                                    <div class="flex flex-col items-start gap-4 rounded-md border border-line-neutral bg-surface p-7">
-                        <p class="text-b24 text-label-strong">4등급</p>
-                        <div class="flex w-full flex-col items-start gap-3 border-t border-surface-alt pt-4">
-                            <div class="flex w-full items-baseline justify-between gap-2">
-                                <span class="text-r20 text-label-alt">월 이용 한도액</span>
-                                <span class="text-m20 text-label">1,341,800원</span>
-                            </div>
-                            <div class="flex w-full items-baseline justify-between gap-2">
-                                <span class="text-r20 text-label-alt">본인부담 15% 시</span>
-                                <span class="text-b20 text-primary-strong">약 20만 원</span>
-                            </div>
-                        </div>
-                    </div>
-                                    <div class="flex flex-col items-start gap-4 rounded-md border border-line-neutral bg-surface p-7">
-                        <p class="text-b24 text-label-strong">5등급</p>
-                        <div class="flex w-full flex-col items-start gap-3 border-t border-surface-alt pt-4">
-                            <div class="flex w-full items-baseline justify-between gap-2">
-                                <span class="text-r20 text-label-alt">월 이용 한도액</span>
-                                <span class="text-m20 text-label">1,151,600원</span>
-                            </div>
-                            <div class="flex w-full items-baseline justify-between gap-2">
-                                <span class="text-r20 text-label-alt">본인부담 15% 시</span>
-                                <span class="text-b20 text-primary-strong">약 17만 원</span>
-                            </div>
-                        </div>
-                    </div>
-                                    <div class="flex flex-col items-start gap-4 rounded-md border border-line-neutral bg-surface p-7">
-                        <p class="text-b24 text-label-strong">인지지원등급</p>
-                        <div class="flex w-full flex-col items-start gap-3 border-t border-surface-alt pt-4">
-                            <div class="flex w-full items-baseline justify-between gap-2">
-                                <span class="text-r20 text-label-alt">월 이용 한도액</span>
-                                <span class="text-m20 text-label">643,000원</span>
-                            </div>
-                            <div class="flex w-full items-baseline justify-between gap-2">
-                                <span class="text-r20 text-label-alt">본인부담 15% 시</span>
-                                <span class="text-b20 text-primary-strong">약 10만 원</span>
-                            </div>
-                        </div>
-                    </div>
-                <!--[if ENDBLOCK]><![endif]-->            </div>
-
-            <p class="w-full text-m16 text-label-alt">
-                ※ 월 한도액·환산 금액은 공단 고시 기준으로 매년 변동돼요. 정확한 금액은 상담 시 안내해 드려요.
-            </p>
-        </div>
-    </div>
-</section>
-        <section id="copay-calc" class="w-full"
-         style="background-image: linear-gradient(152.16deg, #e8f3f5 14.6%, #b8dce4 85.4%)">
-    <div class="mx-auto flex max-w-content flex-col items-start gap-24 px-6 py-[120px]">
-        <div class="flex w-full max-w-[860px] flex-col items-start gap-3">
-            <h2 class="text-eb40 text-label">이렇게 계산돼요</h2>
-            <p class="w-full text-m20 text-label-alt">
-                3등급 어르신이 방문요양을 한 달 약 120만 원어치 이용했을 때, 실제 내시는 금액이에요.
-            </p>
-        </div>
-
-        <div class="flex w-full flex-col items-center gap-24">
-            <div class="flex w-full flex-col items-start gap-6 rounded-md border border-primary-soft bg-surface p-9 shadow-elevation-xs">
-                <div class="flex w-full flex-col items-start gap-1 border-b border-surface-alt pb-5">
-                    <p class="text-b14 text-primary">예시 조건</p>
-                    <p class="w-full text-b24 text-label-strong">3등급 · 일반 대상자 · 방문요양 월 이용액 약 120만 원</p>
-                </div>
-
-                <div class="flex w-full flex-col items-start">
-                    <!--[if BLOCK]><![endif]-->                        <div class="flex w-full items-baseline justify-between gap-3 py-5 ">
-                            <!--[if BLOCK]><![endif]-->                                <span class="text-r20 text-label-alt">총 서비스 비용</span>
-                                <span class="text-b20 text-label">약 120만 원</span>
-                            <!--[if ENDBLOCK]><![endif]-->                        </div>
-                                            <div class="flex w-full items-baseline justify-between gap-3 py-5 border-t border-surface-alt">
-                            <!--[if BLOCK]><![endif]-->                                <span class="text-r20 text-label-alt">공단 부담 (85%)</span>
-                                <span class="text-b20 text-label">약 102만 원</span>
-                            <!--[if ENDBLOCK]><![endif]-->                        </div>
-                                            <div class="flex w-full items-baseline justify-between gap-3 py-5 border-t border-surface-alt">
-                            <!--[if BLOCK]><![endif]-->                                <span class="text-b20 text-primary-strong">내 본인부담금(15%)</span>
-                                <span class="text-eb30 text-primary-strong">약 18만 원</span>
-                            <!--[if ENDBLOCK]><![endif]-->                        </div>
-                    <!--[if ENDBLOCK]><![endif]-->                </div>
-
-                <p class="w-full text-r20 text-label-alt">
-                    ※ 월 한도 초과분과 식비·간식비 등 비급여 항목은 별도예요. 경감 대상이면 부담금은 더 줄어듭니다.
-                </p>
-            </div>
-
-            <a href="#"
-               class="btn-lift flex h-14 items-center justify-center rounded bg-primary px-6 text-m20 text-surface hover:brightness-95">
-                내 부담금 계산 도움받기
-            </a>
-        </div>
-    </div>
-</section>
-        <section class="w-full bg-surface-alt">
-    <div class="mx-auto flex max-w-content flex-col items-start gap-24 px-6 py-[120px]">
-        <h2 class="w-full text-eb40 text-label">본인부담금 자주 묻는 질문</h2>
+        <h2 class="w-full text-eb44 text-label lg:text-eb52">비용 계산기 자주 묻는 질문</h2>
 
         <div class="flex w-full flex-col items-start gap-5 border-t border-surface-alt">
             <!--[if BLOCK]><![endif]-->                <div class="w-full rounded-md border-b border-surface-alt bg-surface px-5"
                      x-data="{ open: true }">
 
                     <button type="button" x-on:click="open = !open"
-                            x-bind:aria-expanded="open" aria-controls="copay-faq-answer-0"
+                            x-bind:aria-expanded="open" aria-controls="calc-faq-answer-0"
                             class="flex w-full items-center justify-between gap-4 py-6 text-left">
-                        <span class="text-m20 text-label">본인부담금은 어떻게 내나요?</span>
+                        <span class="text-m20 text-label">계산 결과가 실제 청구 금액과 같나요?</span>
                         <span class="flex h-6 w-6 shrink-0 items-center justify-center transition-transform duration-200"
                               x-bind:class="open && 'rotate-45'">
                             <span class="relative block h-6 w-6" aria-hidden="true">
@@ -489,18 +513,18 @@
                         </span>
                     </button>
 
-                    <div id="copay-faq-answer-0" x-show="open" x-cloak
+                    <div id="calc-faq-answer-0" x-show="open" x-cloak
                          class="flex w-full flex-col items-start justify-center pb-12 pr-8">
-                        <p class="max-w-[800px] text-r20 text-label-neutral">보통 서비스를 제공한 센터(기관)에서 매달 본인부담금을 청구하고, 어르신(보호자)이 납부하시면 됩니다. 청담원은 청구 내역을 마이페이지에서 투명하게 확인하실 수 있어요.</p>
+                        <p class="max-w-[800px] text-r20 text-label-neutral">계산기는 공단 고시 한도액과 표준 수가를 바탕으로 한 예상 금액이에요. 실제 금액은 어르신 상태·이용 시간·비급여 항목에 따라 달라질 수 있어, 상담 시 정확히 안내해 드립니다.</p>
                     </div>
                 </div>
                             <div class="w-full rounded-md border-b border-surface-alt bg-surface px-5"
                      x-data="{ open: false }">
 
                     <button type="button" x-on:click="open = !open"
-                            x-bind:aria-expanded="open" aria-controls="copay-faq-answer-1"
+                            x-bind:aria-expanded="open" aria-controls="calc-faq-answer-1"
                             class="flex w-full items-center justify-between gap-4 py-6 text-left">
-                        <span class="text-m20 text-label">경감 대상인지 어떻게 알 수 있나요?</span>
+                        <span class="text-m20 text-label">방문요양과 방문간호를 같이 이용할 수 있나요?</span>
                         <span class="flex h-6 w-6 shrink-0 items-center justify-center transition-transform duration-200"
                               x-bind:class="open && 'rotate-45'">
                             <span class="relative block h-6 w-6" aria-hidden="true">
@@ -510,28 +534,7 @@
                         </span>
                     </button>
 
-                    <div id="copay-faq-answer-1" x-show="open" x-cloak
-                         class="flex w-full flex-col items-start justify-center pb-12 pr-8">
-                        <p class="max-w-[800px] text-r20 text-label-neutral">어르신 상황에 따라 달라져요. 무료 상담을 신청해 주시면 전담 매니저가 정확히 안내해 드립니다.</p>
-                    </div>
-                </div>
-                            <div class="w-full rounded-md border-b border-surface-alt bg-surface px-5"
-                     x-data="{ open: false }">
-
-                    <button type="button" x-on:click="open = !open"
-                            x-bind:aria-expanded="open" aria-controls="copay-faq-answer-2"
-                            class="flex w-full items-center justify-between gap-4 py-6 text-left">
-                        <span class="text-m20 text-label">한도를 넘으면 어떻게 되나요?</span>
-                        <span class="flex h-6 w-6 shrink-0 items-center justify-center transition-transform duration-200"
-                              x-bind:class="open && 'rotate-45'">
-                            <span class="relative block h-6 w-6" aria-hidden="true">
-    <span class="absolute left-1 top-[11.25px] h-[1.5px] w-4 rounded-full bg-label"></span>
-    <span class="absolute left-[11.25px] top-1 h-4 w-[1.5px] rounded-full bg-label"></span>
-</span>
-                        </span>
-                    </button>
-
-                    <div id="copay-faq-answer-2" x-show="open" x-cloak
+                    <div id="calc-faq-answer-1" x-show="open" x-cloak
                          class="flex w-full flex-col items-start justify-center pb-12 pr-8">
                         <p class="max-w-[800px] text-r20 text-label-neutral">어르신 상황에 따라 달라져요. 무료 상담을 신청해 주시면 전담 매니저가 정확히 안내해 드립니다.</p>
                     </div>
@@ -540,9 +543,9 @@
                      x-data="{ open: false }">
 
                     <button type="button" x-on:click="open = !open"
-                            x-bind:aria-expanded="open" aria-controls="copay-faq-answer-3"
+                            x-bind:aria-expanded="open" aria-controls="calc-faq-answer-2"
                             class="flex w-full items-center justify-between gap-4 py-6 text-left">
-                        <span class="text-m20 text-label">식비나 재료비도 15%만 내면 되나요?</span>
+                        <span class="text-m20 text-label">식비나 재료비도 계산에 포함되나요?</span>
                         <span class="flex h-6 w-6 shrink-0 items-center justify-center transition-transform duration-200"
                               x-bind:class="open && 'rotate-45'">
                             <span class="relative block h-6 w-6" aria-hidden="true">
@@ -552,7 +555,7 @@
                         </span>
                     </button>
 
-                    <div id="copay-faq-answer-3" x-show="open" x-cloak
+                    <div id="calc-faq-answer-2" x-show="open" x-cloak
                          class="flex w-full flex-col items-start justify-center pb-12 pr-8">
                         <p class="max-w-[800px] text-r20 text-label-neutral">어르신 상황에 따라 달라져요. 무료 상담을 신청해 주시면 전담 매니저가 정확히 안내해 드립니다.</p>
                     </div>
@@ -561,9 +564,9 @@
                      x-data="{ open: false }">
 
                     <button type="button" x-on:click="open = !open"
-                            x-bind:aria-expanded="open" aria-controls="copay-faq-answer-4"
+                            x-bind:aria-expanded="open" aria-controls="calc-faq-answer-3"
                             class="flex w-full items-center justify-between gap-4 py-6 text-left">
-                        <span class="text-m20 text-label">기초생활수급자도 비용이 드나요?</span>
+                        <span class="text-m20 text-label">경감 대상이면 얼마나 줄어드나요?</span>
                         <span class="flex h-6 w-6 shrink-0 items-center justify-center transition-transform duration-200"
                               x-bind:class="open && 'rotate-45'">
                             <span class="relative block h-6 w-6" aria-hidden="true">
@@ -573,7 +576,28 @@
                         </span>
                     </button>
 
-                    <div id="copay-faq-answer-4" x-show="open" x-cloak
+                    <div id="calc-faq-answer-3" x-show="open" x-cloak
+                         class="flex w-full flex-col items-start justify-center pb-12 pr-8">
+                        <p class="max-w-[800px] text-r20 text-label-neutral">어르신 상황에 따라 달라져요. 무료 상담을 신청해 주시면 전담 매니저가 정확히 안내해 드립니다.</p>
+                    </div>
+                </div>
+                            <div class="w-full rounded-md border-b border-surface-alt bg-surface px-5"
+                     x-data="{ open: false }">
+
+                    <button type="button" x-on:click="open = !open"
+                            x-bind:aria-expanded="open" aria-controls="calc-faq-answer-4"
+                            class="flex w-full items-center justify-between gap-4 py-6 text-left">
+                        <span class="text-m20 text-label">월 한도를 넘기면 어떻게 되나요?</span>
+                        <span class="flex h-6 w-6 shrink-0 items-center justify-center transition-transform duration-200"
+                              x-bind:class="open && 'rotate-45'">
+                            <span class="relative block h-6 w-6" aria-hidden="true">
+    <span class="absolute left-1 top-[11.25px] h-[1.5px] w-4 rounded-full bg-label"></span>
+    <span class="absolute left-[11.25px] top-1 h-4 w-[1.5px] rounded-full bg-label"></span>
+</span>
+                        </span>
+                    </button>
+
+                    <div id="calc-faq-answer-4" x-show="open" x-cloak
                          class="flex w-full flex-col items-start justify-center pb-12 pr-8">
                         <p class="max-w-[800px] text-r20 text-label-neutral">어르신 상황에 따라 달라져요. 무료 상담을 신청해 주시면 전담 매니저가 정확히 안내해 드립니다.</p>
                     </div>
@@ -581,24 +605,24 @@
             <!--[if ENDBLOCK]><![endif]-->        </div>
     </div>
 </section>
-        <section class="w-full bg-primary-heavy">
+        <section class="w-full"
+         style="background-image: linear-gradient(164.57deg, #e8f3f5 14.6%, #b8dce4 85.4%)">
     <div class="mx-auto flex max-w-content flex-col items-center gap-24 px-6 py-[120px]">
         <div class="flex w-full flex-col items-center gap-4 text-center">
-            <h2 class="w-full text-eb44 text-surface lg:text-eb72">내 부담금이 얼마인지 궁금하신가요?</h2>
-            <p class="w-full text-b20 text-surface">
-                등급·소득·이용 계획에 맞춰 예상 본인부담금을 알려드릴게요. 청담원이 함께 계산해 드립니다.
+            <h2 class="w-full text-eb44 text-label-strong lg:text-eb72">계산 결과, 더 정확히 알고 싶으세요?</h2>
+            <p class="w-full text-b20 text-label-alt">
+                등급·소득·이용 계획에 맞춰 예상 본인부담금을 정확히 알려드릴게요.
             </p>
         </div>
 
-        <div class="flex w-full max-w-[372px] flex-col items-stretch gap-3 sm:flex-row sm:items-center">
+        <div class="flex w-full max-w-[329px] flex-col items-stretch gap-3 sm:flex-row sm:items-center">
             <a href="#"
-               class="btn-lift flex h-[68px] flex-1 items-center justify-center gap-2 rounded-md bg-primary-strong px-7 text-b16 text-surface hover:brightness-95">
+               class="btn-lift flex h-[68px] flex-1 items-center justify-center rounded-md bg-primary px-7 text-b16 text-surface hover:brightness-95">
                 무료 상담 신청
-                <img src="https://akb0356.github.io/matcha123/images/icons/arrow-right-white.svg" alt="" class="h-5 w-5">
             </a>
-            <a href="https://akb0356.github.io/matcha123/support/long-term-care-grade"
+            <a href="https://akb0356.github.io/matcha123/support/copayment"
                class="btn-lift flex h-[68px] flex-1 items-center justify-center rounded-md border border-line-divider bg-surface px-7 text-b16 text-label hover:bg-surface-alt">
-                장기요양등급 안내
+                본인부담금 안내
             </a>
         </div>
     </div>
