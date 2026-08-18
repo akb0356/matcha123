@@ -31,6 +31,7 @@ PAGES=(
   "/support/copayment:support/copayment"
   "/support/cost-calculator:support/cost-calculator"
   "/careers:careers"
+  "/careers/culture:careers/culture"
 )
 # 루트(/)에 둘 페이지 = 메인
 ROOT_PAGE="/"

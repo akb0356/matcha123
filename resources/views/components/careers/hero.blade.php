@@ -41,9 +41,9 @@
         {{--
             시안(180:2219)은 이 링크를 히어로 좌하단에 흰색 70% 로 두었는데,
             같은 자리에 흰 스크림이 깔려 있어 시안 렌더에서도 글자가 보이지 않는다.
-            확인 필요: 읽히도록 primary 로 바꿨다. 연결할 페이지는 아직 없다.
+            확인 필요: 읽히도록 primary 로 바꿨다.
         --}}
-        <a href="#" class="mb-6 mt-auto inline-flex w-fit items-center gap-1.5 text-m16 text-primary hover:underline">
+        <a href="{{ route('careers.culture') }}" class="mb-6 mt-auto inline-flex w-fit items-center gap-1.5 text-m16 text-primary hover:underline">
             청담원에서 일한다는 것
             <img src="{{ asset('images/icons/arrow-right-primary.svg') }}" alt="" class="h-[13.45px] w-4">
         </a>

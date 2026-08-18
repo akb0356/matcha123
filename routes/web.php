@@ -1,6 +1,7 @@
 <?php
 
 use App\Livewire\Careers;
+use App\Livewire\CareersCulture;
 use App\Livewire\Main;
 use App\Livewire\Services\DementiaRespite;
 use App\Livewire\Services\Platform;
@@ -29,3 +30,4 @@ Route::get('/support/cost-calculator', CostCalculator::class)->name('support.cos
 
 // 채용·커리어. 헤더 상단 메뉴에서 바로 연결된다(하위 메뉴 없음).
 Route::get('/careers', Careers::class)->name('careers');
+Route::get('/careers/culture', CareersCulture::class)->name('careers.culture');
