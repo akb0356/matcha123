@@ -1,5 +1,10 @@
 {{-- Figma 156:4671 + 156:4670 — 히어로 --}}
 <section class="hero-section relative w-full overflow-hidden">
+    {{--
+        시안 에셋(156:4671)은 프레임과 같은 1920x570 비율로 이미 잘려 있다.
+        원본(12800x8533, 비율 1.5)을 쓰면 object-cover 가 폭을 절반 넘게 잘라
+        2배 이상 확대돼 보이므로, 반드시 시안에서 내보낸 크롭을 쓴다.
+    --}}
     <img src="{{ asset('images/support/copayment/hero-copayment.jpg') }}"
          alt="카드와 노트북으로 본인부담금을 확인하는 어르신"
          class="absolute inset-0 h-full w-full object-cover">

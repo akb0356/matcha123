@@ -2,7 +2,13 @@
 <section class="hero-section relative w-full overflow-hidden">
     <img src="{{ asset('images/support/grade/hero-grade-guide.jpg') }}"
          alt="장기요양등급 신청을 상담받는 어르신과 전담 매니저"
-         class="absolute inset-0 h-full w-full object-cover">
+         {{--
+             시안(153:4338)은 1920x701 이미지를 570 프레임에 y=-19px 로 얹는다.
+             object-cover 기본값(중앙)은 위아래 66px 씩 잘라 19px 과 어긋나므로
+             크롭 위치를 19/132 = 14.4% 로 지정한다.
+         --}}
+         class="absolute inset-0 h-full w-full object-cover"
+         style="object-position: 50% 14.4%">
 
     {{--
         시안(153:4338)의 스크림은 89.57deg 로 흰색 → 투명이다.

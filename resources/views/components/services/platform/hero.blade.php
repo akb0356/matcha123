@@ -2,7 +2,8 @@
 <section class="hero-section relative w-full overflow-hidden">
     <img src="{{ asset('images/services/platform/hero-platform.jpg') }}"
          alt="센터 사무실에서 청담원 플랫폼으로 업무를 처리하는 담당자"
-         class="absolute inset-0 h-full w-full object-cover">
+         {{-- 시안(180:3116)은 이미지에 불투명도 80% 가 걸려 있다 --}}
+         class="absolute inset-0 h-full w-full object-cover opacity-80">
 
     {{-- 서비스 페이지 히어로와 같은 화이트 스크림 규칙 --}}
     <div class="pointer-events-none absolute inset-0" aria-hidden="true"
