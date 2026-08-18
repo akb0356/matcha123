@@ -46,7 +46,12 @@
     $panelHeight = max(array_map(fn ($item) => count($item['children']), $navItems)) * 37;
 @endphp
 
-<header class="relative z-50 w-full bg-surface"
+{{--
+    sticky 로 두면 처음에는 문서 흐름에 있다가 스크롤할 때 상단에 붙는다.
+    fixed 와 달리 흐름에서 빠지지 않으므로 히어로가 헤더 밑으로 밀려 들어가지 않는다.
+    페이지 래퍼(.bg-surface)에 overflow 가 없어야 동작한다.
+--}}
+<header class="sticky top-0 z-50 w-full border-b border-line-divider bg-surface"
         x-data="{ open: false }"
         x-on:mouseleave="open = false"
         x-on:focusout="if (! $el.contains($event.relatedTarget)) open = false"

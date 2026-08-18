@@ -32,4 +32,39 @@ class HeaderNavTest extends TestCase
         $response->assertSee(route('services.visiting-care'), false);
         $response->assertSee(route('services.visiting-bath'), false);
     }
+
+    /**
+     * 헤더는 모든 페이지에서 스크롤 시 상단에 붙고 하단 1px 선을 갖는다.
+     *
+     * fixed 가 아니라 sticky 인 이유: 흐름에서 빠지지 않아 히어로가 헤더 밑으로
+     * 밀려 들어가지 않는다. 조상에 overflow 가 생기면 깨지므로 함께 막는다.
+     */
+    public function test_헤더가_모든_페이지에서_상단에_고정되고_하단_선을_갖는다(): void
+    {
+        $routes = [
+            'main',
+            'services.visiting-nursing',
+            'services.visiting-care',
+            'services.visiting-bath',
+            'services.dementia-respite',
+            'services.platform',
+            'support.long-term-care-grade',
+            'support.copayment',
+        ];
+
+        foreach ($routes as $name) {
+            $html = $this->get(route($name))->getContent();
+
+            $this->assertStringContainsString(
+                'sticky top-0 z-50 w-full border-b border-line-divider bg-surface',
+                $html,
+                "$name 헤더에 sticky 또는 하단선 클래스가 없다"
+            );
+
+            // sticky 는 조상에 overflow 가 걸리면 동작하지 않는다
+            // Livewire 가 wire:snapshot 을 끼워 넣으므로 클래스만 확인한다
+            $this->assertStringContainsString('class="bg-surface"', $html);
+            $this->assertStringNotContainsString('bg-surface overflow', $html);
+        }
+    }
 }
