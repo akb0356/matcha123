@@ -22,7 +22,8 @@
     ];
 @endphp
 
-<section class="w-full bg-surface">
+{{-- 배경은 담당자 요청으로 primary-soft(#F1F8F9) 를 깔았다. 시안은 흰 배경이다. --}}
+<section class="w-full bg-primary-soft">
     <div class="mx-auto flex max-w-content flex-col items-start gap-24 px-6 py-[120px]">
         <h2 class="w-full text-eb44 text-label lg:text-eb52">비용 계산기 자주 묻는 질문</h2>
 
