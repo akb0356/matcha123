@@ -14,3 +14,77 @@
 /* 지원 3개 페이지(153:3866 / 156:4390 / 163:5589)는 시안이 전부 rose */
 .bg-rose-soft{--tw-bg-opacity: 1;background-color:rgb(251 241 243 / var(--tw-bg-opacity, 1))}.border-rose-soft{--tw-border-opacity: 1;border-color:rgb(251 241 243 / var(--tw-border-opacity, 1))}.text-rose-soft{--tw-text-opacity: 1;color:rgb(251 241 243 / var(--tw-text-opacity, 1))}.bg-rose-heavy{--tw-bg-opacity: 1;background-color:rgb(158 58 84 / var(--tw-bg-opacity, 1))}.text-rose-heavy{--tw-text-opacity: 1;color:rgb(158 58 84 / var(--tw-text-opacity, 1))}.hover\:bg-rose-strong:hover{--tw-bg-opacity: 1;background-color:rgb(192 78 107 / var(--tw-bg-opacity, 1))}.bg-accent-rose\/10{background-color:#d96a851a}.border-accent-rose\/40{border-color:#d96a8566}.hover\:border-accent-rose:hover{--tw-border-opacity: 1;border-color:rgb(217 106 133 / var(--tw-border-opacity, 1))}
 .border-rose-inverse{--tw-border-opacity: 1;border-color:rgb(241 198 209 / var(--tw-border-opacity, 1))}.bg-rose-inverse{--tw-bg-opacity: 1;background-color:rgb(241 198 209 / var(--tw-bg-opacity, 1))}
+/* 채용정보 잡보드(273:224) — 이 페이지에서 처음 쓰는 유틸리티 */
+.cursor-pointer{cursor:pointer}
+.min-w-0{min-width:0px}
+.min-w-\[880px\]{min-width:880px}
+.overflow-y-auto{overflow-y:auto}
+.text-r12{font-size:12px;line-height:1.5;letter-spacing:-.5px;font-weight:400}
+.text-\[11px\]{font-size:11px;line-height:1.3}
+.text-\[13px\]{font-size:13px;line-height:1.4}
+.rounded-\[2px\]{border-radius:2px}
+.rounded-\[3px\]{border-radius:3px}
+.border-r{border-right-width:1px}
+.border-y{border-top-width:1px;border-bottom-width:1px}
+.border-b-2{border-bottom-width:2px}
+.border-\[1\.5px\]{border-width:1.5px}
+.border-transparent{border-color:transparent}
+.border-label-assistive{--tw-border-opacity: 1;border-color:rgb(194 194 194 / var(--tw-border-opacity, 1))}
+.border-line-normal-alt{border-color:rgba(133,133,133,.08)}
+.bg-line-neutral-solid{--tw-bg-opacity: 1;background-color:rgb(245 245 245 / var(--tw-bg-opacity, 1))}
+.hover\:bg-line-neutral-solid:hover{--tw-bg-opacity: 1;background-color:rgb(245 245 245 / var(--tw-bg-opacity, 1))}
+.hover\:bg-rose-soft:hover{--tw-bg-opacity: 1;background-color:rgb(251 241 243 / var(--tw-bg-opacity, 1))}
+.gap-\[3px\]{gap:3px}
+.gap-\[9px\]{gap:9px}
+.h-\[5px\]{height:5px}
+.h-\[9px\]{height:9px}
+.h-\[15px\]{height:15px}
+.h-\[27px\]{height:27px}
+.h-\[190px\]{height:190px}
+.w-\[5px\]{width:5px}
+.w-\[9px\]{width:9px}
+.w-\[11px\]{width:11px}
+.w-\[15px\]{width:15px}
+.w-\[37px\]{width:37px}
+.w-\[38px\]{width:38px}
+.w-\[64px\]{width:64px}
+.w-\[114px\]{width:114px}
+.w-\[120px\]{width:120px}
+.w-\[142px\]{width:142px}
+.w-\[284px\]{width:284px}
+.p-3\.5{padding:.875rem}
+.pt-3\.5{padding-top:.875rem}
+.pb-3{padding-bottom:.75rem}
+.pl-6{padding-left:1.5rem}
+.pr-3{padding-right:.75rem}
+.pt-\[120px\]{padding-top:120px}
+.pb-\[190px\]{padding-bottom:190px}
+.px-\[7px\]{padding-left:7px;padding-right:7px}
+.py-0\.5{padding-top:.125rem;padding-bottom:.125rem}
+.py-\[3px\]{padding-top:3px;padding-bottom:3px}
+.py-\[5px\]{padding-top:5px;padding-bottom:5px}
+.py-\[9px\]{padding-top:9px;padding-bottom:9px}
+.py-\[11px\]{padding-top:11px;padding-bottom:11px}
+.py-\[13px\]{padding-top:13px;padding-bottom:13px}
+.py-\[22px\]{padding-top:22px;padding-bottom:22px}
+.-rotate-90{--tw-rotate: -90deg;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}
+.placeholder\:text-label-alt::placeholder{--tw-text-opacity: 1;color:rgb(133 133 133 / var(--tw-text-opacity, 1))}
+.peer:checked ~ .peer-checked\:bg-accent-rose{--tw-bg-opacity: 1;background-color:rgb(217 106 133 / var(--tw-bg-opacity, 1))}
+.peer:checked ~ .peer-checked\:border-accent-rose{--tw-border-opacity: 1;border-color:rgb(217 106 133 / var(--tw-border-opacity, 1))}
+.peer:checked ~ .peer-checked\:font-bold{font-weight:700}
+.peer:checked ~ .peer-checked\:text-rose-heavy{--tw-text-opacity: 1;color:rgb(158 58 84 / var(--tw-text-opacity, 1))}
+.group\/jr:hover .group-hover\/jr\:text-rose-heavy{--tw-text-opacity: 1;color:rgb(158 58 84 / var(--tw-text-opacity, 1))}
+@media (min-width: 1024px){
+.lg\:hidden{display:none}
+.lg\:border-b-0{border-bottom-width:0px}
+.lg\:gap-5{gap:1.25rem}
+.lg\:gap-6{gap:1.5rem}
+.lg\:gap-10{gap:2.5rem}
+.lg\:pb-0{padding-bottom:0px}
+.lg\:h-\[116px\]{height:116px}
+.lg\:h-\[325px\]{height:325px}
+.lg\:w-\[140px\]{width:140px}
+.lg\:w-\[284px\]{width:284px}
+}
+/* 채용 상세(289:1427) — 신규 유틸리티 */
+.h-0{height:0px}.h-\[38px\]{height:38px}.w-1{width:.25rem}.mt-\[16px\]{margin-top:16px}.p-4{padding:1rem}.pt-8{padding-top:2rem}.pt-10{padding-top:2.5rem}.pt-\[37px\]{padding-top:37px}.rounded-lg{border-radius:6px}.text-ellipsis{text-overflow:ellipsis}

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex, nofollow">
 
-    <title>채용·커리어 | 청담원 재가복지센터</title>
+    <title>채용정보 | 청담원 재가복지센터</title>
 
     
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
@@ -173,172 +173,719 @@
          aria-hidden="true"></div>
 </header>
 
-    <main>
+    <main x-data="{ region: '서울', tab: '전체', sort: '최신순' }">
+
         <section class="hero-section relative w-full overflow-hidden">
-    
     <img src="https://akb0356.github.io/matcha123/images/careers/hero-careers.jpg"
          alt="청담원에서 함께 일하는 간호사와 요양보호사들"
          class="absolute inset-0 h-full w-full object-cover">
 
     <div class="pointer-events-none absolute inset-0" aria-hidden="true"
          style="background-image: linear-gradient(to right,
-             rgba(255, 255, 255, 0.94) 0%,
-             rgba(255, 255, 255, 0.88) 32%,
-             rgba(255, 255, 255, 0.58) 50%,
-             rgba(255, 255, 255, 0.14) 68%,
-             rgba(255, 255, 255, 0) 80%)"></div>
+             rgba(255, 255, 255, 0.96) 0%,
+             rgba(255, 255, 255, 0.90) 34%,
+             rgba(255, 255, 255, 0.58) 52%,
+             rgba(255, 255, 255, 0.14) 70%,
+             rgba(255, 255, 255, 0) 82%)"></div>
 
-    <div class="relative mx-auto flex h-full max-w-content flex-col px-6">
-        <div class="hero-copy flex w-full max-w-[653px] flex-col items-start gap-12">
-            <div class="flex flex-col items-start gap-[11px]">
-                <h1 class="text-eb52 text-label">함께 성장할<br>동료를 찾습니다</h1>
-                <p class="text-m20 text-label-alt">
-                    경력 단계별 수당부터 월 24시간 유급 교육,<br>심리 상담까지. 청담원이 함께합니다.
-                </p>
-            </div>
+    <div class="relative mx-auto max-w-content px-6 pb-[190px] pt-[120px]">
+        <div class="flex flex-col items-start gap-[11px]">
+            <h1 class="text-eb44 text-label lg:text-eb52">함께 성장할<br>동료를 찾습니다</h1>
+            <p class="text-m20 text-label-alt">경력 단계별 수당부터 월 24시간 유급 교육,<br>심리 상담까지. 청담원이 함께합니다.</p>
+        </div>
+    </div>
+</section>
 
-            <div class="flex flex-wrap items-center gap-3">
-                <a href="#positions"
-                   class="btn-hover flex h-[68px] items-center justify-center gap-2 rounded-md bg-primary px-7 text-b16 text-surface hover:bg-primary-strong">
-                    1분 간편 지원하기
-                    <img src="https://akb0356.github.io/matcha123/images/icons/arrow-right-white.svg" alt="" class="h-[16.81px] w-5">
-                </a>
-                <a href="#positions"
-                   class="btn-hover flex h-[68px] items-center justify-center rounded-md bg-surface px-7 text-b16 text-primary hover:bg-surface-alt">
-                    공고 보기
-                </a>
-            </div>
+
+        <section class="w-full border-b border-surface-alt bg-line-neutral-solid">
+    <div class="mx-auto flex max-w-content flex-col gap-4 px-6 py-5 lg:flex-row lg:items-center lg:gap-10">
+
+        <div class="flex h-6 shrink-0 items-center gap-2.5">
+            <span class="flex shrink-0 items-center rounded-[3px] bg-rose-soft px-2 py-1 text-m12 text-rose-heavy">공지</span>
+            <a href="#" class="whitespace-nowrap text-b14 text-label-neutral hover:underline">2026년 상반기 방문간호사 채용 일정 안내</a>
         </div>
 
-        
-        <a href="https://akb0356.github.io/matcha123/careers/culture" class="mb-6 mt-auto inline-flex w-fit items-center gap-1.5 text-m16 text-primary hover:underline">
-            청담원에서 일한다는 것
-            <img src="https://akb0356.github.io/matcha123/images/icons/arrow-right-primary.svg" alt="" class="h-[13.45px] w-4">
+        <form class="flex flex-1 items-center gap-2.5 rounded border-[1.5px] border-line-normal-alt bg-surface px-4 py-3" onsubmit="return false">
+            <label for="job-search" class="sr-only">채용 검색</label>
+            <input id="job-search" type="search" placeholder="나에게 딱 맞는 커리어 검색하기"
+                   class="min-w-0 flex-1 bg-transparent text-r16 text-label placeholder:text-label-alt focus:outline-none">
+            <img src="https://akb0356.github.io/matcha123/images/icons/search.svg" alt="" class="h-6 w-6 shrink-0">
+        </form>
+
+        <a href="#" class="btn-hover flex h-12 w-full shrink-0 items-center justify-center rounded-md bg-rose-heavy px-5 text-b14 text-surface hover:bg-rose-strong lg:w-[140px]">
+            이력서 등록
         </a>
     </div>
 </section>
-        <section id="positions" class="w-full bg-surface">
-    <div class="mx-auto flex max-w-content flex-col items-start gap-7 px-6 py-[120px]"
-         x-data="{
-             category: '',
-             type: '',
-             region: '',
-             query: '',
-             match(job) {
-                 if (this.category && job.category !== this.category) return false;
-                 if (this.type && job.type !== this.type) return false;
-                 if (this.region && job.region !== this.region) return false;
-                 if (! this.query.trim()) return true;
-                 const q = this.query.trim().toLowerCase();
-                 return [job.title, job.category, job.region, job.schedule].join(' ').toLowerCase().includes(q);
-             },
-             get shown() { return this.jobs.filter((j) => this.match(j)).length; },
-             jobs: JSON.parse('[{\u0022category\u0022:\u0022\\ubc29\\ubb38\\uac04\\ud638\u0022,\u0022type\u0022:\u0022\\ud30c\\ud2b8\\ud0c0\\uc784\u0022,\u0022region\u0022:\u0022\\ubd80\\uc0b0 \\uae30\\uc7a5\\uad70\u0022,\u0022title\u0022:\u0022\\uae30\\uc7a5\\uad70 \\ubc29\\ubb38\\uac04\\ud638 \\uac04\\ud638\\uc0ac \\ubaa8\\uc9d1\u0022,\u0022schedule\u0022:\u0022\\uc8fc 1\\ud68c \\u00b7 \\ud68c\\ub2f9 1\\uc2dc\\uac04\u0022,\u0022pay\u0022:\u0022\\ubc29\\ubb38\\ub2f9 40,000\\uc6d0\u0022}]'),
-         }">
 
-        <h2 class="w-full text-eb30 text-label">지금 모집 중인 포지션</h2>
 
-        
-        <div class="flex w-full flex-col items-stretch justify-between gap-3 lg:flex-row lg:items-center">
-            <div class="flex flex-wrap items-center gap-2">
-                <select x-model="category" aria-label="직군 선택"
-                        class="h-12 rounded-md border border-line-divider bg-surface px-3 text-m16 text-label appearance-none bg-no-repeat pr-8 transition-colors hover:bg-surface-alt focus:border-primary focus:outline-none" style="background-image: url(&#039;https://akb0356.github.io/matcha123/images/icons/chevron-down.svg&#039;); background-position: right 12px center; background-size: 12px 8.81px;">
-                    <option value="">전체 직군 (1)</option>
-                    <!--[if BLOCK]><![endif]-->                        <option value="방문간호">방문간호</option>
-                    <!--[if ENDBLOCK]><![endif]-->                </select>
+        <section class="w-full bg-surface">
+    <div class="mx-auto max-w-content px-6 py-7">
+        <div class="w-full overflow-hidden rounded border border-surface-alt bg-surface" x-data="{ open: true }">
 
-                <select x-model="type" aria-label="고용 형태 선택"
-                        class="h-12 rounded-md border border-line-divider bg-surface px-3 text-m16 text-label appearance-none bg-no-repeat pr-8 transition-colors hover:bg-surface-alt focus:border-primary focus:outline-none" style="background-image: url(&#039;https://akb0356.github.io/matcha123/images/icons/chevron-down.svg&#039;); background-position: right 12px center; background-size: 12px 8.81px;">
-                    <option value="">전체 고용 형태</option>
-                    <!--[if BLOCK]><![endif]-->                        <option value="파트타임">파트타임</option>
-                    <!--[if ENDBLOCK]><![endif]-->                </select>
 
-                <select x-model="region" aria-label="지역 선택"
-                        class="h-12 rounded-md border border-line-divider bg-surface px-3 text-m16 text-label appearance-none bg-no-repeat pr-8 transition-colors hover:bg-surface-alt focus:border-primary focus:outline-none" style="background-image: url(&#039;https://akb0356.github.io/matcha123/images/icons/chevron-down.svg&#039;); background-position: right 12px center; background-size: 12px 8.81px;">
-                    <option value="">전체 지역</option>
-                    <!--[if BLOCK]><![endif]-->                        <option value="부산 기장군">부산 기장군</option>
-                    <!--[if ENDBLOCK]><![endif]-->                </select>
+            <div class="flex items-center gap-2 border-b border-surface-alt bg-surface px-5 py-4">
+                <h2 class="flex-1 text-b24 text-label-strong">채용공고 상세검색</h2>
+                <button type="button" x-on:click="open = ! open"
+                        class="flex shrink-0 items-center gap-2.5 text-r12 text-label-alt hover:text-label-neutral">
+                    <span x-text="open ? '접기' : '펼치기'">접기</span>
+                    <img src="https://akb0356.github.io/matcha123/images/icons/chevron-down.svg" alt=""
+                         class="h-[5px] w-[9px] transition-transform duration-200"
+                         x-bind:class="open ? '' : '-rotate-90'">
+                </button>
             </div>
 
-            
-            <label class="flex h-12 w-full items-center gap-2 rounded-md border border-line-divider bg-surface pl-3.5 pr-4 focus-within:border-primary lg:w-[260px]">
-                <img src="https://akb0356.github.io/matcha123/images/icons/search.svg" alt="" class="h-5 w-5 shrink-0">
-                <input type="search" x-model="query" placeholder="채용공고 검색"
-                       aria-label="채용공고 검색"
-                       class="h-full w-full border-0 bg-transparent p-0 text-m16 text-label placeholder:text-label-assistive focus:outline-none focus:ring-0">
-            </label>
-        </div>
+            <div x-show="open">
 
-        
-        <div class="grid w-full grid-cols-1 items-stretch gap-4 lg:grid-cols-2">
-            <!--[if BLOCK]><![endif]-->                <article x-show="match(jobs[0])"
-                         x-data="{ saved: false }"
-                         
-                         class="flex min-h-[299px] flex-col items-start rounded-md border border-line-neutral bg-surface p-6 transition-colors duration-200 hover:border-primary">
-                    <div class="flex w-full items-center justify-between gap-3">
-                        
-                        <span class="flex h-8 items-center justify-center rounded-md bg-info/[0.08] px-2 text-m14 text-info">
-                            방문간호
+
+                <div class="hidden items-stretch border-b border-surface-alt bg-line-neutral-solid lg:flex">
+                    <div class="flex flex-1 border-r border-surface-alt px-4 py-[11px]"><span class="text-b16 text-label-neutral">직무</span></div>
+                    <div class="flex w-[284px] shrink-0 border-r border-surface-alt px-4 py-[11px]"><span class="text-b16 text-label-neutral">근무지역</span></div>
+                    <div class="flex flex-1 border-r border-surface-alt px-4 py-[11px]"><span class="text-b16 text-label-neutral">기관형태</span></div>
+                    <div class="flex flex-1 border-r border-surface-alt px-4 py-[11px]"><span class="text-b16 text-label-neutral">경력</span></div>
+                    <div class="flex flex-1 px-4 py-[11px]"><span class="text-b16 text-label-neutral">고용형태</span></div>
+                </div>
+
+
+                <div class="flex flex-col items-stretch lg:flex-row">
+
+
+                    <div class="flex flex-1 flex-col gap-[9px] border-b border-surface-alt px-4 py-3.5 lg:h-[325px] lg:border-b-0 lg:border-r">
+                        <p class="text-b16 text-label-neutral lg:hidden">직무</p>
+                        <!--[if BLOCK]><![endif]-->                            <label class="flex w-full cursor-pointer items-center gap-2">
+                                <input type="checkbox" checked class="peer sr-only">
+                                <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
+                                <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">방문간호사</span>
+                            </label>
+                                                    <label class="flex w-full cursor-pointer items-center gap-2">
+                                <input type="checkbox" class="peer sr-only">
+                                <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
+                                <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">방문간호조무사</span>
+                            </label>
+                                                    <label class="flex w-full cursor-pointer items-center gap-2">
+                                <input type="checkbox" class="peer sr-only">
+                                <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
+                                <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">요양보호사</span>
+                            </label>
+                                                    <label class="flex w-full cursor-pointer items-center gap-2">
+                                <input type="checkbox" class="peer sr-only">
+                                <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
+                                <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">사회복지사</span>
+                            </label>
+                        <!--[if ENDBLOCK]><![endif]-->                    </div>
+
+
+                    <div class="flex w-full shrink-0 flex-col border-b border-surface-alt lg:h-[325px] lg:w-[284px] lg:border-b-0 lg:border-r">
+                        <p class="px-4 pt-3.5 text-b16 text-label-neutral lg:hidden">근무지역</p>
+                        <div class="flex flex-1 items-stretch">
+
+
+                            <div class="flex w-[114px] shrink-0 flex-col gap-0.5 overflow-y-auto border-r border-surface-alt bg-rose-soft px-3 py-3.5">
+                                <!--[if BLOCK]><![endif]-->                                    <button type="button" x-on:click="region = '서울'"
+                                            class="flex w-full items-center gap-1.5 rounded-[3px] px-2.5 py-1.5"
+                                            x-bind:class="region === '서울' ? 'border border-accent-rose bg-surface' : ''">
+                                        <span class="flex-1 text-left"
+                                              x-bind:class="region === '서울' ? 'text-b16 text-rose-heavy' : 'text-r16 text-label-neutral'">서울</span>
+                                        <span class="w-[11px] shrink-0 text-[11px] text-accent-rose" x-text="region === '서울' ? '▸' : ''">▸</span>
+                                    </button>
+                                                                    <button type="button" x-on:click="region = '경기'"
+                                            class="flex w-full items-center gap-1.5 rounded-[3px] px-2.5 py-1.5"
+                                            x-bind:class="region === '경기' ? 'border border-accent-rose bg-surface' : ''">
+                                        <span class="flex-1 text-left"
+                                              x-bind:class="region === '경기' ? 'text-b16 text-rose-heavy' : 'text-r16 text-label-neutral'">경기</span>
+                                        <span class="w-[11px] shrink-0 text-[11px] text-accent-rose" x-text="region === '경기' ? '▸' : ''"></span>
+                                    </button>
+                                                                    <button type="button" x-on:click="region = '인천'"
+                                            class="flex w-full items-center gap-1.5 rounded-[3px] px-2.5 py-1.5"
+                                            x-bind:class="region === '인천' ? 'border border-accent-rose bg-surface' : ''">
+                                        <span class="flex-1 text-left"
+                                              x-bind:class="region === '인천' ? 'text-b16 text-rose-heavy' : 'text-r16 text-label-neutral'">인천</span>
+                                        <span class="w-[11px] shrink-0 text-[11px] text-accent-rose" x-text="region === '인천' ? '▸' : ''"></span>
+                                    </button>
+                                                                    <button type="button" x-on:click="region = '부산'"
+                                            class="flex w-full items-center gap-1.5 rounded-[3px] px-2.5 py-1.5"
+                                            x-bind:class="region === '부산' ? 'border border-accent-rose bg-surface' : ''">
+                                        <span class="flex-1 text-left"
+                                              x-bind:class="region === '부산' ? 'text-b16 text-rose-heavy' : 'text-r16 text-label-neutral'">부산</span>
+                                        <span class="w-[11px] shrink-0 text-[11px] text-accent-rose" x-text="region === '부산' ? '▸' : ''"></span>
+                                    </button>
+                                                                    <button type="button" x-on:click="region = '경남'"
+                                            class="flex w-full items-center gap-1.5 rounded-[3px] px-2.5 py-1.5"
+                                            x-bind:class="region === '경남' ? 'border border-accent-rose bg-surface' : ''">
+                                        <span class="flex-1 text-left"
+                                              x-bind:class="region === '경남' ? 'text-b16 text-rose-heavy' : 'text-r16 text-label-neutral'">경남</span>
+                                        <span class="w-[11px] shrink-0 text-[11px] text-accent-rose" x-text="region === '경남' ? '▸' : ''"></span>
+                                    </button>
+                                                                    <button type="button" x-on:click="region = '경북'"
+                                            class="flex w-full items-center gap-1.5 rounded-[3px] px-2.5 py-1.5"
+                                            x-bind:class="region === '경북' ? 'border border-accent-rose bg-surface' : ''">
+                                        <span class="flex-1 text-left"
+                                              x-bind:class="region === '경북' ? 'text-b16 text-rose-heavy' : 'text-r16 text-label-neutral'">경북</span>
+                                        <span class="w-[11px] shrink-0 text-[11px] text-accent-rose" x-text="region === '경북' ? '▸' : ''"></span>
+                                    </button>
+                                                                    <button type="button" x-on:click="region = '대구'"
+                                            class="flex w-full items-center gap-1.5 rounded-[3px] px-2.5 py-1.5"
+                                            x-bind:class="region === '대구' ? 'border border-accent-rose bg-surface' : ''">
+                                        <span class="flex-1 text-left"
+                                              x-bind:class="region === '대구' ? 'text-b16 text-rose-heavy' : 'text-r16 text-label-neutral'">대구</span>
+                                        <span class="w-[11px] shrink-0 text-[11px] text-accent-rose" x-text="region === '대구' ? '▸' : ''"></span>
+                                    </button>
+                                                                    <button type="button" x-on:click="region = '대전'"
+                                            class="flex w-full items-center gap-1.5 rounded-[3px] px-2.5 py-1.5"
+                                            x-bind:class="region === '대전' ? 'border border-accent-rose bg-surface' : ''">
+                                        <span class="flex-1 text-left"
+                                              x-bind:class="region === '대전' ? 'text-b16 text-rose-heavy' : 'text-r16 text-label-neutral'">대전</span>
+                                        <span class="w-[11px] shrink-0 text-[11px] text-accent-rose" x-text="region === '대전' ? '▸' : ''"></span>
+                                    </button>
+                                <!--[if ENDBLOCK]><![endif]-->                            </div>
+
+
+                            <div class="flex flex-1 flex-col gap-[9px] overflow-y-auto p-3.5">
+                                <!--[if BLOCK]><![endif]-->                                    <label class="flex w-full cursor-pointer items-center gap-2">
+                                        <input type="checkbox" class="peer sr-only">
+                                        <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
+                                        <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy" x-text="region + ' 전체'">서울 전체</span>
+                                    </label>
+                                                                    <label class="flex w-full cursor-pointer items-center gap-2">
+                                        <input type="checkbox" checked class="peer sr-only">
+                                        <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
+                                        <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">강남구</span>
+                                    </label>
+                                                                    <label class="flex w-full cursor-pointer items-center gap-2">
+                                        <input type="checkbox" class="peer sr-only">
+                                        <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
+                                        <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">강동구</span>
+                                    </label>
+                                                                    <label class="flex w-full cursor-pointer items-center gap-2">
+                                        <input type="checkbox" class="peer sr-only">
+                                        <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
+                                        <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">강북구</span>
+                                    </label>
+                                                                    <label class="flex w-full cursor-pointer items-center gap-2">
+                                        <input type="checkbox" class="peer sr-only">
+                                        <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
+                                        <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">강서구</span>
+                                    </label>
+                                                                    <label class="flex w-full cursor-pointer items-center gap-2">
+                                        <input type="checkbox" class="peer sr-only">
+                                        <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
+                                        <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">관악구</span>
+                                    </label>
+                                                                    <label class="flex w-full cursor-pointer items-center gap-2">
+                                        <input type="checkbox" class="peer sr-only">
+                                        <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
+                                        <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">광진구</span>
+                                    </label>
+                                                                    <label class="flex w-full cursor-pointer items-center gap-2">
+                                        <input type="checkbox" class="peer sr-only">
+                                        <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
+                                        <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">구로구</span>
+                                    </label>
+                                <!--[if ENDBLOCK]><![endif]-->                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="flex flex-1 flex-col gap-[9px] border-b border-surface-alt px-4 py-3.5 lg:h-[325px] lg:border-b-0 lg:border-r">
+                        <p class="text-b16 text-label-neutral lg:hidden">기관형태</p>
+                        <!--[if BLOCK]><![endif]-->                            <label class="flex w-full cursor-pointer items-center gap-2">
+                                <input type="checkbox" class="peer sr-only">
+                                <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
+                                <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">전체</span>
+                            </label>
+                                                    <label class="flex w-full cursor-pointer items-center gap-2">
+                                <input type="checkbox" class="peer sr-only">
+                                <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
+                                <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">통합재가</span>
+                            </label>
+                                                    <label class="flex w-full cursor-pointer items-center gap-2">
+                                <input type="checkbox" checked class="peer sr-only">
+                                <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
+                                <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">방문간호</span>
+                            </label>
+                                                    <label class="flex w-full cursor-pointer items-center gap-2">
+                                <input type="checkbox" class="peer sr-only">
+                                <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
+                                <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">방문요양</span>
+                            </label>
+                                                    <label class="flex w-full cursor-pointer items-center gap-2">
+                                <input type="checkbox" class="peer sr-only">
+                                <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
+                                <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">방문목욕</span>
+                            </label>
+                        <!--[if ENDBLOCK]><![endif]-->                    </div>
+
+
+                    <div class="flex flex-1 flex-col gap-[9px] border-b border-surface-alt px-4 py-3.5 lg:h-[325px] lg:border-b-0 lg:border-r">
+                        <p class="text-b16 text-label-neutral lg:hidden">경력</p>
+                        <!--[if BLOCK]><![endif]-->                            <label class="flex w-full cursor-pointer items-center gap-2">
+                                <input type="checkbox" class="peer sr-only">
+                                <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
+                                <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">전체</span>
+                            </label>
+                                                    <label class="flex w-full cursor-pointer items-center gap-2">
+                                <input type="checkbox" class="peer sr-only">
+                                <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
+                                <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">신입</span>
+                            </label>
+                                                    <label class="flex w-full cursor-pointer items-center gap-2">
+                                <input type="checkbox" class="peer sr-only">
+                                <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
+                                <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">1~3년</span>
+                            </label>
+                                                    <label class="flex w-full cursor-pointer items-center gap-2">
+                                <input type="checkbox" class="peer sr-only">
+                                <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
+                                <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">4~6년</span>
+                            </label>
+                                                    <label class="flex w-full cursor-pointer items-center gap-2">
+                                <input type="checkbox" class="peer sr-only">
+                                <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
+                                <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">7~9년</span>
+                            </label>
+                                                    <label class="flex w-full cursor-pointer items-center gap-2">
+                                <input type="checkbox" class="peer sr-only">
+                                <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
+                                <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">10년 이상</span>
+                            </label>
+                        <!--[if ENDBLOCK]><![endif]-->                    </div>
+
+
+                    <div class="flex flex-1 flex-col gap-[9px] px-4 py-3.5 lg:h-[325px]">
+                        <p class="text-b16 text-label-neutral lg:hidden">고용형태</p>
+                        <!--[if BLOCK]><![endif]-->                            <label class="flex w-full cursor-pointer items-center gap-2">
+                                <input type="checkbox" class="peer sr-only">
+                                <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
+                                <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">전체</span>
+                            </label>
+                                                    <label class="flex w-full cursor-pointer items-center gap-2">
+                                <input type="checkbox" class="peer sr-only">
+                                <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
+                                <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">정규직</span>
+                            </label>
+                                                    <label class="flex w-full cursor-pointer items-center gap-2">
+                                <input type="checkbox" class="peer sr-only">
+                                <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
+                                <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">계약직</span>
+                            </label>
+                                                    <label class="flex w-full cursor-pointer items-center gap-2">
+                                <input type="checkbox" class="peer sr-only">
+                                <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
+                                <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">임시직</span>
+                            </label>
+                                                    <label class="flex w-full cursor-pointer items-center gap-2">
+                                <input type="checkbox" checked class="peer sr-only">
+                                <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
+                                <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">아르바이트</span>
+                            </label>
+                                                    <label class="flex w-full cursor-pointer items-center gap-2">
+                                <input type="checkbox" class="peer sr-only">
+                                <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
+                                <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">협의 후 결정</span>
+                            </label>
+                        <!--[if ENDBLOCK]><![endif]-->                    </div>
+                </div>
+            </div>
+
+
+            <div class="flex flex-col gap-4 border-t border-surface-alt bg-surface px-5 py-4 lg:flex-row lg:items-center lg:gap-5">
+                <div class="flex flex-1 flex-wrap items-center gap-2">
+                    <!--[if BLOCK]><![endif]-->                        <span class="flex shrink-0 items-center gap-1.5 rounded-full border border-accent-rose bg-surface px-2.5 py-1.5">
+                            <span class="whitespace-nowrap text-m14 text-rose-heavy">방문간호사</span>
+                            <button type="button" aria-label="방문간호사 조건 제거" class="text-[11px] text-accent-rose">✕</button>
                         </span>
-                        <span class="text-m14 text-label-alt">파트타임</span>
-                    </div>
+                                            <span class="flex shrink-0 items-center gap-1.5 rounded-full border border-accent-rose bg-surface px-2.5 py-1.5">
+                            <span class="whitespace-nowrap text-m14 text-rose-heavy">서울 › 강남구</span>
+                            <button type="button" aria-label="서울 강남구 조건 제거" class="text-[11px] text-accent-rose">✕</button>
+                        </span>
+                                            <span class="flex shrink-0 items-center gap-1.5 rounded-full border border-accent-rose bg-surface px-2.5 py-1.5">
+                            <span class="whitespace-nowrap text-m14 text-rose-heavy">부산 › 북구</span>
+                            <button type="button" aria-label="부산 북구 조건 제거" class="text-[11px] text-accent-rose">✕</button>
+                        </span>
+                                            <span class="flex shrink-0 items-center gap-1.5 rounded-full border border-accent-rose bg-surface px-2.5 py-1.5">
+                            <span class="whitespace-nowrap text-m14 text-rose-heavy">방문간호</span>
+                            <button type="button" aria-label="방문간호 조건 제거" class="text-[11px] text-accent-rose">✕</button>
+                        </span>
+                                            <span class="flex shrink-0 items-center gap-1.5 rounded-full border border-accent-rose bg-surface px-2.5 py-1.5">
+                            <span class="whitespace-nowrap text-m14 text-rose-heavy">아르바이트</span>
+                            <button type="button" aria-label="아르바이트 조건 제거" class="text-[11px] text-accent-rose">✕</button>
+                        </span>
+                    <!--[if ENDBLOCK]><![endif]-->                </div>
 
-                    <p class="mt-3.5 w-full text-b24 text-label">기장군 방문간호 간호사 모집</p>
-
-                    <dl class="mt-4 flex w-full flex-col items-start gap-2.5">
-                        <!--[if BLOCK]><![endif]-->                            <div class="flex items-center gap-2">
-                                <span class="flex h-[18px] w-[18px] shrink-0 items-center justify-center">
-                                    <img src="https://akb0356.github.io/matcha123/images/icons/careers-job-place.svg" alt="" class="h-[18px]" style="width: 15.08px">
-                                </span>
-                                <dt class="sr-only">근무 지역</dt>
-                                <dd class="text-m16 text-label-neutral">부산 기장군</dd>
-                            </div>
-                                                    <div class="flex items-center gap-2">
-                                <span class="flex h-[18px] w-[18px] shrink-0 items-center justify-center">
-                                    <img src="https://akb0356.github.io/matcha123/images/icons/careers-job-time.svg" alt="" class="h-[18px]" style="width: 18px">
-                                </span>
-                                <dt class="sr-only">근무 일정</dt>
-                                <dd class="text-m16 text-label-neutral">주 1회 · 회당 1시간</dd>
-                            </div>
-                                                    <div class="flex items-center gap-2">
-                                <span class="flex h-[18px] w-[18px] shrink-0 items-center justify-center">
-                                    <img src="https://akb0356.github.io/matcha123/images/icons/careers-job-pay.svg" alt="" class="h-[18px]" style="width: 15.87px">
-                                </span>
-                                <dt class="sr-only">급여</dt>
-                                <dd class="text-m16 text-label-neutral">방문당 40,000원</dd>
-                            </div>
-                        <!--[if ENDBLOCK]><![endif]-->                    </dl>
-
-                    <div class="mt-auto flex w-full items-center gap-2 pt-6">
-                        
-                        <button type="button" x-on:click="saved = !saved"
-                                x-bind:aria-pressed="saved"
-                                x-bind:aria-label="saved ? '저장 취소' : '공고 저장'"
-                                class="flex h-10 w-10 shrink-0 items-center justify-center rounded border transition-colors"
-                                x-bind:class="saved ? 'border-primary bg-primary-surface' : 'border-line-divider bg-surface hover:bg-surface-alt'">
-                            
-                            <img src="https://akb0356.github.io/matcha123/images/icons/careers-bookmark.svg" alt=""
-                                 class="h-[18px] w-[14.36px]">
-                        </button>
-
-                        <a href="https://akb0356.github.io/matcha123/careers/jobs/gijang-visiting-nursing"
-                           class="btn-hover flex h-10 flex-1 items-center justify-center rounded border border-line-divider bg-surface text-m16 text-label hover:bg-surface-alt">
-                            상세보기
-                        </a>
-                        <a href="#"
-                           class="btn-hover flex h-10 flex-1 items-center justify-center rounded bg-primary text-m16 text-surface hover:bg-primary-strong">
-                            지원하기
-                        </a>
-                    </div>
-                </article>
-            <!--[if ENDBLOCK]><![endif]-->        </div>
-
-        
-        <div x-show="shown === 0" x-cloak
-             class="flex w-full flex-col items-center gap-2 rounded-md border border-line-divider bg-surface-alt px-6 py-16 text-center">
-            <p class="text-b20 text-label">조건에 맞는 공고가 없어요</p>
-            <p class="text-r16 text-label-alt">필터를 바꾸거나 검색어를 지워 보세요.</p>
+                <div class="flex shrink-0 items-center gap-4">
+                    <button type="button" class="whitespace-nowrap text-r14 text-label-alt hover:text-label-neutral">↺ 초기화</button>
+                    <button type="button" class="whitespace-nowrap text-r14 text-label-alt hover:text-label-neutral">☆ 조건저장</button>
+                    <button type="button" class="btn-hover flex shrink-0 items-center gap-2 rounded-md bg-accent-rose px-6 py-[13px] hover:bg-accent-rose-strong">
+                        <span class="whitespace-nowrap text-b14 text-surface">선택된 조건 검색하기</span>
+                        <span class="flex items-center justify-center rounded-full bg-surface px-[7px] py-0.5 text-b14 text-accent-rose">5</span>
+                    </button>
+                </div>
+            </div>
         </div>
+    </div>
+</section>
+
+
+        <section class="w-full bg-surface">
+    <div class="mx-auto max-w-content px-6 py-1">
+        <div class="flex flex-col gap-5 rounded bg-rose-soft px-7 py-[22px] lg:flex-row lg:items-center">
+            <div class="flex flex-1 flex-col gap-1">
+                <p class="text-b16 text-rose-heavy">청담원 케어닷에 이력서를 등록하고 입사 제안을 받아보세요</p>
+                <p class="text-r14 text-label-neutral">방문 지역·경력·자격을 등록하면 조건에 맞는 센터가 먼저 연락드립니다.</p>
+            </div>
+            <a href="#" class="btn-hover flex shrink-0 items-center justify-center rounded-md bg-rose-heavy px-6 py-[13px] text-b14 text-surface hover:bg-rose-strong">
+                이력서 등록하기
+            </a>
+        </div>
+    </div>
+</section>
+
+
+        <section class="w-full bg-surface">
+    <div class="mx-auto flex max-w-content flex-col gap-4 px-6 py-7">
+
+        <div class="flex items-center gap-2">
+            <h2 class="whitespace-nowrap text-b24 text-label-strong">프리미엄 채용관</h2>
+            <span class="flex shrink-0 items-center rounded-[3px] bg-rose-soft px-[7px] py-[3px] text-m12 text-rose-strong">Beta</span>
+            <span class="flex-1"></span>
+            <a href="#" class="flex shrink-0 items-center gap-2.5 whitespace-nowrap text-r14 text-label-alt hover:text-label-neutral">
+                전체보기
+                <img src="https://akb0356.github.io/matcha123/images/icons/chevron-right-gray.svg" alt="" class="h-[9px] w-[5px]">
+            </a>
+        </div>
+
+        <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            <!--[if BLOCK]><![endif]-->                <a href="https://akb0356.github.io/matcha123/careers/jobs/gangnam-visiting-nursing" class="flex flex-col overflow-hidden rounded-md border border-surface-alt bg-surface transition-colors hover:border-accent-rose">
+                    <div class="flex flex-col gap-2.5 px-5 py-[18px] lg:h-[116px]">
+                        <span class="h-8 w-24 shrink-0 rounded-[3px] bg-line-neutral-solid"></span>
+                        <p class="w-full text-b16 text-label-strong">강남구 방문간호센터 정규 간호사 모집</p>
+                    </div>
+                    <div class="flex h-[190px] items-center justify-center border-y border-surface-alt bg-line-neutral-solid">
+                        <span class="text-[13px] text-label-assistive">공고 이미지</span>
+                    </div>
+                    <div class="flex items-center justify-between px-5 py-3.5">
+                        <span class="whitespace-nowrap text-m14 text-label-neutral">서울 강남구</span>
+                        <span class="whitespace-nowrap text-r14 text-label-alt">~ 2026.09.12</span>
+                    </div>
+                </a>
+                            <a href="#" class="flex flex-col overflow-hidden rounded-md border border-surface-alt bg-surface transition-colors hover:border-accent-rose">
+                    <div class="flex flex-col gap-2.5 px-5 py-[18px] lg:h-[116px]">
+                        <span class="h-8 w-24 shrink-0 rounded-[3px] bg-line-neutral-solid"></span>
+                        <p class="w-full text-b16 text-label-strong">통합재가 개설 멤버 · 방문간호조무사 채용</p>
+                    </div>
+                    <div class="flex h-[190px] items-center justify-center border-y border-surface-alt bg-line-neutral-solid">
+                        <span class="text-[13px] text-label-assistive">공고 이미지</span>
+                    </div>
+                    <div class="flex items-center justify-between px-5 py-3.5">
+                        <span class="whitespace-nowrap text-m14 text-label-neutral">부산 북구</span>
+                        <span class="whitespace-nowrap text-r14 text-label-alt">~ 2026.09.20</span>
+                    </div>
+                </a>
+                            <a href="#" class="flex flex-col overflow-hidden rounded-md border border-surface-alt bg-surface transition-colors hover:border-accent-rose">
+                    <div class="flex flex-col gap-2.5 px-5 py-[18px] lg:h-[116px]">
+                        <span class="h-8 w-24 shrink-0 rounded-[3px] bg-line-neutral-solid"></span>
+                        <p class="w-full text-b16 text-label-strong">분당 요양보호사 · 주 3일 파트타임</p>
+                    </div>
+                    <div class="flex h-[190px] items-center justify-center border-y border-surface-alt bg-line-neutral-solid">
+                        <span class="text-[13px] text-label-assistive">공고 이미지</span>
+                    </div>
+                    <div class="flex items-center justify-between px-5 py-3.5">
+                        <span class="whitespace-nowrap text-m14 text-label-neutral">경기 성남시</span>
+                        <span class="whitespace-nowrap text-r14 text-label-alt">상시 채용</span>
+                    </div>
+                </a>
+                            <a href="#" class="flex flex-col overflow-hidden rounded-md border border-surface-alt bg-surface transition-colors hover:border-accent-rose">
+                    <div class="flex flex-col gap-2.5 px-5 py-[18px] lg:h-[116px]">
+                        <span class="h-8 w-24 shrink-0 rounded-[3px] bg-line-neutral-solid"></span>
+                        <p class="w-full text-b16 text-label-strong">부평 방문요양 센터장 후보 모집</p>
+                    </div>
+                    <div class="flex h-[190px] items-center justify-center border-y border-surface-alt bg-line-neutral-solid">
+                        <span class="text-[13px] text-label-assistive">공고 이미지</span>
+                    </div>
+                    <div class="flex items-center justify-between px-5 py-3.5">
+                        <span class="whitespace-nowrap text-m14 text-label-neutral">인천 부평구</span>
+                        <span class="whitespace-nowrap text-r14 text-label-alt">~ 2026.10.02</span>
+                    </div>
+                </a>
+            <!--[if ENDBLOCK]><![endif]-->        </div>
+    </div>
+</section>
+
+
+        <section class="w-full bg-surface">
+    <div class="mx-auto flex max-w-content flex-col gap-4 px-6 py-7">
+
+        <div class="flex items-center gap-2">
+            <h2 class="whitespace-nowrap text-b24 text-label-strong">TOP 채용관</h2>
+            <span class="flex shrink-0 items-center rounded-[3px] bg-rose-soft px-[7px] py-[3px] text-m12 text-rose-strong">Beta</span>
+            <span class="flex-1"></span>
+            <a href="#" class="flex shrink-0 items-center gap-2.5 whitespace-nowrap text-r14 text-label-alt hover:text-label-neutral">
+                전체보기
+                <img src="https://akb0356.github.io/matcha123/images/icons/chevron-right-gray.svg" alt="" class="h-[9px] w-[5px]">
+            </a>
+        </div>
+
+        <div class="flex flex-col gap-3">
+            <!--[if BLOCK]><![endif]-->                <a href="https://akb0356.github.io/matcha123/careers/jobs/gangnam-visiting-nursing"
+                   class="flex flex-col gap-4 rounded border border-surface-alt bg-surface px-6 py-5 transition-colors hover:border-accent-rose lg:flex-row lg:items-center lg:gap-6">
+                    <span class="h-14 w-[120px] shrink-0 rounded-[3px] bg-line-neutral-solid"></span>
+                    <span class="flex flex-1 flex-col gap-1">
+                        <span class="text-m14 text-label-alt">청담원 강남센터</span>
+                        <span class="text-b20 text-label-strong">방문간호사(간호사·간호조무사) 정규직 채용</span>
+                    </span>
+                    <span class="flex shrink-0 items-center gap-2.5">
+                        <span class="rounded-[3px] bg-line-neutral-solid px-2.5 py-[5px] text-r14 text-label-neutral">서울 강남구</span>
+                        <span class="rounded-[3px] bg-line-neutral-solid px-2.5 py-[5px] text-r14 text-label-neutral">정규직</span>
+                        <span class="whitespace-nowrap text-m14 text-rose-strong">~ 09.12</span>
+                    </span>
+                    <span class="shrink-0 text-r20 text-label-assistive">☆</span>
+                </a>
+                            <a href="#"
+                   class="flex flex-col gap-4 rounded border border-surface-alt bg-surface px-6 py-5 transition-colors hover:border-accent-rose lg:flex-row lg:items-center lg:gap-6">
+                    <span class="h-14 w-[120px] shrink-0 rounded-[3px] bg-line-neutral-solid"></span>
+                    <span class="flex flex-1 flex-col gap-1">
+                        <span class="text-m14 text-label-alt">청담원 부평센터</span>
+                        <span class="text-b20 text-label-strong">통합재가 오픈 멤버 방문간호조무사 모집</span>
+                    </span>
+                    <span class="flex shrink-0 items-center gap-2.5">
+                        <span class="rounded-[3px] bg-line-neutral-solid px-2.5 py-[5px] text-r14 text-label-neutral">인천 부평구</span>
+                        <span class="rounded-[3px] bg-line-neutral-solid px-2.5 py-[5px] text-r14 text-label-neutral">계약직</span>
+                        <span class="whitespace-nowrap text-m14 text-rose-strong">~ 10.02</span>
+                    </span>
+                    <span class="shrink-0 text-r20 text-label-assistive">☆</span>
+                </a>
+                            <a href="#"
+                   class="flex flex-col gap-4 rounded border border-surface-alt bg-surface px-6 py-5 transition-colors hover:border-accent-rose lg:flex-row lg:items-center lg:gap-6">
+                    <span class="h-14 w-[120px] shrink-0 rounded-[3px] bg-line-neutral-solid"></span>
+                    <span class="flex flex-1 flex-col gap-1">
+                        <span class="text-m14 text-label-alt">청담원 성남센터</span>
+                        <span class="text-b20 text-label-strong">방문요양 요양보호사 · 주 3일 파트타임</span>
+                    </span>
+                    <span class="flex shrink-0 items-center gap-2.5">
+                        <span class="rounded-[3px] bg-line-neutral-solid px-2.5 py-[5px] text-r14 text-label-neutral">경기 성남시</span>
+                        <span class="rounded-[3px] bg-line-neutral-solid px-2.5 py-[5px] text-r14 text-label-neutral">아르바이트</span>
+                        <span class="whitespace-nowrap text-m14 text-rose-strong">상시 채용</span>
+                    </span>
+                    <span class="shrink-0 text-r20 text-label-assistive">☆</span>
+                </a>
+            <!--[if ENDBLOCK]><![endif]-->        </div>
+    </div>
+</section>
+
+
+        <section class="w-full bg-surface">
+    <div class="mx-auto max-w-content px-6 py-1">
+        <div class="flex flex-col gap-5 rounded-md border border-surface-alt bg-line-neutral-solid px-7 py-[22px] lg:flex-row lg:items-center">
+            <div class="flex flex-1 flex-col gap-1">
+                <p class="text-b20 text-label-strong">센터를 운영하고 계신가요? 인재정보에서 간호 인력을 직접 찾아보세요</p>
+                <p class="text-r14 text-label-alt">방문 지역·경력·자격 조건으로 등록된 인재를 검색하고 입사 제안을 보낼 수 있습니다.</p>
+            </div>
+            <a href="#" class="btn-hover flex shrink-0 items-center justify-center rounded border border-label-assistive px-6 py-[13px] text-b14 text-label-neutral hover:bg-surface">
+                인재정보 보기
+            </a>
+        </div>
+    </div>
+</section>
+
+
+        <section class="w-full bg-surface">
+    <div class="mx-auto max-w-content px-6 py-7">
+
+
+        <div class="flex flex-col items-start gap-3 border-b border-surface-alt bg-surface lg:flex-row lg:items-center">
+            <div class="flex flex-1 gap-1 overflow-x-auto">
+                <!--[if BLOCK]><![endif]-->                    <button type="button" x-on:click="tab = '전체'"
+                            class="shrink-0 whitespace-nowrap border-b-2 px-5 py-3.5"
+                            x-bind:class="tab === '전체' ? 'border-accent-rose text-b14 text-rose-heavy' : 'border-transparent text-r14 text-label-alt'">전체 123,456건</button>
+                                        <button type="button" x-on:click="tab = '통합재가'"
+                            class="shrink-0 whitespace-nowrap border-b-2 px-5 py-3.5"
+                            x-bind:class="tab === '통합재가' ? 'border-accent-rose text-b14 text-rose-heavy' : 'border-transparent text-r14 text-label-alt'">통합재가</button>
+                                        <button type="button" x-on:click="tab = '방문간호'"
+                            class="shrink-0 whitespace-nowrap border-b-2 px-5 py-3.5"
+                            x-bind:class="tab === '방문간호' ? 'border-accent-rose text-b14 text-rose-heavy' : 'border-transparent text-r14 text-label-alt'">방문간호</button>
+                                        <button type="button" x-on:click="tab = '방문요양'"
+                            class="shrink-0 whitespace-nowrap border-b-2 px-5 py-3.5"
+                            x-bind:class="tab === '방문요양' ? 'border-accent-rose text-b14 text-rose-heavy' : 'border-transparent text-r14 text-label-alt'">방문요양</button>
+                                        <button type="button" x-on:click="tab = '방문목욕'"
+                            class="shrink-0 whitespace-nowrap border-b-2 px-5 py-3.5"
+                            x-bind:class="tab === '방문목욕' ? 'border-accent-rose text-b14 text-rose-heavy' : 'border-transparent text-r14 text-label-alt'">방문목욕</button>
+                <!--[if ENDBLOCK]><![endif]-->            </div>
+
+            <div class="flex shrink-0 items-center gap-3.5 pb-3 lg:pb-0">
+                <!--[if BLOCK]><![endif]-->                    <button type="button" x-on:click="sort = '최신순'" class="whitespace-nowrap"
+                            x-bind:class="sort === '최신순' ? 'text-b14 text-label-neutral' : 'text-r14 text-label-alt'">최신순</button>
+                                        <button type="button" x-on:click="sort = '마감임박순'" class="whitespace-nowrap"
+                            x-bind:class="sort === '마감임박순' ? 'text-b14 text-label-neutral' : 'text-r14 text-label-alt'">마감임박순</button>
+                                        <button type="button" x-on:click="sort = '경력순'" class="whitespace-nowrap"
+                            x-bind:class="sort === '경력순' ? 'text-b14 text-label-neutral' : 'text-r14 text-label-alt'">경력순</button>
+                <!--[if ENDBLOCK]><![endif]-->            </div>
+        </div>
+
+
+        <div class="w-full overflow-x-auto">
+            <div class="min-w-[880px]">
+
+
+                <div class="flex items-center border-b border-surface-alt bg-line-neutral-solid py-3">
+                    <div class="flex w-[142px] shrink-0 justify-center pl-6 pr-3"><span class="whitespace-nowrap text-b14 text-label-neutral">기업명</span></div>
+                    <div class="flex flex-1 justify-center px-3"><span class="whitespace-nowrap text-b14 text-label-neutral">채용 정보</span></div>
+                    <div class="flex w-[120px] shrink-0 justify-center px-3"><span class="whitespace-nowrap text-b14 text-label-neutral">근무지역</span></div>
+                    <div class="flex w-[120px] shrink-0 justify-center px-3"><span class="whitespace-nowrap text-b14 text-label-neutral">고용형태</span></div>
+                    <div class="flex w-[120px] shrink-0 justify-center px-3"><span class="whitespace-nowrap text-b14 text-label-neutral">경력</span></div>
+                    <div class="flex w-[120px] shrink-0 justify-center px-3"><span class="whitespace-nowrap text-b14 text-label-neutral">마감일</span></div>
+                    <div class="w-[64px] shrink-0 px-3"></div>
+                </div>
+
+
+                <!--[if BLOCK]><![endif]-->                    <div class="group/jr flex items-center border-b border-surface-alt py-[18px] transition-colors hover:bg-rose-soft" x-data="{ saved: false }">
+                        <div class="flex w-[142px] shrink-0 flex-col pl-6 pr-3"><span class="whitespace-nowrap text-m14 text-label-neutral">청담원 강남센터</span></div>
+                        <a href="https://akb0356.github.io/matcha123/careers/jobs/gangnam-visiting-nursing" class="flex flex-1 flex-col gap-[3px] px-3">
+                            <span class="w-full text-b16 text-label-strong group-hover/jr:text-rose-heavy">강남구 방문간호 간호사 모집</span>
+                            <span class="w-full text-r12 text-label-alt">방문간호사 · 간호사 면허 필수</span>
+                        </a>
+                        <div class="flex w-[120px] shrink-0 justify-center px-3"><span class="whitespace-nowrap text-r12 text-label-alt">서울 강남구</span></div>
+                        <div class="flex w-[120px] shrink-0 justify-center px-3"><span class="whitespace-nowrap text-r12 text-label-alt">정규직</span></div>
+                        <div class="flex w-[120px] shrink-0 justify-center px-3"><span class="whitespace-nowrap text-r12 text-label-alt">3년 이상</span></div>
+                        <div class="flex w-[120px] shrink-0 justify-center px-3"><span class="whitespace-nowrap text-r12 text-label-alt">~ 09.12</span></div>
+                        <div class="w-[64px] shrink-0 px-3">
+                            <button type="button" x-on:click="saved = ! saved" x-bind:aria-pressed="saved" aria-label="공고 스크랩"
+                                    class="text-r14" x-bind:class="saved ? 'text-accent-rose' : 'text-label-alt'"
+                                    x-text="saved ? '★' : '☆'">☆</button>
+                        </div>
+                    </div>
+                                        <div class="group/jr flex items-center border-b border-surface-alt py-[18px] transition-colors hover:bg-rose-soft" x-data="{ saved: false }">
+                        <div class="flex w-[142px] shrink-0 flex-col pl-6 pr-3"><span class="whitespace-nowrap text-m14 text-label-neutral">청담원 송파센터</span></div>
+                        <a href="#" class="flex flex-1 flex-col gap-[3px] px-3">
+                            <span class="w-full text-b16 text-label-strong group-hover/jr:text-rose-heavy">송파 방문요양 요양보호사 채용</span>
+                            <span class="w-full text-r12 text-label-alt">요양보호사 · 주 5일</span>
+                        </a>
+                        <div class="flex w-[120px] shrink-0 justify-center px-3"><span class="whitespace-nowrap text-r12 text-label-alt">서울 송파구</span></div>
+                        <div class="flex w-[120px] shrink-0 justify-center px-3"><span class="whitespace-nowrap text-r12 text-label-alt">계약직</span></div>
+                        <div class="flex w-[120px] shrink-0 justify-center px-3"><span class="whitespace-nowrap text-r12 text-label-alt">신입 가능</span></div>
+                        <div class="flex w-[120px] shrink-0 justify-center px-3"><span class="whitespace-nowrap text-r12 text-label-alt">~ 09.18</span></div>
+                        <div class="w-[64px] shrink-0 px-3">
+                            <button type="button" x-on:click="saved = ! saved" x-bind:aria-pressed="saved" aria-label="공고 스크랩"
+                                    class="text-r14" x-bind:class="saved ? 'text-accent-rose' : 'text-label-alt'"
+                                    x-text="saved ? '★' : '☆'">☆</button>
+                        </div>
+                    </div>
+                                        <div class="group/jr flex items-center border-b border-surface-alt py-[18px] transition-colors hover:bg-rose-soft" x-data="{ saved: false }">
+                        <div class="flex w-[142px] shrink-0 flex-col pl-6 pr-3"><span class="whitespace-nowrap text-m14 text-label-neutral">청담원 부평센터</span></div>
+                        <a href="#" class="flex flex-1 flex-col gap-[3px] px-3">
+                            <span class="w-full text-b16 text-label-strong group-hover/jr:text-rose-heavy">통합재가 오픈 멤버 방문간호조무사</span>
+                            <span class="w-full text-r12 text-label-alt">방문간호조무사 · 오픈 멤버</span>
+                        </a>
+                        <div class="flex w-[120px] shrink-0 justify-center px-3"><span class="whitespace-nowrap text-r12 text-label-alt">인천 부평구</span></div>
+                        <div class="flex w-[120px] shrink-0 justify-center px-3"><span class="whitespace-nowrap text-r12 text-label-alt">정규직</span></div>
+                        <div class="flex w-[120px] shrink-0 justify-center px-3"><span class="whitespace-nowrap text-r12 text-label-alt">1~3년</span></div>
+                        <div class="flex w-[120px] shrink-0 justify-center px-3"><span class="whitespace-nowrap text-r12 text-label-alt">~ 10.02</span></div>
+                        <div class="w-[64px] shrink-0 px-3">
+                            <button type="button" x-on:click="saved = ! saved" x-bind:aria-pressed="saved" aria-label="공고 스크랩"
+                                    class="text-r14" x-bind:class="saved ? 'text-accent-rose' : 'text-label-alt'"
+                                    x-text="saved ? '★' : '☆'">☆</button>
+                        </div>
+                    </div>
+                                        <div class="group/jr flex items-center border-b border-surface-alt py-[18px] transition-colors hover:bg-rose-soft" x-data="{ saved: false }">
+                        <div class="flex w-[142px] shrink-0 flex-col pl-6 pr-3"><span class="whitespace-nowrap text-m14 text-label-neutral">청담원 성남센터</span></div>
+                        <a href="#" class="flex flex-1 flex-col gap-[3px] px-3">
+                            <span class="w-full text-b16 text-label-strong group-hover/jr:text-rose-heavy">분당 요양보호사 주 3일 파트타임</span>
+                            <span class="w-full text-r12 text-label-alt">요양보호사 · 파트타임</span>
+                        </a>
+                        <div class="flex w-[120px] shrink-0 justify-center px-3"><span class="whitespace-nowrap text-r12 text-label-alt">경기 성남시</span></div>
+                        <div class="flex w-[120px] shrink-0 justify-center px-3"><span class="whitespace-nowrap text-r12 text-label-alt">아르바이트</span></div>
+                        <div class="flex w-[120px] shrink-0 justify-center px-3"><span class="whitespace-nowrap text-r12 text-label-alt">경력 무관</span></div>
+                        <div class="flex w-[120px] shrink-0 justify-center px-3"><span class="whitespace-nowrap text-r12 text-label-alt">상시 채용</span></div>
+                        <div class="w-[64px] shrink-0 px-3">
+                            <button type="button" x-on:click="saved = ! saved" x-bind:aria-pressed="saved" aria-label="공고 스크랩"
+                                    class="text-r14" x-bind:class="saved ? 'text-accent-rose' : 'text-label-alt'"
+                                    x-text="saved ? '★' : '☆'">☆</button>
+                        </div>
+                    </div>
+                                        <div class="group/jr flex items-center border-b border-surface-alt py-[18px] transition-colors hover:bg-rose-soft" x-data="{ saved: false }">
+                        <div class="flex w-[142px] shrink-0 flex-col pl-6 pr-3"><span class="whitespace-nowrap text-m14 text-label-neutral">청담원 북구센터</span></div>
+                        <a href="#" class="flex flex-1 flex-col gap-[3px] px-3">
+                            <span class="w-full text-b16 text-label-strong group-hover/jr:text-rose-heavy">부산 북구 방문간호 간호사</span>
+                            <span class="w-full text-r12 text-label-alt">방문간호사 · 욕창·튜브 관리</span>
+                        </a>
+                        <div class="flex w-[120px] shrink-0 justify-center px-3"><span class="whitespace-nowrap text-r12 text-label-alt">부산 북구</span></div>
+                        <div class="flex w-[120px] shrink-0 justify-center px-3"><span class="whitespace-nowrap text-r12 text-label-alt">정규직</span></div>
+                        <div class="flex w-[120px] shrink-0 justify-center px-3"><span class="whitespace-nowrap text-r12 text-label-alt">5년 이상</span></div>
+                        <div class="flex w-[120px] shrink-0 justify-center px-3"><span class="whitespace-nowrap text-r12 text-label-alt">~ 09.30</span></div>
+                        <div class="w-[64px] shrink-0 px-3">
+                            <button type="button" x-on:click="saved = ! saved" x-bind:aria-pressed="saved" aria-label="공고 스크랩"
+                                    class="text-r14" x-bind:class="saved ? 'text-accent-rose' : 'text-label-alt'"
+                                    x-text="saved ? '★' : '☆'">☆</button>
+                        </div>
+                    </div>
+                                        <div class="group/jr flex items-center border-b border-surface-alt py-[18px] transition-colors hover:bg-rose-soft" x-data="{ saved: false }">
+                        <div class="flex w-[142px] shrink-0 flex-col pl-6 pr-3"><span class="whitespace-nowrap text-m14 text-label-neutral">청담원 대구센터</span></div>
+                        <a href="#" class="flex flex-1 flex-col gap-[3px] px-3">
+                            <span class="w-full text-b16 text-label-strong group-hover/jr:text-rose-heavy">사회복지사 (재가 운영 지원)</span>
+                            <span class="w-full text-r12 text-label-alt">사회복지사 · 운영 지원</span>
+                        </a>
+                        <div class="flex w-[120px] shrink-0 justify-center px-3"><span class="whitespace-nowrap text-r12 text-label-alt">대구 수성구</span></div>
+                        <div class="flex w-[120px] shrink-0 justify-center px-3"><span class="whitespace-nowrap text-r12 text-label-alt">정규직</span></div>
+                        <div class="flex w-[120px] shrink-0 justify-center px-3"><span class="whitespace-nowrap text-r12 text-label-alt">1~3년</span></div>
+                        <div class="flex w-[120px] shrink-0 justify-center px-3"><span class="whitespace-nowrap text-r12 text-label-alt">~ 10.10</span></div>
+                        <div class="w-[64px] shrink-0 px-3">
+                            <button type="button" x-on:click="saved = ! saved" x-bind:aria-pressed="saved" aria-label="공고 스크랩"
+                                    class="text-r14" x-bind:class="saved ? 'text-accent-rose' : 'text-label-alt'"
+                                    x-text="saved ? '★' : '☆'">☆</button>
+                        </div>
+                    </div>
+                                        <div class="group/jr flex items-center border-b border-surface-alt py-[18px] transition-colors hover:bg-rose-soft" x-data="{ saved: false }">
+                        <div class="flex w-[142px] shrink-0 flex-col pl-6 pr-3"><span class="whitespace-nowrap text-m14 text-label-neutral">청담원 서초센터</span></div>
+                        <a href="#" class="flex flex-1 flex-col gap-[3px] px-3">
+                            <span class="w-full text-b16 text-label-strong group-hover/jr:text-rose-heavy">서초 센터장 후보 모집</span>
+                            <span class="w-full text-r12 text-label-alt">센터장 · 운영 경험 우대</span>
+                        </a>
+                        <div class="flex w-[120px] shrink-0 justify-center px-3"><span class="whitespace-nowrap text-r12 text-label-alt">서울 서초구</span></div>
+                        <div class="flex w-[120px] shrink-0 justify-center px-3"><span class="whitespace-nowrap text-r12 text-label-alt">협의 후 결정</span></div>
+                        <div class="flex w-[120px] shrink-0 justify-center px-3"><span class="whitespace-nowrap text-r12 text-label-alt">7년 이상</span></div>
+                        <div class="flex w-[120px] shrink-0 justify-center px-3"><span class="whitespace-nowrap text-r12 text-label-alt">~ 10.15</span></div>
+                        <div class="w-[64px] shrink-0 px-3">
+                            <button type="button" x-on:click="saved = ! saved" x-bind:aria-pressed="saved" aria-label="공고 스크랩"
+                                    class="text-r14" x-bind:class="saved ? 'text-accent-rose' : 'text-label-alt'"
+                                    x-text="saved ? '★' : '☆'">☆</button>
+                        </div>
+                    </div>
+                                        <div class="group/jr flex items-center border-b border-surface-alt py-[18px] transition-colors hover:bg-rose-soft" x-data="{ saved: false }">
+                        <div class="flex w-[142px] shrink-0 flex-col pl-6 pr-3"><span class="whitespace-nowrap text-m14 text-label-neutral">청담원 일산센터</span></div>
+                        <a href="#" class="flex flex-1 flex-col gap-[3px] px-3">
+                            <span class="w-full text-b16 text-label-strong group-hover/jr:text-rose-heavy">방문목욕 요양보호사 2인 1조</span>
+                            <span class="w-full text-r12 text-label-alt">요양보호사 · 차량 동행</span>
+                        </a>
+                        <div class="flex w-[120px] shrink-0 justify-center px-3"><span class="whitespace-nowrap text-r12 text-label-alt">경기 고양시</span></div>
+                        <div class="flex w-[120px] shrink-0 justify-center px-3"><span class="whitespace-nowrap text-r12 text-label-alt">계약직</span></div>
+                        <div class="flex w-[120px] shrink-0 justify-center px-3"><span class="whitespace-nowrap text-r12 text-label-alt">경력 무관</span></div>
+                        <div class="flex w-[120px] shrink-0 justify-center px-3"><span class="whitespace-nowrap text-r12 text-label-alt">~ 09.25</span></div>
+                        <div class="w-[64px] shrink-0 px-3">
+                            <button type="button" x-on:click="saved = ! saved" x-bind:aria-pressed="saved" aria-label="공고 스크랩"
+                                    class="text-r14" x-bind:class="saved ? 'text-accent-rose' : 'text-label-alt'"
+                                    x-text="saved ? '★' : '☆'">☆</button>
+                        </div>
+                    </div>
+                <!--[if ENDBLOCK]><![endif]-->            </div>
+        </div>
+
+
+        <nav class="flex flex-wrap items-center justify-center gap-1.5 bg-surface py-5" aria-label="페이지 이동">
+            <a href="#" aria-label="이전 페이지" class="flex h-[27px] w-[37px] items-center justify-center rounded-[3px] text-r14 text-label-alt hover:bg-line-neutral-solid">‹</a>
+            <!--[if BLOCK]><![endif]-->                <a href="#" aria-current="page" class="flex w-[38px] items-center justify-center rounded-[3px] bg-accent-rose py-[9px] text-center text-b14 text-surface">1</a>
+                            <a href="#" class="flex w-[38px] items-center justify-center rounded-[3px] py-[9px] text-center text-r14 text-label-neutral hover:bg-line-neutral-solid">2</a>
+                            <a href="#" class="flex w-[38px] items-center justify-center rounded-[3px] py-[9px] text-center text-r14 text-label-neutral hover:bg-line-neutral-solid">3</a>
+                            <a href="#" class="flex w-[38px] items-center justify-center rounded-[3px] py-[9px] text-center text-r14 text-label-neutral hover:bg-line-neutral-solid">4</a>
+                            <a href="#" class="flex w-[38px] items-center justify-center rounded-[3px] py-[9px] text-center text-r14 text-label-neutral hover:bg-line-neutral-solid">5</a>
+                            <a href="#" class="flex w-[38px] items-center justify-center rounded-[3px] py-[9px] text-center text-r14 text-label-neutral hover:bg-line-neutral-solid">6</a>
+                            <a href="#" class="flex w-[38px] items-center justify-center rounded-[3px] py-[9px] text-center text-r14 text-label-neutral hover:bg-line-neutral-solid">7</a>
+                            <a href="#" class="flex w-[38px] items-center justify-center rounded-[3px] py-[9px] text-center text-r14 text-label-neutral hover:bg-line-neutral-solid">8</a>
+                            <a href="#" class="flex w-[38px] items-center justify-center rounded-[3px] py-[9px] text-center text-r14 text-label-neutral hover:bg-line-neutral-solid">9</a>
+                            <a href="#" class="flex w-[38px] items-center justify-center rounded-[3px] py-[9px] text-center text-r14 text-label-neutral hover:bg-line-neutral-solid">10</a>
+            <!--[if ENDBLOCK]><![endif]-->            <a href="#" class="flex items-center justify-center gap-1.5 rounded-[3px] border border-surface-alt px-4 py-[9px] text-r14 text-label-neutral hover:bg-line-neutral-solid">
+                다음
+                <img src="https://akb0356.github.io/matcha123/images/icons/chevron-right-gray.svg" alt="" class="h-[9px] w-[5px]">
+            </a>
+        </nav>
     </div>
 </section>
     </main>
