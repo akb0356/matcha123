@@ -173,7 +173,7 @@
          aria-hidden="true"></div>
 </header>
 
-    <main x-data="{ region: '서울', tab: '전체', sort: '최신순' }">
+    <main x-data="{ tab: '전체', sort: '최신순' }">
 
         <section class="hero-section relative w-full overflow-hidden">
     <img src="https://akb0356.github.io/matcha123/images/careers/hero-careers.jpg"
@@ -218,10 +218,9 @@
     </div>
 </section>
 
-
         <section class="w-full bg-surface">
     <div class="mx-auto max-w-content px-6 py-7">
-        <div class="w-full overflow-hidden rounded border border-surface-alt bg-surface" x-data="{ open: true }">
+        <div class="w-full overflow-hidden rounded border border-surface-alt bg-surface" x-data="jobFilter">
 
 
             <div class="flex items-center gap-2 border-b border-surface-alt bg-surface px-5 py-4">
@@ -252,27 +251,18 @@
 
                     <div class="flex flex-1 flex-col gap-[9px] border-b border-surface-alt px-4 py-3.5 lg:h-[325px] lg:border-b-0 lg:border-r">
                         <p class="text-b16 text-label-neutral lg:hidden">직무</p>
-                        <!--[if BLOCK]><![endif]-->                            <label class="flex w-full cursor-pointer items-center gap-2">
-                                <input type="checkbox" checked class="peer sr-only">
-                                <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
-                                <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">방문간호사</span>
-                            </label>
-                                                    <label class="flex w-full cursor-pointer items-center gap-2">
-                                <input type="checkbox" class="peer sr-only">
-                                <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
-                                <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">방문간호조무사</span>
-                            </label>
-                                                    <label class="flex w-full cursor-pointer items-center gap-2">
-                                <input type="checkbox" class="peer sr-only">
-                                <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
-                                <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">요양보호사</span>
-                            </label>
-                                                    <label class="flex w-full cursor-pointer items-center gap-2">
-                                <input type="checkbox" class="peer sr-only">
-                                <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
-                                <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">사회복지사</span>
-                            </label>
-                        <!--[if ENDBLOCK]><![endif]-->                    </div>
+                        <template x-for="item in jobItems" x-bind:key="item">
+                            <button type="button" x-on:click="toggle('job', item)"
+                                    x-bind:aria-pressed="has('job', item)"
+                                    class="flex w-full items-center gap-2 text-left">
+                                <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border"
+                                      x-bind:class="has('job', item) ? 'border-accent-rose bg-accent-rose' : 'border-label-assistive bg-surface'"></span>
+                                <span class="flex-1"
+                                      x-bind:class="has('job', item) ? 'text-b16 text-rose-heavy' : 'text-r16 text-label-neutral'"
+                                      x-text="item"></span>
+                            </button>
+                        </template>
+                    </div>
 
 
                     <div class="flex w-full shrink-0 flex-col border-b border-surface-alt lg:h-[325px] lg:w-[284px] lg:border-b-0 lg:border-r">
@@ -281,245 +271,133 @@
 
 
                             <div class="flex w-[114px] shrink-0 flex-col gap-0.5 overflow-y-auto border-r border-surface-alt bg-rose-soft px-3 py-3.5">
-                                <!--[if BLOCK]><![endif]-->                                    <button type="button" x-on:click="region = '서울'"
+                                <template x-for="sido in sidoList()" x-bind:key="sido">
+                                    <button type="button" x-on:click="region = sido"
+                                            x-bind:aria-current="region === sido ? 'true' : 'false'"
                                             class="flex w-full items-center gap-1.5 rounded-[3px] px-2.5 py-1.5"
-                                            x-bind:class="region === '서울' ? 'border border-accent-rose bg-surface' : ''">
+                                            x-bind:class="region === sido ? 'border border-accent-rose bg-surface' : ''">
                                         <span class="flex-1 text-left"
-                                              x-bind:class="region === '서울' ? 'text-b16 text-rose-heavy' : 'text-r16 text-label-neutral'">서울</span>
-                                        <span class="w-[11px] shrink-0 text-[11px] text-accent-rose" x-text="region === '서울' ? '▸' : ''">▸</span>
+                                              x-bind:class="region === sido ? 'text-b16 text-rose-heavy' : 'text-r16 text-label-neutral'"
+                                              x-text="sido"></span>
+                                        <span class="w-[11px] shrink-0 text-[11px] text-accent-rose"
+                                              x-text="region === sido ? ARROW : ''"></span>
                                     </button>
-                                                                    <button type="button" x-on:click="region = '경기'"
-                                            class="flex w-full items-center gap-1.5 rounded-[3px] px-2.5 py-1.5"
-                                            x-bind:class="region === '경기' ? 'border border-accent-rose bg-surface' : ''">
-                                        <span class="flex-1 text-left"
-                                              x-bind:class="region === '경기' ? 'text-b16 text-rose-heavy' : 'text-r16 text-label-neutral'">경기</span>
-                                        <span class="w-[11px] shrink-0 text-[11px] text-accent-rose" x-text="region === '경기' ? '▸' : ''"></span>
-                                    </button>
-                                                                    <button type="button" x-on:click="region = '인천'"
-                                            class="flex w-full items-center gap-1.5 rounded-[3px] px-2.5 py-1.5"
-                                            x-bind:class="region === '인천' ? 'border border-accent-rose bg-surface' : ''">
-                                        <span class="flex-1 text-left"
-                                              x-bind:class="region === '인천' ? 'text-b16 text-rose-heavy' : 'text-r16 text-label-neutral'">인천</span>
-                                        <span class="w-[11px] shrink-0 text-[11px] text-accent-rose" x-text="region === '인천' ? '▸' : ''"></span>
-                                    </button>
-                                                                    <button type="button" x-on:click="region = '부산'"
-                                            class="flex w-full items-center gap-1.5 rounded-[3px] px-2.5 py-1.5"
-                                            x-bind:class="region === '부산' ? 'border border-accent-rose bg-surface' : ''">
-                                        <span class="flex-1 text-left"
-                                              x-bind:class="region === '부산' ? 'text-b16 text-rose-heavy' : 'text-r16 text-label-neutral'">부산</span>
-                                        <span class="w-[11px] shrink-0 text-[11px] text-accent-rose" x-text="region === '부산' ? '▸' : ''"></span>
-                                    </button>
-                                                                    <button type="button" x-on:click="region = '경남'"
-                                            class="flex w-full items-center gap-1.5 rounded-[3px] px-2.5 py-1.5"
-                                            x-bind:class="region === '경남' ? 'border border-accent-rose bg-surface' : ''">
-                                        <span class="flex-1 text-left"
-                                              x-bind:class="region === '경남' ? 'text-b16 text-rose-heavy' : 'text-r16 text-label-neutral'">경남</span>
-                                        <span class="w-[11px] shrink-0 text-[11px] text-accent-rose" x-text="region === '경남' ? '▸' : ''"></span>
-                                    </button>
-                                                                    <button type="button" x-on:click="region = '경북'"
-                                            class="flex w-full items-center gap-1.5 rounded-[3px] px-2.5 py-1.5"
-                                            x-bind:class="region === '경북' ? 'border border-accent-rose bg-surface' : ''">
-                                        <span class="flex-1 text-left"
-                                              x-bind:class="region === '경북' ? 'text-b16 text-rose-heavy' : 'text-r16 text-label-neutral'">경북</span>
-                                        <span class="w-[11px] shrink-0 text-[11px] text-accent-rose" x-text="region === '경북' ? '▸' : ''"></span>
-                                    </button>
-                                                                    <button type="button" x-on:click="region = '대구'"
-                                            class="flex w-full items-center gap-1.5 rounded-[3px] px-2.5 py-1.5"
-                                            x-bind:class="region === '대구' ? 'border border-accent-rose bg-surface' : ''">
-                                        <span class="flex-1 text-left"
-                                              x-bind:class="region === '대구' ? 'text-b16 text-rose-heavy' : 'text-r16 text-label-neutral'">대구</span>
-                                        <span class="w-[11px] shrink-0 text-[11px] text-accent-rose" x-text="region === '대구' ? '▸' : ''"></span>
-                                    </button>
-                                                                    <button type="button" x-on:click="region = '대전'"
-                                            class="flex w-full items-center gap-1.5 rounded-[3px] px-2.5 py-1.5"
-                                            x-bind:class="region === '대전' ? 'border border-accent-rose bg-surface' : ''">
-                                        <span class="flex-1 text-left"
-                                              x-bind:class="region === '대전' ? 'text-b16 text-rose-heavy' : 'text-r16 text-label-neutral'">대전</span>
-                                        <span class="w-[11px] shrink-0 text-[11px] text-accent-rose" x-text="region === '대전' ? '▸' : ''"></span>
-                                    </button>
-                                <!--[if ENDBLOCK]><![endif]-->                            </div>
+                                </template>
+                            </div>
 
 
                             <div class="flex flex-1 flex-col gap-[9px] overflow-y-auto p-3.5">
-                                <!--[if BLOCK]><![endif]-->                                    <label class="flex w-full cursor-pointer items-center gap-2">
-                                        <input type="checkbox" class="peer sr-only">
-                                        <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
-                                        <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy" x-text="region + ' 전체'">서울 전체</span>
-                                    </label>
-                                                                    <label class="flex w-full cursor-pointer items-center gap-2">
-                                        <input type="checkbox" checked class="peer sr-only">
-                                        <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
-                                        <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">강남구</span>
-                                    </label>
-                                                                    <label class="flex w-full cursor-pointer items-center gap-2">
-                                        <input type="checkbox" class="peer sr-only">
-                                        <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
-                                        <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">강동구</span>
-                                    </label>
-                                                                    <label class="flex w-full cursor-pointer items-center gap-2">
-                                        <input type="checkbox" class="peer sr-only">
-                                        <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
-                                        <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">강북구</span>
-                                    </label>
-                                                                    <label class="flex w-full cursor-pointer items-center gap-2">
-                                        <input type="checkbox" class="peer sr-only">
-                                        <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
-                                        <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">강서구</span>
-                                    </label>
-                                                                    <label class="flex w-full cursor-pointer items-center gap-2">
-                                        <input type="checkbox" class="peer sr-only">
-                                        <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
-                                        <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">관악구</span>
-                                    </label>
-                                                                    <label class="flex w-full cursor-pointer items-center gap-2">
-                                        <input type="checkbox" class="peer sr-only">
-                                        <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
-                                        <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">광진구</span>
-                                    </label>
-                                                                    <label class="flex w-full cursor-pointer items-center gap-2">
-                                        <input type="checkbox" class="peer sr-only">
-                                        <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
-                                        <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">구로구</span>
-                                    </label>
-                                <!--[if ENDBLOCK]><![endif]-->                            </div>
+
+                                <button type="button" x-on:click="toggleRegionAll()"
+                                        x-bind:aria-pressed="regionAllOn()"
+                                        class="flex w-full items-center gap-2 text-left">
+                                    <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border"
+                                          x-bind:class="regionAllOn() ? 'border-accent-rose bg-accent-rose' : 'border-label-assistive bg-surface'"></span>
+                                    <span class="flex-1"
+                                          x-bind:class="regionAllOn() ? 'text-b16 text-rose-heavy' : 'text-r16 text-label-neutral'"
+                                          x-text="region + ' 전체'"></span>
+                                </button>
+
+                                <template x-for="gu in districts()" x-bind:key="region + gu">
+                                    <button type="button" x-on:click="toggleArea(gu)"
+                                            x-bind:aria-pressed="hasArea(gu)"
+                                            class="flex w-full items-center gap-2 text-left">
+                                        <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border"
+                                              x-bind:class="hasArea(gu) ? 'border-accent-rose bg-accent-rose' : 'border-label-assistive bg-surface'"></span>
+                                        <span class="flex-1"
+                                              x-bind:class="hasArea(gu) ? 'text-b16 text-rose-heavy' : 'text-r16 text-label-neutral'"
+                                              x-text="gu"></span>
+                                    </button>
+                                </template>
+                            </div>
                         </div>
                     </div>
 
 
                     <div class="flex flex-1 flex-col gap-[9px] border-b border-surface-alt px-4 py-3.5 lg:h-[325px] lg:border-b-0 lg:border-r">
                         <p class="text-b16 text-label-neutral lg:hidden">기관형태</p>
-                        <!--[if BLOCK]><![endif]-->                            <label class="flex w-full cursor-pointer items-center gap-2">
-                                <input type="checkbox" class="peer sr-only">
-                                <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
-                                <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">전체</span>
-                            </label>
-                                                    <label class="flex w-full cursor-pointer items-center gap-2">
-                                <input type="checkbox" class="peer sr-only">
-                                <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
-                                <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">통합재가</span>
-                            </label>
-                                                    <label class="flex w-full cursor-pointer items-center gap-2">
-                                <input type="checkbox" checked class="peer sr-only">
-                                <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
-                                <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">방문간호</span>
-                            </label>
-                                                    <label class="flex w-full cursor-pointer items-center gap-2">
-                                <input type="checkbox" class="peer sr-only">
-                                <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
-                                <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">방문요양</span>
-                            </label>
-                                                    <label class="flex w-full cursor-pointer items-center gap-2">
-                                <input type="checkbox" class="peer sr-only">
-                                <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
-                                <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">방문목욕</span>
-                            </label>
-                        <!--[if ENDBLOCK]><![endif]-->                    </div>
+                        <template x-for="item in orgItems" x-bind:key="item">
+                            <button type="button" x-on:click="toggle('org', item)"
+                                    x-bind:aria-pressed="has('org', item)"
+                                    class="flex w-full items-center gap-2 text-left">
+                                <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border"
+                                      x-bind:class="has('org', item) ? 'border-accent-rose bg-accent-rose' : 'border-label-assistive bg-surface'"></span>
+                                <span class="flex-1"
+                                      x-bind:class="has('org', item) ? 'text-b16 text-rose-heavy' : 'text-r16 text-label-neutral'"
+                                      x-text="item"></span>
+                            </button>
+                        </template>
+                    </div>
 
 
                     <div class="flex flex-1 flex-col gap-[9px] border-b border-surface-alt px-4 py-3.5 lg:h-[325px] lg:border-b-0 lg:border-r">
                         <p class="text-b16 text-label-neutral lg:hidden">경력</p>
-                        <!--[if BLOCK]><![endif]-->                            <label class="flex w-full cursor-pointer items-center gap-2">
-                                <input type="checkbox" class="peer sr-only">
-                                <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
-                                <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">전체</span>
-                            </label>
-                                                    <label class="flex w-full cursor-pointer items-center gap-2">
-                                <input type="checkbox" class="peer sr-only">
-                                <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
-                                <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">신입</span>
-                            </label>
-                                                    <label class="flex w-full cursor-pointer items-center gap-2">
-                                <input type="checkbox" class="peer sr-only">
-                                <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
-                                <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">1~3년</span>
-                            </label>
-                                                    <label class="flex w-full cursor-pointer items-center gap-2">
-                                <input type="checkbox" class="peer sr-only">
-                                <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
-                                <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">4~6년</span>
-                            </label>
-                                                    <label class="flex w-full cursor-pointer items-center gap-2">
-                                <input type="checkbox" class="peer sr-only">
-                                <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
-                                <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">7~9년</span>
-                            </label>
-                                                    <label class="flex w-full cursor-pointer items-center gap-2">
-                                <input type="checkbox" class="peer sr-only">
-                                <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
-                                <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">10년 이상</span>
-                            </label>
-                        <!--[if ENDBLOCK]><![endif]-->                    </div>
+                        <template x-for="item in careerItems" x-bind:key="item">
+                            <button type="button" x-on:click="toggle('career', item)"
+                                    x-bind:aria-pressed="has('career', item)"
+                                    class="flex w-full items-center gap-2 text-left">
+                                <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border"
+                                      x-bind:class="has('career', item) ? 'border-accent-rose bg-accent-rose' : 'border-label-assistive bg-surface'"></span>
+                                <span class="flex-1"
+                                      x-bind:class="has('career', item) ? 'text-b16 text-rose-heavy' : 'text-r16 text-label-neutral'"
+                                      x-text="item"></span>
+                            </button>
+                        </template>
+                    </div>
 
 
                     <div class="flex flex-1 flex-col gap-[9px] px-4 py-3.5 lg:h-[325px]">
                         <p class="text-b16 text-label-neutral lg:hidden">고용형태</p>
-                        <!--[if BLOCK]><![endif]-->                            <label class="flex w-full cursor-pointer items-center gap-2">
-                                <input type="checkbox" class="peer sr-only">
-                                <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
-                                <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">전체</span>
-                            </label>
-                                                    <label class="flex w-full cursor-pointer items-center gap-2">
-                                <input type="checkbox" class="peer sr-only">
-                                <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
-                                <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">정규직</span>
-                            </label>
-                                                    <label class="flex w-full cursor-pointer items-center gap-2">
-                                <input type="checkbox" class="peer sr-only">
-                                <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
-                                <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">계약직</span>
-                            </label>
-                                                    <label class="flex w-full cursor-pointer items-center gap-2">
-                                <input type="checkbox" class="peer sr-only">
-                                <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
-                                <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">임시직</span>
-                            </label>
-                                                    <label class="flex w-full cursor-pointer items-center gap-2">
-                                <input type="checkbox" checked class="peer sr-only">
-                                <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
-                                <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">아르바이트</span>
-                            </label>
-                                                    <label class="flex w-full cursor-pointer items-center gap-2">
-                                <input type="checkbox" class="peer sr-only">
-                                <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border border-label-assistive bg-surface peer-checked:border-accent-rose peer-checked:bg-accent-rose"></span>
-                                <span class="flex-1 text-r16 text-label-neutral peer-checked:font-bold peer-checked:text-rose-heavy">협의 후 결정</span>
-                            </label>
-                        <!--[if ENDBLOCK]><![endif]-->                    </div>
+                        <template x-for="item in typeItems" x-bind:key="item">
+                            <button type="button" x-on:click="toggle('type', item)"
+                                    x-bind:aria-pressed="has('type', item)"
+                                    class="flex w-full items-center gap-2 text-left">
+                                <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border"
+                                      x-bind:class="has('type', item) ? 'border-accent-rose bg-accent-rose' : 'border-label-assistive bg-surface'"></span>
+                                <span class="flex-1"
+                                      x-bind:class="has('type', item) ? 'text-b16 text-rose-heavy' : 'text-r16 text-label-neutral'"
+                                      x-text="item"></span>
+                            </button>
+                        </template>
+                    </div>
                 </div>
             </div>
 
 
             <div class="flex flex-col gap-4 border-t border-surface-alt bg-surface px-5 py-4 lg:flex-row lg:items-center lg:gap-5">
-                <div class="flex flex-1 flex-wrap items-center gap-2">
-                    <!--[if BLOCK]><![endif]-->                        <span class="flex shrink-0 items-center gap-1.5 rounded-full border border-accent-rose bg-surface px-2.5 py-1.5">
-                            <span class="whitespace-nowrap text-m14 text-rose-heavy">방문간호사</span>
-                            <button type="button" aria-label="방문간호사 조건 제거" class="text-[11px] text-accent-rose">✕</button>
-                        </span>
-                                            <span class="flex shrink-0 items-center gap-1.5 rounded-full border border-accent-rose bg-surface px-2.5 py-1.5">
-                            <span class="whitespace-nowrap text-m14 text-rose-heavy">서울 › 강남구</span>
-                            <button type="button" aria-label="서울 강남구 조건 제거" class="text-[11px] text-accent-rose">✕</button>
-                        </span>
-                                            <span class="flex shrink-0 items-center gap-1.5 rounded-full border border-accent-rose bg-surface px-2.5 py-1.5">
-                            <span class="whitespace-nowrap text-m14 text-rose-heavy">부산 › 북구</span>
-                            <button type="button" aria-label="부산 북구 조건 제거" class="text-[11px] text-accent-rose">✕</button>
-                        </span>
-                                            <span class="flex shrink-0 items-center gap-1.5 rounded-full border border-accent-rose bg-surface px-2.5 py-1.5">
-                            <span class="whitespace-nowrap text-m14 text-rose-heavy">방문간호</span>
-                            <button type="button" aria-label="방문간호 조건 제거" class="text-[11px] text-accent-rose">✕</button>
-                        </span>
-                                            <span class="flex shrink-0 items-center gap-1.5 rounded-full border border-accent-rose bg-surface px-2.5 py-1.5">
-                            <span class="whitespace-nowrap text-m14 text-rose-heavy">아르바이트</span>
-                            <button type="button" aria-label="아르바이트 조건 제거" class="text-[11px] text-accent-rose">✕</button>
-                        </span>
-                    <!--[if ENDBLOCK]><![endif]-->                </div>
 
-                <div class="flex shrink-0 items-center gap-4">
-                    <button type="button" class="whitespace-nowrap text-r14 text-label-alt hover:text-label-neutral">↺ 초기화</button>
-                    <button type="button" class="whitespace-nowrap text-r14 text-label-alt hover:text-label-neutral">☆ 조건저장</button>
+                <div class="flex flex-1 flex-wrap items-center gap-2" aria-live="polite">
+                    <template x-for="chip in chips()" x-bind:key="chip.group + chip.value">
+                        <span class="flex shrink-0 items-center gap-1.5 rounded-full border border-accent-rose bg-surface px-2.5 py-1.5">
+                            <span class="whitespace-nowrap text-m14 text-rose-heavy" x-text="chip.label"></span>
+                            <button type="button" x-on:click="remove(chip.group, chip.value)"
+                                    x-bind:aria-label="chip.label + ' 조건 제거'"
+                                    class="text-[11px] text-accent-rose hover:text-rose-heavy">✕</button>
+                        </span>
+                    </template>
+                    <span x-show="count() === 0" class="text-r14 text-label-alt">조건을 선택하면 여기에 표시됩니다</span>
+                </div>
+
+                <div class="flex shrink-0 flex-wrap items-center gap-4">
+                    <button type="button" x-on:click="reset()"
+                            class="whitespace-nowrap text-r14 text-label-alt hover:text-label-neutral">↺ 초기화</button>
+                    <button type="button" x-on:click="save()"
+                            class="whitespace-nowrap text-r14 hover:text-label-neutral"
+                            x-bind:class="hasSaved ? 'text-rose-heavy' : 'text-label-alt'"
+                            x-text="hasSaved ? '★ 조건저장' : '☆ 조건저장'">☆ 조건저장</button>
+                    <button type="button" x-show="hasSaved" x-on:click="clearSaved()"
+                            class="whitespace-nowrap text-r14 text-label-alt hover:text-label-neutral">저장 해제</button>
                     <button type="button" class="btn-hover flex shrink-0 items-center gap-2 rounded-md bg-accent-rose px-6 py-[13px] hover:bg-accent-rose-strong">
                         <span class="whitespace-nowrap text-b14 text-surface">선택된 조건 검색하기</span>
-                        <span class="flex items-center justify-center rounded-full bg-surface px-[7px] py-0.5 text-b14 text-accent-rose">5</span>
+                        <span class="flex items-center justify-center rounded-full bg-surface px-[7px] py-0.5 text-b14 text-accent-rose" x-text="count()">5</span>
                     </button>
                 </div>
+            </div>
+
+
+            <div x-show="toast" x-cloak x-transition.opacity.duration.200ms role="status"
+                 class="border-t border-surface-alt bg-rose-soft px-5 py-3">
+                <p class="text-m14 text-rose-heavy" x-text="toast"></p>
             </div>
         </div>
     </div>
@@ -955,6 +833,149 @@
 </footer>
 </div>
 <!-- Livewire Scripts -->
+<script>
+document.addEventListener('alpine:init', () => {
+    Alpine.data('jobFilter', () => ({
+        STORE: 'cdw-careers-filter',
+        ARROW: '›',
+
+        regions: {
+            '서울': ['강남구', '강동구', '강북구', '강서구', '관악구', '광진구', '구로구'],
+            '경기': ['수원시', '성남시', '고양시', '용인시', '부천시', '안산시', '남양주시'],
+            '인천': ['부평구', '남동구', '미추홀구', '연수구', '서구', '계양구', '중구'],
+            '부산': ['북구', '해운대구', '부산진구', '동래구', '남구', '사하구', '기장군'],
+            '경남': ['창원시', '김해시', '진주시', '양산시', '거제시', '통영시', '사천시'],
+            '경북': ['포항시', '구미시', '경주시', '안동시', '경산시', '김천시', '영주시'],
+            '대구': ['수성구', '달서구', '북구', '동구', '서구', '남구', '달성군'],
+            '대전': ['서구', '유성구', '중구', '동구', '대덕구'],
+        },
+
+        jobItems: ['방문간호사', '방문간호조무사', '요양보호사', '사회복지사'],
+        orgItems: ['전체', '통합재가', '방문간호', '방문요양', '방문목욕'],
+        careerItems: ['전체', '신입', '1~3년', '4~6년', '7~9년', '10년 이상'],
+        typeItems: ['전체', '정규직', '계약직', '임시직', '아르바이트', '협의 후 결정'],
+
+        open: true,
+        region: '서울',
+        sel: { job: [], area: [], org: [], career: [], type: [] },
+        hasSaved: false,
+        toast: '',
+        _t: null,
+
+        init() {
+            const blank = { job: [], area: [], org: [], career: [], type: [] };
+            let restored = false;
+            try {
+                const raw = localStorage.getItem(this.STORE);
+                if (raw) {
+                    const s = JSON.parse(raw);
+                    if (s && s.sel) {
+                        this.sel = Object.assign({}, blank, s.sel);
+                        if (s.region && this.regions[s.region]) this.region = s.region;
+                        this.hasSaved = true;
+                        restored = true;
+                    }
+                }
+            } catch (e) { /* 저장값이 깨졌으면 기본값으로 */ }
+
+            if (! restored) {
+                this.sel = {
+                    job: ['방문간호사'],
+                    area: ['서울' + this.ARROW + '강남구', '부산' + this.ARROW + '북구'],
+                    org: ['방문간호'],
+                    career: [],
+                    type: ['아르바이트'],
+                };
+            }
+        },
+
+        sidoList() { return Object.keys(this.regions); },
+        districts() { return this.regions[this.region] || []; },
+        areaKey(gu) { return this.region + this.ARROW + gu; },
+
+        has(group, value) { return this.sel[group].indexOf(value) !== -1; },
+
+        toggle(group, value) {
+            const i = this.sel[group].indexOf(value);
+            if (i === -1) this.sel[group].push(value);
+            else this.sel[group].splice(i, 1);
+        },
+
+        toggleArea(gu) { this.toggle('area', this.areaKey(gu)); },
+        hasArea(gu) { return this.has('area', this.areaKey(gu)); },
+
+        regionAllOn() {
+            const list = this.districts();
+            return list.length > 0 && list.every((gu) => this.hasArea(gu));
+        },
+
+        toggleRegionAll() {
+            if (this.regionAllOn()) {
+                this.districts().forEach((gu) => {
+                    const i = this.sel.area.indexOf(this.areaKey(gu));
+                    if (i !== -1) this.sel.area.splice(i, 1);
+                });
+            } else {
+                this.districts().forEach((gu) => {
+                    if (! this.hasArea(gu)) this.sel.area.push(this.areaKey(gu));
+                });
+            }
+        },
+
+        chips() {
+            const order = ['job', 'area', 'org', 'career', 'type'];
+            const out = [];
+            order.forEach((group) => {
+                this.sel[group].forEach((value) => {
+                    out.push({
+                        group: group,
+                        value: value,
+                        label: group === 'area'
+                            ? value.split(this.ARROW).join(' ' + this.ARROW + ' ')
+                            : value,
+                    });
+                });
+            });
+            return out;
+        },
+
+        count() { return this.chips().length; },
+
+        remove(group, value) { this.toggle(group, value); },
+
+        reset() {
+            this.sel = { job: [], area: [], org: [], career: [], type: [] };
+            this.flash('선택한 조건을 모두 해제했어요');
+        },
+
+        save() {
+            try {
+                localStorage.setItem(this.STORE, JSON.stringify({
+                    sel: this.sel,
+                    region: this.region,
+                    at: Date.now(),
+                }));
+                this.hasSaved = true;
+                this.flash('검색 조건을 저장했어요. 다음 방문 때 그대로 불러옵니다');
+            } catch (e) {
+                this.flash('브라우저 저장공간을 쓸 수 없어 저장하지 못했어요');
+            }
+        },
+
+        clearSaved() {
+            try { localStorage.removeItem(this.STORE); } catch (e) {}
+            this.hasSaved = false;
+            this.flash('저장한 조건을 지웠어요');
+        },
+
+        flash(message) {
+            this.toast = message;
+            clearTimeout(this._t);
+            this._t = setTimeout(() => { this.toast = ''; }, 2400);
+        },
+    }));
+});
+</script>
 <script src="/matcha123/livewire/livewire.min.js" data-navigate-once="true"></script>
 </body>
 </html>

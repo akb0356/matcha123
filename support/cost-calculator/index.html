@@ -306,12 +306,12 @@
                         <div class="flex w-full items-center gap-1 rounded bg-fill-alt p-1">
                             <button type="button" x-on:click="benefit = 'home'"
                                     class="flex flex-1 items-center justify-center rounded-md py-2 text-m16 transition-colors"
-                                    x-bind:class="benefit === 'home' ? 'bg-surface text-label' : 'text-label-alt hover:text-label'">
+                                    x-bind:class="benefit === 'home' ? 'bg-surface text-label-strong' : 'text-label-alt hover:text-label'">
                                 재가급여
                             </button>
                             <button type="button" x-on:click="benefit = 'respite'"
                                     class="flex flex-1 items-center justify-center rounded-md py-2 text-m16 transition-colors"
-                                    x-bind:class="benefit === 'respite' ? 'bg-surface text-label' : 'text-label-alt hover:text-label'">
+                                    x-bind:class="benefit === 'respite' ? 'bg-surface text-label-strong' : 'text-label-alt hover:text-label'">
                                 치매가족휴가제
                             </button>
                         </div>
@@ -394,13 +394,13 @@
                 <div class="flex h-full flex-col items-start rounded-md bg-surface-alt p-6">
                     <div class="flex w-full items-center justify-between gap-3">
                         <span class="text-m16 text-label-neutral">예상 월 본인부담금</span>
-                        <span class="flex items-center justify-center rounded-md border border-line-neutral px-2 py-1.5 text-m16 text-label-alt">
+                        <span class="flex items-center justify-center rounded-md border border-line-neutral px-2 py-1.5 text-m14 text-label-alt">
                             부담률&nbsp;<span x-text="rate()"></span>
                         </span>
                     </div>
 
                     <p class="mt-2 flex items-baseline">
-                        <span class="text-b24 text-label">월&nbsp;</span>
+                        <span class="text-eb30 text-label">월&nbsp;</span>
                         <span class="text-eb40 text-rose-strong">209,874</span>
                         <span class="text-b24 text-label">원</span>
                     </p>
@@ -428,23 +428,23 @@
 
                     <div class="mt-5 flex w-full items-center justify-between gap-3 border-t border-surface-alt pt-5">
                         <span class="text-r16 text-label-neutral"><span x-text="grade"></span> 월 한도</span>
-                        <span class="text-b16 text-label">2,512,900원</span>
+                        <span class="text-b16 text-label-strong">2,512,900원</span>
                     </div>
 
                     <div class="mt-4 flex w-full flex-col items-start gap-1.5 border-t border-surface-alt pt-4">
                         <div class="flex w-full items-center justify-between gap-3">
-                            <span class="text-r14 text-label-alt"
+                            <span class="text-r16 text-label-alt"
                                   x-text="'방문요양 ' + care.duration + ' × ' + care.days + '일'"></span>
-                            <span class="text-m16 text-label-neutral">1,140,400원</span>
+                            <span class="text-m14 text-label-neutral">1,140,400원</span>
                         </div>
                         <div class="flex w-full items-center justify-between gap-3">
-                            <span class="text-r14 text-label-alt"
+                            <span class="text-r16 text-label-alt"
                                   x-text="'방문간호 ' + nursing.duration + ' × ' + nursing.days + '일'"></span>
-                            <span class="text-m16 text-label-neutral">258,760원</span>
+                            <span class="text-m14 text-label-neutral">258,760원</span>
                         </div>
                         <div class="flex w-full items-center justify-between gap-3 border-t border-surface-alt pt-2.5">
                             <span class="text-m16 text-label-neutral">급여비용 합계</span>
-                            <span class="text-b16 text-label">1,399,160원</span>
+                            <span class="text-b16 text-label-strong">1,399,160원</span>
                         </div>
                     </div>
 
@@ -469,25 +469,22 @@
         <section class="w-full bg-surface">
     <div class="mx-auto flex max-w-content flex-col items-start gap-24 px-6 py-[120px]">
         <div class="flex w-full max-w-[860px] flex-col items-start gap-4">
-            <h2 class="w-full text-eb44 text-label-strong lg:text-eb52">계산기에 포함되지 않는 비용</h2>
+            <h2 class="w-full text-eb40 text-label-strong">계산기에 포함되지 않는 비용</h2>
             <p class="w-full text-m20 text-label-alt">아래 항목은 본인부담률(15%)과 별개로 전액 본인 부담이에요.</p>
         </div>
 
         <div class="grid w-full grid-cols-1 items-stretch gap-4 md:grid-cols-3">
-            <!--[if BLOCK]><![endif]-->                <div class="flex flex-col items-start gap-3 rounded-md border bg-rose-surface p-7"
-                     style="border-color: rgba(217,106,133,0.2)">
-                    <p class="w-full text-b24 text-rose-strong">식비·간식비</p>
-                    <p class="w-full text-m20 text-label-alt">방문 중 식사·간식 등 식재료 관련 비용</p>
+            <!--[if BLOCK]><![endif]-->                <div class="flex flex-col items-start gap-3 rounded-md border border-rose-soft bg-rose-surface p-7">
+                    <p class="w-full text-b24 text-accent-rose">식비·간식비</p>
+                    <p class="w-full text-m16 text-label-alt">방문 중 식사·간식 등 식재료 관련 비용</p>
                 </div>
-                            <div class="flex flex-col items-start gap-3 rounded-md border bg-rose-surface p-7"
-                     style="border-color: rgba(217,106,133,0.2)">
-                    <p class="w-full text-b24 text-rose-strong">한도 초과 이용분</p>
-                    <p class="w-full text-m20 text-label-alt">등급별 월 한도를 넘겨 이용한 금액은 전액 본인 부담</p>
+                            <div class="flex flex-col items-start gap-3 rounded-md border border-rose-soft bg-rose-surface p-7">
+                    <p class="w-full text-b24 text-accent-rose">한도 초과 이용분</p>
+                    <p class="w-full text-m16 text-label-alt">등급별 월 한도를 넘겨 이용한 금액은 전액 본인 부담</p>
                 </div>
-                            <div class="flex flex-col items-start gap-3 rounded-md border bg-rose-surface p-7"
-                     style="border-color: rgba(217,106,133,0.2)">
-                    <p class="w-full text-b24 text-rose-strong">일부 재료·소모품</p>
-                    <p class="w-full text-m20 text-label-alt">서비스에 따라 발생하는 일부 비급여 재료·물품</p>
+                            <div class="flex flex-col items-start gap-3 rounded-md border border-rose-soft bg-rose-surface p-7">
+                    <p class="w-full text-b24 text-accent-rose">일부 재료·소모품</p>
+                    <p class="w-full text-m16 text-label-alt">서비스에 따라 발생하는 일부 비급여 재료·물품</p>
                 </div>
             <!--[if ENDBLOCK]><![endif]-->        </div>
     </div>
