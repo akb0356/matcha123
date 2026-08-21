@@ -211,10 +211,10 @@
     </div>
 </section>
         <section id="calculator" class="w-full bg-surface-alt">
-    <div class="mx-auto flex max-w-content flex-col items-start gap-8 px-6 py-[120px]">
+    <div class="mx-auto flex max-w-content flex-col items-start gap-24 px-6 py-[120px]">
         
-        <div class="mx-auto flex w-full max-w-[720px] flex-col items-start gap-4">
-            <h2 class="w-full text-eb44 text-label-strong lg:text-eb52">조건을 고르면 바로 계산돼요</h2>
+        <div class="flex w-full max-w-[720px] flex-col items-start gap-4">
+            <h2 class="w-full text-eb40 text-label-strong">조건을 고르면 바로 계산돼요</h2>
             <p class="w-full text-m20 text-label-alt">
                 재가급여(방문요양·방문간호·방문목욕) 기준이에요. 등급·본인부담 구분·서비스 종류와 이용일수를 골라보세요.
             </p>
@@ -468,7 +468,7 @@
 </section>
         <section class="w-full bg-surface">
     <div class="mx-auto flex max-w-content flex-col items-start gap-24 px-6 py-[120px]">
-        <div class="flex w-full max-w-[860px] flex-col items-start gap-4">
+        <div class="flex w-full max-w-[820px] flex-col items-start gap-4">
             <h2 class="w-full text-eb40 text-label-strong">계산기에 포함되지 않는 비용</h2>
             <p class="w-full text-m20 text-label-alt">아래 항목은 본인부담률(15%)과 별개로 전액 본인 부담이에요.</p>
         </div>
@@ -491,10 +491,10 @@
 </section>
         <section class="w-full bg-rose-soft">
     <div class="mx-auto flex max-w-content flex-col items-start gap-24 px-6 py-[120px]">
-        <h2 class="w-full text-eb44 text-label lg:text-eb52">비용 계산기 자주 묻는 질문</h2>
+        <h2 class="w-full text-eb40 text-label-strong">비용 계산기 자주 묻는 질문</h2>
 
         <div class="flex w-full flex-col items-start gap-5 border-t border-surface-alt">
-            <!--[if BLOCK]><![endif]-->                <div class="w-full rounded-md border-b border-surface-alt bg-surface px-5"
+            <!--[if BLOCK]><![endif]-->                <div class="w-full border-b border-surface-alt bg-surface px-5"
                      x-data="{ open: true }">
 
                     <button type="button" x-on:click="open = !open"
@@ -512,10 +512,10 @@
 
                     <div id="calc-faq-answer-0" x-show="open" x-cloak
                          class="flex w-full flex-col items-start justify-center pb-12 pr-8">
-                        <p class="max-w-[800px] text-r20 text-label-neutral">계산기는 공단 고시 한도액과 표준 수가를 바탕으로 한 예상 금액이에요. 실제 금액은 어르신 상태·이용 시간·비급여 항목에 따라 달라질 수 있어, 상담 시 정확히 안내해 드립니다.</p>
+                        <p class="max-w-[800px] text-r20 text-label">계산기는 공단 고시 한도액과 표준 수가를 바탕으로 한 예상 금액이에요. 실제 금액은 어르신 상태·이용 시간·비급여 항목에 따라 달라질 수 있어, 상담 시 정확히 안내해 드립니다.</p>
                     </div>
                 </div>
-                            <div class="w-full rounded-md border-b border-surface-alt bg-surface px-5"
+                            <div class="w-full border-b border-surface-alt bg-surface px-5"
                      x-data="{ open: false }">
 
                     <button type="button" x-on:click="open = !open"
@@ -533,10 +533,10 @@
 
                     <div id="calc-faq-answer-1" x-show="open" x-cloak
                          class="flex w-full flex-col items-start justify-center pb-12 pr-8">
-                        <p class="max-w-[800px] text-r20 text-label-neutral">어르신 상황에 따라 달라져요. 무료 상담을 신청해 주시면 전담 매니저가 정확히 안내해 드립니다.</p>
+                        <p class="max-w-[800px] text-r20 text-label">어르신 상황에 따라 달라져요. 무료 상담을 신청해 주시면 전담 매니저가 정확히 안내해 드립니다.</p>
                     </div>
                 </div>
-                            <div class="w-full rounded-md border-b border-surface-alt bg-surface px-5"
+                            <div class="w-full border-b border-surface-alt bg-surface px-5"
                      x-data="{ open: false }">
 
                     <button type="button" x-on:click="open = !open"
@@ -554,10 +554,10 @@
 
                     <div id="calc-faq-answer-2" x-show="open" x-cloak
                          class="flex w-full flex-col items-start justify-center pb-12 pr-8">
-                        <p class="max-w-[800px] text-r20 text-label-neutral">어르신 상황에 따라 달라져요. 무료 상담을 신청해 주시면 전담 매니저가 정확히 안내해 드립니다.</p>
+                        <p class="max-w-[800px] text-r20 text-label">어르신 상황에 따라 달라져요. 무료 상담을 신청해 주시면 전담 매니저가 정확히 안내해 드립니다.</p>
                     </div>
                 </div>
-                            <div class="w-full rounded-md border-b border-surface-alt bg-surface px-5"
+                            <div class="w-full border-b border-surface-alt bg-surface px-5"
                      x-data="{ open: false }">
 
                     <button type="button" x-on:click="open = !open"
@@ -575,10 +575,10 @@
 
                     <div id="calc-faq-answer-3" x-show="open" x-cloak
                          class="flex w-full flex-col items-start justify-center pb-12 pr-8">
-                        <p class="max-w-[800px] text-r20 text-label-neutral">어르신 상황에 따라 달라져요. 무료 상담을 신청해 주시면 전담 매니저가 정확히 안내해 드립니다.</p>
+                        <p class="max-w-[800px] text-r20 text-label">어르신 상황에 따라 달라져요. 무료 상담을 신청해 주시면 전담 매니저가 정확히 안내해 드립니다.</p>
                     </div>
                 </div>
-                            <div class="w-full rounded-md border-b border-surface-alt bg-surface px-5"
+                            <div class="w-full border-b border-surface-alt bg-surface px-5"
                      x-data="{ open: false }">
 
                     <button type="button" x-on:click="open = !open"
@@ -596,14 +596,14 @@
 
                     <div id="calc-faq-answer-4" x-show="open" x-cloak
                          class="flex w-full flex-col items-start justify-center pb-12 pr-8">
-                        <p class="max-w-[800px] text-r20 text-label-neutral">어르신 상황에 따라 달라져요. 무료 상담을 신청해 주시면 전담 매니저가 정확히 안내해 드립니다.</p>
+                        <p class="max-w-[800px] text-r20 text-label">어르신 상황에 따라 달라져요. 무료 상담을 신청해 주시면 전담 매니저가 정확히 안내해 드립니다.</p>
                     </div>
                 </div>
             <!--[if ENDBLOCK]><![endif]-->        </div>
     </div>
 </section>
         <section class="w-full"
-         style="background-image: linear-gradient(164.57deg, #fbf1f3 14.6%, #b8dce4 85.4%)">
+         style="background-image: linear-gradient(164.57deg, #ffedf1 14.6%, #f9bfcd 85.4%)">
     <div class="mx-auto flex max-w-content flex-col items-center gap-24 px-6 py-[120px]">
         <div class="flex w-full flex-col items-center gap-4 text-center">
             <h2 class="w-full text-eb44 text-label-strong lg:text-eb72">계산 결과, 더 정확히 알고 싶으세요?</h2>
