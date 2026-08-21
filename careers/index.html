@@ -34,7 +34,7 @@
              x-on:focusin="open = true"
              aria-label="주요 메뉴">
             <!--[if BLOCK]><![endif]-->                <div class="relative flex h-full w-[100px] shrink-0 items-center">
-                    <a href="#"
+                    <a href="https://akb0356.github.io/matcha123/services/visiting-nursing"
                         x-bind:aria-expanded="open"                        class="flex h-9 w-full items-center justify-center rounded-md text-b14 text-label transition-colors hover:bg-label/5">
                         서비스
                     </a>
@@ -76,7 +76,7 @@
                         </div>
                     <!--[if ENDBLOCK]><![endif]-->                </div>
                             <div class="relative flex h-full w-[100px] shrink-0 items-center">
-                    <a href="#"
+                    <a href="https://akb0356.github.io/matcha123/support/long-term-care-grade"
                         x-bind:aria-expanded="open"                        class="flex h-9 w-full items-center justify-center rounded-md text-b14 text-label transition-colors hover:bg-label/5">
                         비용·지원
                     </a>
@@ -106,12 +106,36 @@
                         </div>
                     <!--[if ENDBLOCK]><![endif]-->                </div>
                             <div class="relative flex h-full w-[100px] shrink-0 items-center">
-                    <a href="#"
+                    <a href="https://akb0356.github.io/matcha123/community"
                                               class="flex h-9 w-full items-center justify-center rounded-md text-b14 text-label transition-colors hover:bg-label/5">
                         커뮤니티
                     </a>
 
-                    <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->                </div>
+                    <!--[if BLOCK]><![endif]-->                        <div x-show="open" x-cloak x-transition.opacity.duration.150ms
+                             class="absolute left-0 top-full z-10 w-[100px] overflow-hidden rounded-md">
+                            <ul class="flex flex-col items-center">
+                                <!--[if BLOCK]><![endif]-->
+                                    <li class="w-full">
+                                        <a href="https://akb0356.github.io/matcha123/community?cat=policy"
+                                           class="flex h-[37px] w-full items-center justify-center whitespace-nowrap px-3 text-m14 text-label transition-colors hover:bg-label/5">
+                                            정부지원정책
+                                        </a>
+                                    </li>
+                                    <li class="w-full">
+                                        <a href="https://akb0356.github.io/matcha123/community?cat=health"
+                                           class="flex h-[37px] w-full items-center justify-center whitespace-nowrap px-3 text-m14 text-label transition-colors hover:bg-label/5">
+                                            치매·건강정보
+                                        </a>
+                                    </li>
+                                    <li class="w-full">
+                                        <a href="https://akb0356.github.io/matcha123/community?cat=case"
+                                           class="flex h-[37px] w-full items-center justify-center whitespace-nowrap px-3 text-m14 text-label transition-colors hover:bg-label/5">
+                                            돌봄사례
+                                        </a>
+                                    </li>
+                                <!--[if ENDBLOCK]><![endif]-->                            </ul>
+                        </div>
+                    <!--[if ENDBLOCK]><![endif]-->                </div>
                             <div class="relative flex h-full w-[100px] shrink-0 items-center">
                     <a href="https://akb0356.github.io/matcha123/careers"
                                               class="flex h-9 w-full items-center justify-center rounded-md text-b14 text-label transition-colors hover:bg-label/5">
@@ -238,36 +262,61 @@
 
 
                 <div class="hidden items-stretch border-b border-surface-alt bg-line-neutral-solid lg:flex">
-                    <div class="flex flex-1 border-r border-surface-alt px-4 py-[11px]"><span class="text-b16 text-label-neutral">직무</span></div>
-                    <div class="flex w-[284px] shrink-0 border-r border-surface-alt px-4 py-[11px]"><span class="text-b16 text-label-neutral">근무지역</span></div>
-                    <div class="flex flex-1 border-r border-surface-alt px-4 py-[11px]"><span class="text-b16 text-label-neutral">기관형태</span></div>
-                    <div class="flex flex-1 border-r border-surface-alt px-4 py-[11px]"><span class="text-b16 text-label-neutral">경력</span></div>
-                    <div class="flex flex-1 px-4 py-[11px]"><span class="text-b16 text-label-neutral">고용형태</span></div>
+                    <template x-for="col in cols" x-bind:key="col.key">
+                        <div class="flex border-r border-surface-alt last:border-r-0"
+                             x-bind:class="col.key === 'area' ? 'w-[284px] shrink-0' : 'flex-1'">
+                            <button type="button" x-on:click="panels[col.key] = ! panels[col.key]"
+                                    x-bind:aria-expanded="panels[col.key]"
+                                    class="flex w-full items-center justify-between gap-2 px-4 py-[11px] text-left hover:bg-surface-alt">
+                                <span class="text-b16 text-label-neutral" x-text="col.label"></span>
+                                <img src="https://akb0356.github.io/matcha123/images/icons/chevron-down.svg" alt=""
+                                     class="h-[5px] w-[9px] shrink-0 transition-transform duration-200"
+                                     x-bind:class="panels[col.key] ? '' : '-rotate-90'">
+                            </button>
+                        </div>
+                    </template>
                 </div>
 
 
                 <div class="flex flex-col items-stretch lg:flex-row">
 
 
-                    <div class="flex flex-1 flex-col gap-[9px] border-b border-surface-alt px-4 py-3.5 lg:h-[325px] lg:border-b-0 lg:border-r">
-                        <p class="text-b16 text-label-neutral lg:hidden">직무</p>
-                        <template x-for="item in jobItems" x-bind:key="item">
-                            <button type="button" x-on:click="toggle('job', item)"
-                                    x-bind:aria-pressed="has('job', item)"
-                                    class="flex w-full items-center gap-2 text-left">
-                                <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border"
-                                      x-bind:class="has('job', item) ? 'border-accent-rose bg-accent-rose' : 'border-label-assistive bg-surface'"></span>
-                                <span class="flex-1"
-                                      x-bind:class="has('job', item) ? 'text-b16 text-rose-heavy' : 'text-r16 text-label-neutral'"
-                                      x-text="item"></span>
-                            </button>
-                        </template>
+                    <div class="flex flex-1 flex-col gap-[9px] border-b border-surface-alt px-4 py-3.5 lg:border-b-0 lg:border-r"
+                         x-bind:class="panels.job ? 'lg:h-[325px]' : ''">
+                        <button type="button" x-on:click="panels.job = ! panels.job" x-bind:aria-expanded="panels.job"
+                                class="flex w-full items-center justify-between gap-2 text-left lg:hidden">
+                            <span class="text-b16 text-label-neutral">직무</span>
+                            <img src="https://akb0356.github.io/matcha123/images/icons/chevron-down.svg" alt=""
+                                 class="h-[5px] w-[9px] shrink-0 transition-transform duration-200"
+                                 x-bind:class="panels.job ? '' : '-rotate-90'">
+                        </button>
+                        <div x-show="panels.job" class="flex w-full flex-col gap-[9px]">
+                            <template x-for="item in jobItems" x-bind:key="item">
+                                <button type="button" x-on:click="toggle('job', item)"
+                                        x-bind:aria-pressed="has('job', item)"
+                                        class="flex w-full items-center gap-2 text-left">
+                                    <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border"
+                                          x-bind:class="has('job', item) ? 'border-accent-rose bg-accent-rose' : 'border-label-assistive bg-surface'"></span>
+                                    <span class="flex-1"
+                                          x-bind:class="has('job', item) ? 'text-b16 text-rose-heavy' : 'text-r16 text-label-neutral'"
+                                          x-text="item"></span>
+                                </button>
+                            </template>
+                        </div>
                     </div>
 
 
-                    <div class="flex w-full shrink-0 flex-col border-b border-surface-alt lg:h-[325px] lg:w-[284px] lg:border-b-0 lg:border-r">
-                        <p class="px-4 pt-3.5 text-b16 text-label-neutral lg:hidden">근무지역</p>
-                        <div class="flex flex-1 items-stretch">
+                    <div class="flex w-full shrink-0 flex-col border-b border-surface-alt px-4 py-3.5 lg:w-[284px] lg:border-b-0 lg:border-r lg:p-0"
+                         x-bind:class="panels.area ? 'lg:h-[325px]' : ''">
+                        <button type="button" x-on:click="panels.area = ! panels.area" x-bind:aria-expanded="panels.area"
+                                class="flex w-full items-center justify-between gap-2 text-left lg:hidden">
+                            <span class="text-b16 text-label-neutral">근무지역</span>
+                            <img src="https://akb0356.github.io/matcha123/images/icons/chevron-down.svg" alt=""
+                                 class="h-[5px] w-[9px] shrink-0 transition-transform duration-200"
+                                 x-bind:class="panels.area ? '' : '-rotate-90'">
+                        </button>
+
+                        <div x-show="panels.area" class="mt-2 flex flex-1 items-stretch lg:mt-0">
 
 
                             <div class="flex w-[114px] shrink-0 flex-col gap-0.5 overflow-y-auto border-r border-surface-alt bg-rose-soft px-3 py-3.5">
@@ -287,7 +336,6 @@
 
 
                             <div class="flex flex-1 flex-col gap-[9px] overflow-y-auto p-3.5">
-
                                 <button type="button" x-on:click="toggleRegionAll()"
                                         x-bind:aria-pressed="regionAllOn()"
                                         class="flex w-full items-center gap-2 text-left">
@@ -314,51 +362,78 @@
                     </div>
 
 
-                    <div class="flex flex-1 flex-col gap-[9px] border-b border-surface-alt px-4 py-3.5 lg:h-[325px] lg:border-b-0 lg:border-r">
-                        <p class="text-b16 text-label-neutral lg:hidden">기관형태</p>
-                        <template x-for="item in orgItems" x-bind:key="item">
-                            <button type="button" x-on:click="toggle('org', item)"
-                                    x-bind:aria-pressed="has('org', item)"
-                                    class="flex w-full items-center gap-2 text-left">
-                                <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border"
-                                      x-bind:class="has('org', item) ? 'border-accent-rose bg-accent-rose' : 'border-label-assistive bg-surface'"></span>
-                                <span class="flex-1"
-                                      x-bind:class="has('org', item) ? 'text-b16 text-rose-heavy' : 'text-r16 text-label-neutral'"
-                                      x-text="item"></span>
-                            </button>
-                        </template>
+                    <div class="flex flex-1 flex-col gap-[9px] border-b border-surface-alt px-4 py-3.5 lg:border-b-0 lg:border-r"
+                         x-bind:class="panels.org ? 'lg:h-[325px]' : ''">
+                        <button type="button" x-on:click="panels.org = ! panels.org" x-bind:aria-expanded="panels.org"
+                                class="flex w-full items-center justify-between gap-2 text-left lg:hidden">
+                            <span class="text-b16 text-label-neutral">기관형태</span>
+                            <img src="https://akb0356.github.io/matcha123/images/icons/chevron-down.svg" alt=""
+                                 class="h-[5px] w-[9px] shrink-0 transition-transform duration-200"
+                                 x-bind:class="panels.org ? '' : '-rotate-90'">
+                        </button>
+                        <div x-show="panels.org" class="flex w-full flex-col gap-[9px]">
+                            <template x-for="item in orgItems" x-bind:key="item">
+                                <button type="button" x-on:click="toggle('org', item)"
+                                        x-bind:aria-pressed="has('org', item)"
+                                        class="flex w-full items-center gap-2 text-left">
+                                    <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border"
+                                          x-bind:class="has('org', item) ? 'border-accent-rose bg-accent-rose' : 'border-label-assistive bg-surface'"></span>
+                                    <span class="flex-1"
+                                          x-bind:class="has('org', item) ? 'text-b16 text-rose-heavy' : 'text-r16 text-label-neutral'"
+                                          x-text="item"></span>
+                                </button>
+                            </template>
+                        </div>
                     </div>
 
 
-                    <div class="flex flex-1 flex-col gap-[9px] border-b border-surface-alt px-4 py-3.5 lg:h-[325px] lg:border-b-0 lg:border-r">
-                        <p class="text-b16 text-label-neutral lg:hidden">경력</p>
-                        <template x-for="item in careerItems" x-bind:key="item">
-                            <button type="button" x-on:click="toggle('career', item)"
-                                    x-bind:aria-pressed="has('career', item)"
-                                    class="flex w-full items-center gap-2 text-left">
-                                <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border"
-                                      x-bind:class="has('career', item) ? 'border-accent-rose bg-accent-rose' : 'border-label-assistive bg-surface'"></span>
-                                <span class="flex-1"
-                                      x-bind:class="has('career', item) ? 'text-b16 text-rose-heavy' : 'text-r16 text-label-neutral'"
-                                      x-text="item"></span>
-                            </button>
-                        </template>
+                    <div class="flex flex-1 flex-col gap-[9px] border-b border-surface-alt px-4 py-3.5 lg:border-b-0 lg:border-r"
+                         x-bind:class="panels.career ? 'lg:h-[325px]' : ''">
+                        <button type="button" x-on:click="panels.career = ! panels.career" x-bind:aria-expanded="panels.career"
+                                class="flex w-full items-center justify-between gap-2 text-left lg:hidden">
+                            <span class="text-b16 text-label-neutral">경력</span>
+                            <img src="https://akb0356.github.io/matcha123/images/icons/chevron-down.svg" alt=""
+                                 class="h-[5px] w-[9px] shrink-0 transition-transform duration-200"
+                                 x-bind:class="panels.career ? '' : '-rotate-90'">
+                        </button>
+                        <div x-show="panels.career" class="flex w-full flex-col gap-[9px]">
+                            <template x-for="item in careerItems" x-bind:key="item">
+                                <button type="button" x-on:click="toggle('career', item)"
+                                        x-bind:aria-pressed="has('career', item)"
+                                        class="flex w-full items-center gap-2 text-left">
+                                    <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border"
+                                          x-bind:class="has('career', item) ? 'border-accent-rose bg-accent-rose' : 'border-label-assistive bg-surface'"></span>
+                                    <span class="flex-1"
+                                          x-bind:class="has('career', item) ? 'text-b16 text-rose-heavy' : 'text-r16 text-label-neutral'"
+                                          x-text="item"></span>
+                                </button>
+                            </template>
+                        </div>
                     </div>
 
 
-                    <div class="flex flex-1 flex-col gap-[9px] px-4 py-3.5 lg:h-[325px]">
-                        <p class="text-b16 text-label-neutral lg:hidden">고용형태</p>
-                        <template x-for="item in typeItems" x-bind:key="item">
-                            <button type="button" x-on:click="toggle('type', item)"
-                                    x-bind:aria-pressed="has('type', item)"
-                                    class="flex w-full items-center gap-2 text-left">
-                                <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border"
-                                      x-bind:class="has('type', item) ? 'border-accent-rose bg-accent-rose' : 'border-label-assistive bg-surface'"></span>
-                                <span class="flex-1"
-                                      x-bind:class="has('type', item) ? 'text-b16 text-rose-heavy' : 'text-r16 text-label-neutral'"
-                                      x-text="item"></span>
-                            </button>
-                        </template>
+                    <div class="flex flex-1 flex-col gap-[9px] px-4 py-3.5"
+                         x-bind:class="panels.type ? 'lg:h-[325px]' : ''">
+                        <button type="button" x-on:click="panels.type = ! panels.type" x-bind:aria-expanded="panels.type"
+                                class="flex w-full items-center justify-between gap-2 text-left lg:hidden">
+                            <span class="text-b16 text-label-neutral">고용형태</span>
+                            <img src="https://akb0356.github.io/matcha123/images/icons/chevron-down.svg" alt=""
+                                 class="h-[5px] w-[9px] shrink-0 transition-transform duration-200"
+                                 x-bind:class="panels.type ? '' : '-rotate-90'">
+                        </button>
+                        <div x-show="panels.type" class="flex w-full flex-col gap-[9px]">
+                            <template x-for="item in typeItems" x-bind:key="item">
+                                <button type="button" x-on:click="toggle('type', item)"
+                                        x-bind:aria-pressed="has('type', item)"
+                                        class="flex w-full items-center gap-2 text-left">
+                                    <span class="flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[2px] border"
+                                          x-bind:class="has('type', item) ? 'border-accent-rose bg-accent-rose' : 'border-label-assistive bg-surface'"></span>
+                                    <span class="flex-1"
+                                          x-bind:class="has('type', item) ? 'text-b16 text-rose-heavy' : 'text-r16 text-label-neutral'"
+                                          x-text="item"></span>
+                                </button>
+                            </template>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -808,7 +883,7 @@
                                     <div class="flex flex-col items-start gap-3.5">
                         <p class="font-medium text-surface">센터</p>
                         <!--[if BLOCK]><![endif]-->                            <a href="#" class="font-normal text-white/65 hover:text-surface">센터 소개</a>
-                                                    <a href="#" class="font-normal text-white/65 hover:text-surface">커뮤니티</a>
+                                                    <a href="https://akb0356.github.io/matcha123/community" class="font-normal text-white/65 hover:text-surface">커뮤니티</a>
                                                     <a href="#" class="font-normal text-white/65 hover:text-surface">오시는 길</a>
                         <!--[if ENDBLOCK]><![endif]-->                    </div>
                                     <div class="flex flex-col items-start gap-3.5">
@@ -856,13 +931,25 @@ document.addEventListener('alpine:init', () => {
         typeItems: ['전체', '정규직', '계약직', '임시직', '아르바이트', '협의 후 결정'],
 
         open: true,
-        region: '서울',
+        panels: { job: true, area: true, org: true, career: true, type: true },
+        cols: [
+
+            { key: "job", label: "직무" },
+            { key: "area", label: "근무지역" },
+            { key: "org", label: "기관형태" },
+            { key: "career", label: "경력" },
+            { key: "type", label: "고용형태" },
+        ],
+        region: "서울",
         sel: { job: [], area: [], org: [], career: [], type: [] },
         hasSaved: false,
         toast: '',
         _t: null,
 
         init() {
+            const wide = window.matchMedia("(min-width: 1024px)").matches;
+            Object.keys(this.panels).forEach((k) => { this.panels[k] = wide; });
+
             const blank = { job: [], area: [], org: [], career: [], type: [] };
             let restored = false;
             try {
